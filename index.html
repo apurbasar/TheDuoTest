@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Duo Test - APSC Environmental Science Mock Test Series</title>
-<meta name="description" content="Syllabus-wise mock test series for APSC Forest Ranger / Soil Conservation Ranger (Environmental Science). Timed tests with negative marking and explanations, by The Duo.">
+<title>The Duo Test - Mock Tests for Assam Exams</title>
+<meta name="description" content="Free mock tests for APSC, ADRE, CTET, Guwahati High Court and other Assam government exams. Timed tests with negative marking and explanations, by The Duo.">
 <style>
 
 :root{
@@ -109,7 +109,8 @@ footer{background:#fff;border-top:1px solid var(--line);margin-top:50px;padding:
 .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));width:0;transition:.2s}
 .qbox{margin:18px 0}
 .qno{color:var(--muted);font-weight:700;font-size:13px;margin-bottom:6px}
-.qtext{font-size:19px;font-weight:700;margin-bottom:16px}
+.srctag{display:inline-block;background:#eef0ff;color:var(--brand);font-weight:700;font-size:12px;padding:4px 10px;border-radius:99px;margin-bottom:10px}
+.qtext{font-size:19px;font-weight:700;margin-bottom:16px;white-space:pre-line}
 .qtext small{display:block;font-size:15px;font-weight:600;color:var(--muted);margin-top:4px}
 .opt small{display:block;color:var(--muted);font-size:13px}
 .actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:8px}
@@ -131,6 +132,19 @@ dialog{border:0;border-radius:16px;padding:24px;max-width:380px;width:92%;box-sh
 dialog::backdrop{background:rgba(10,10,30,.5)}
 dialog input{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;margin:12px 0}
 
+/* ---- home: organizations ---- */
+.sh h2.lab{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.org{display:flex;align-items:center;gap:14px;padding:14px 16px;cursor:pointer;transition:.15s;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:12px}
+.org:hover{border-color:var(--brand)}
+.orggrid .org{margin-bottom:0}
+.org .oi{flex:none;width:44px;height:44px;border-radius:12px;background:#eef0ff;color:var(--brand);display:grid;place-items:center}
+.org .ot{flex:1;min-width:0}
+.org .ot b{display:block;font-size:16px}
+.org .ot small{color:var(--muted)}
+.org .ch{flex:none;color:var(--muted)}
+.orggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.twocol{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}
+@media(max-width:820px){.twocol{grid-template-columns:1fr}}
 /* ---- additions: series, units, login ---- */
 .userarea{display:flex;align-items:center;gap:8px}
 .userarea img{width:30px;height:30px;border-radius:50%;object-fit:cover}
@@ -166,7 +180,7 @@ code{background:#eef0ff;padding:1px 5px;border-radius:5px;font-size:13px}
     <button class="menu-btn" onclick="document.getElementById('links').classList.toggle('open')" aria-label="Menu">☰</button>
     <nav class="links" id="links">
       <button data-v="home" onclick="go('home')">Home</button>
-      <button data-v="series" onclick="go('series')">Test Series</button>
+      <button data-v="sec" onclick="go('sec','apsc')">APSC PYQ Series</button>
       <button data-v="leaderboard" onclick="go('leaderboard')">Leaderboard</button>
       <button data-v="results" onclick="go('results')">My Results</button>
       <button data-v="about" onclick="go('about')">About</button>
@@ -182,7 +196,7 @@ code{background:#eef0ff;padding:1px 5px;border-radius:5px;font-size:13px}
   <div class="wrap fgrid">
     <div>
       <div class="logo" style="margin-bottom:6px">The Duo <span>Test</span></div>
-      <div>APSC Environmental Science mock tests, made by The Duo YouTube channel.</div>
+      <div>Mock tests for Assam exams, made by The Duo YouTube channel.</div>
     </div>
     <div>
       <div>© <span id="yr"></span> The Duo. All rights reserved.</div>
@@ -192,8 +206,8 @@ code{background:#eef0ff;padding:1px 5px;border-radius:5px;font-size:13px}
 </footer>
 
 <dialog id="loginDlg">
-  <h3>Sign in to continue</h3>
-  <p style="color:var(--muted);font-size:14px;margin-top:6px">Sign in with your Google account to take tests, save your results and appear on the leaderboard.</p>
+  <h3>Sign in to start the test</h3>
+  <p style="color:var(--muted);font-size:14px;margin-top:6px">One tap with Google. No form and no password. New here? Your account is created automatically.</p>
   <div id="gBtn" style="min-height:44px;display:flex;justify-content:center;margin:18px 0 8px"></div>
   <p id="gMsg" style="color:var(--bad);font-size:13px;min-height:18px"></p>
   <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
@@ -208,6 +222,22 @@ code{background:#eef0ff;padding:1px 5px;border-radius:5px;font-size:13px}
   <div style="display:flex;gap:8px;justify-content:flex-end">
     <button class="btn ghost" onclick="confirmNo()">Keep working</button>
     <button class="btn primary" onclick="confirmYes()">Submit</button>
+  </div>
+</dialog>
+
+<dialog id="reportDlg">
+  <h3>Report this question</h3>
+  <p style="color:var(--muted);font-size:14px;margin-top:6px">Think the answer or question is wrong? Tell us and we will check it.</p>
+  <select id="rpReason" style="width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;margin:12px 0 0">
+    <option>Answer seems wrong</option><option>Question has a mistake</option><option>Option has a mistake</option><option>Explanation is wrong or missing</option><option>Other</option>
+  </select>
+  <input id="rpNote" placeholder="Your note or the correct answer (optional)" maxlength="200">
+  <p id="rpMsg" style="color:var(--muted);font-size:13px;min-height:18px"></p>
+  <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+    <button class="btn ghost" onclick="document.getElementById('reportDlg').close()">Cancel</button>
+    <button class="btn ghost" id="rpCopy" onclick="sendReport('copy')">Copy</button>
+    <button class="btn ghost" id="rpMail" onclick="sendReport('mail')">Email</button>
+    <button class="btn primary" id="rpWa" onclick="sendReport('wa')">WhatsApp</button>
   </div>
 </dialog>
 
@@ -235,8 +265,11 @@ code{background:#eef0ff;padding:1px 5px;border-radius:5px;font-size:13px}
    ===================================================== */
 const SITE = {
   name: "The Duo",
-  youtube: "https://www.youtube.com/@theduo",   // <- put your real channel link
+  youtube: "https://www.youtube.com/@theDuo1501",   // <- put your real channel link
   whatsapp: "",                                  // optional channel/group link
+  // QUESTION REPORTS: students tap "Report" on a doubtful question. Fill at least one of these:
+  reportWhatsApp: "919678301989",   // your WhatsApp number with country code, digits only, e.g. "919876543210"
+  reportEmail: "apurbasar312@gmail.com",      // your email address, e.g. "theduo@gmail.com"
 
   // GOOGLE LOGIN. Paste your OAuth "Web application" Client ID here, e.g. "1234-abcd.apps.googleusercontent.com"
   // (Google Cloud Console > APIs & Services > Credentials). Add your website address under
@@ -259,40 +292,40 @@ const SERIES = {
   marks: 200, hours: 2
 };
 const UNITS = [
-  { id:"u1", no:"I", icon:"🌿", title:"Ecology and Ecosystems", ready:true, topics:[
+  { id:"u1", no:"I", title:"Ecology and Ecosystems", ready:true, topics:[
     {h:"Fundamental Concepts", t:"Understanding ecological principles, energy flow in ecosystems, food chains and webs, ecological pyramids, and biotic interactions."},
     {h:"Ecosystem Types", t:"Studying terrestrial (forest, grassland, desert, tundra, alpine) and aquatic (lake, mangrove, coral reefs) ecosystems, including their characteristics and processes."},
     {h:"Biogeochemical Cycles", t:"Understanding the cycling of essential elements like carbon, nitrogen, and phosphorus."},
     {h:"Ecosystem Stability", t:"Factors affecting stability and ecosystem services."},
     {h:"Population Ecology", t:"Population characteristics, growth, regulation, and dispersion."} ]},
-  { id:"u2", no:"II", icon:"🏭", title:"Environmental Pollution", ready:false, topics:[
+  { id:"u2", no:"II", title:"Environmental Pollution", ready:false, topics:[
     {h:"Types of Pollutants", t:"Air, water, soil, noise, radioactive, and thermal pollution."},
     {h:"Sources and Impacts", t:"Understanding the sources, causes, effects, and consequences of various pollutants."},
     {h:"Waste Management", t:"Solid waste disposal, management, and waste-to-energy conversion."},
     {h:"Pollution Control", t:"Initiatives like Bharat Stage Standards, recent advancements in pollution control technologies."},
     {h:"E-waste and Plastic Pollution", t:"Specific focus on emerging challenges."} ]},
-  { id:"u3", no:"III", icon:"🦋", title:"Biodiversity", ready:false, topics:[
+  { id:"u3", no:"III", title:"Biodiversity", ready:false, topics:[
     {h:"Levels of Biodiversity", t:"Understanding genetic, species, and ecosystem diversity."},
     {h:"Biodiversity Measurement", t:"Methods for assessing biodiversity."},
     {h:"Biodiversity in India", t:"Flora and fauna, biogeographical classification, and conservation efforts."},
     {h:"Threatened Species", t:"IUCN Red Data Book, threatened species, and conservation strategies."},
     {h:"Protected Area Network", t:"National parks, sanctuaries, and biosphere reserves."} ]},
-  { id:"u4", no:"IV", icon:"📋", title:"Environmental Impact Assessment (EIA)", ready:false, topics:[
+  { id:"u4", no:"IV", title:"Environmental Impact Assessment (EIA)", ready:false, topics:[
     {h:"Importance and Need", t:"Understanding the role of EIA in environmental management."},
     {h:"EIA Process", t:"Steps involved in an EIA cycle."},
     {h:"Components of EIA", t:"Identifying and assessing potential environmental impacts."},
     {h:"Drawbacks and Recommendations", t:"Addressing the challenges and limitations of EIA."} ]},
-  { id:"u5", no:"V", icon:"🌡️", title:"Climate Change", ready:false, topics:[
+  { id:"u5", no:"V", title:"Climate Change", ready:false, topics:[
     {h:"Greenhouse Gases", t:"Understanding the role of greenhouse gases in climate change."},
     {h:"Global Warming and Ozone Depletion", t:"Causes, impacts, and mitigation strategies."},
     {h:"Acid Rain and Smog", t:"Formation and impacts."},
     {h:"Sustainable Development", t:"Principles and practices for sustainable development."} ]},
-  { id:"u6", no:"VI", icon:"⚖️", title:"Environmental Ethics and Social Issues", ready:false, topics:[
+  { id:"u6", no:"VI", title:"Environmental Ethics and Social Issues", ready:false, topics:[
     {h:"Unsustainable Practices", t:"Understanding the social and environmental consequences of unsustainable development."},
     {h:"Water Conservation and Management", t:"Rainwater harvesting, watershed management, and water resources management."},
     {h:"Resettlement and Rehabilitation", t:"Social issues related to displacement due to development projects."},
     {h:"Environmental Legislation", t:"Awareness of relevant environmental laws and regulations."} ]},
-  { id:"u7", no:"VII", icon:"🏛️", title:"Government Initiatives", ready:false, topics:[
+  { id:"u7", no:"VII", title:"Government Initiatives", ready:false, topics:[
     {h:"National and International Policies", t:"Understanding government initiatives and policies related to environmental protection."},
     {h:"Conservation Projects", t:"Awareness of ongoing conservation projects and initiatives in India."} ]}
 ];
@@ -303,12 +336,12 @@ const UNITS = [
    Explanations that start with "⚠ Verify" are the amber "Verify" notes from your PDFs.
    ===================================================== */
 const TESTS = [];
-const Q = (q,o,a,exp)=>({q:{en:q}, o:o.map(x=>({en:x})), a, exp});
+const Q = (q,o,a,exp,src)=>({q:{en:q}, o:o.map(x=>({en:x})), a, exp, src});
 const mk = (id,title,n,questions)=>({
   id, cat:"apsc-evs", title, minutes:Math.max(8,n), free:true, questions
 });
 const APSC_BIOMES = [
-  mk("apsc-bio-1","Biomes – Introduction to Biomes and Climatic Zones",10,[
+  mk("apsc-bio-1","Biomes: Introduction to Biomes and Climatic Zones",10,[
     Q("A \"Biome\" is best defined as:",["A single ecosystem with specific flora and fauna","A group of similar ecosystems found in different geographical locations with similar climates","The entire biosphere of the Earth","A community of organisms interacting with each other"],1,"A biome is a large region defined by climate, with characteristic vegetation and animals. The same biome can occur on different continents (e.g. savanna in Africa, Brazil and Australia)."),
     Q("Which two primary factors determine the flora and fauna of a biome?",["Latitude and Longitude","Temperature and Precipitation (Climate)","Soil type and Topography","Altitude and Wind velocity"],1,"Temperature and precipitation decide which plants can grow, and plants in turn decide which animals live there."),
     Q("According to the latitudinal classification of biomes, the region between 30° and 45° latitude is called:",["Tropical Region","Warm Temperate Region","Cool Temperate Region","Polar Region"],1,"Latitude zones: 0-10 tropical rainforest belt, 10-30 tropical/subtropical, 30-45 warm temperate, 45-60 cool temperate, 60-90 polar."),
@@ -320,7 +353,7 @@ const APSC_BIOMES = [
     Q("Which of the following is NOT a type of terrestrial biome?",["Tundra","Coral Reef","Taiga","Savanna"],1,"A coral reef is a marine ecosystem. Tundra, taiga and savanna are terrestrial biomes."),
     Q("The term \"Llanos\" and \"Campos\" refer to which type of biome?",["Tropical Grasslands (Savanna) in South America","Temperate Grasslands in North America","Tropical Rainforests in Africa","Desert in South America"],0,"Llanos (Venezuela and Colombia) and Campos (Brazil) are the tropical savanna grasslands of South America.")
   ]),
-  mk("apsc-bio-2","Biomes – Tropical Rainforest",10,[
+  mk("apsc-bio-2","Biomes: Tropical Rainforest",10,[
     Q("The Tropical Rainforest biome is primarily distributed between:",["10°N and 10°S of the Equator","10° and 30° latitude","30° and 45° latitude","45° and 60° latitude"],0,"The equatorial tropical rainforest belt lies roughly 10 degrees N to 10 degrees S."),
     Q("Which of the following regions is a major location of the Tropical Rainforest biome?",["Amazon Basin (Brazil)","Sahara Desert (Africa)","Central Asia","Mediterranean Sea region"],0,"The Amazon Basin is the largest tropical rainforest. The Congo Basin and Indonesia are other major regions."),
     Q("Why does the Tropical Rainforest receive rainfall almost throughout the year?",["Due to the presence of Westernlies","Due to intense heating leading to low pressure and rising air (Convectional rain)","Due to trade winds from the ocean","Due to cold ocean currents"],1,"Intense heating near the equator causes air to rise (low pressure), cool and condense, giving daily convectional rain."),
@@ -332,7 +365,7 @@ const APSC_BIOMES = [
     Q("What type of biotic interaction is exhibited by an epiphyte growing on a tree?",["Parasitism","Mutualism","Commensalism","Predation"],2,"Commensalism (+,0): the epiphyte gains support and light, while the host tree is unaffected."),
     Q("The Congo-Zaire Basin is a major region for which biome?",["Taiga","Tropical Rainforest","Desert","Tundra"],1,"The Congo (Zaire) Basin in Africa is the second largest tropical rainforest region.")
   ]),
-  mk("apsc-bio-3","Biomes – Tropical Monsoon",10,[
+  mk("apsc-bio-3","Biomes: Tropical Monsoon",10,[
     Q("The Tropical Monsoon biome is largely found in which margin of the tropical region?",["Western Margin","Eastern Margin","Central Margin","Polar Margin"],1,"Tropical monsoon climate is found on the eastern margins of the tropics, where onshore winds bring seasonal rain (e.g. India, Myanmar, Southeast Asia)."),
     Q("The defining climatic characteristic of the Tropical Monsoon biome is:",["Rainfall throughout the year","Seasonal reversal of winds","Winter rainfall only","No rainfall"],1,"Monsoon = seasonal reversal of winds: moist summer winds from the sea, dry winter winds from land."),
     Q("Which country is the best example of a well-developed Tropical Monsoon climate?",["Brazil","India","Canada","Egypt"],1,"India is the classic monsoon climate country (also Bangladesh, Myanmar, Thailand)."),
@@ -344,7 +377,7 @@ const APSC_BIOMES = [
     Q("India is unique in having the natural habitat of both:",["Lion and Polar Bear","Lion and Tiger","Tiger and Penguin","Elephant and Kangaroo"],1,"India is the only country with natural habitats of both lion (Gir) and tiger."),
     Q("Seasonal migration of animals in the Monsoon biome is primarily an adaptation to avoid:",["Predators","Environmental stress (lack of food and water in the dry season)","Cold weather","Forest fires"],1,"Animals migrate in the dry season to escape shortage of food and water (environmental stress).")
   ]),
-  mk("apsc-bio-4","Biomes – Savanna (Tropical Grassland)",12,[
+  mk("apsc-bio-4","Biomes: Savanna (Tropical Grassland)",12,[
     Q("The Savanna biome is typically found in which latitudinal range?",["0°-10° latitude","10°-30° N and S latitudes","45°-60° latitude","60°-90° latitude"],1,"Savanna lies roughly 10-30 degrees N and S, on both sides of the equatorial rainforest."),
     Q("The Savanna biome develops in the mid-continent due to the influence of:",["Westernlies","Trade Winds (Easterlies)","Polar Easterlies","Monsoon winds"],1,"Trade winds (easterlies) bring rain to eastern coasts and leave interiors drier, so grassland with scattered trees forms inland."),
     Q("As Trade winds move from the Eastern coast to the Western margin of a continent in the tropics, what happens?",["Rainfall increases","Rainfall decreases, leading to a desert on the western margin","Temperature drops to freezing","Forests become denser"],1,"Moving westward the trade winds lose moisture, so the continent's western side becomes arid and desert."),
@@ -358,7 +391,7 @@ const APSC_BIOMES = [
     Q("Why is the dairy industry not well developed in the Savanna region?",["There is no cattle","The grasses lack nutrition, reducing milk yield in cattle","The climate is too cold","The government bans dairy farming"],1,"The grass is poor in nutrition, so cattle give little milk and dairying is undeveloped."),
     Q("Which animal uses \"camouflage\" (stripes) as a defense mechanism in the Savanna?",["Elephant","Giraffe","Zebra","Lion"],2,"The zebra's stripes help confuse predators and act as camouflage in the savanna.")
   ]),
-  mk("apsc-bio-5","Biomes – Desert Biome",15,[
+  mk("apsc-bio-5","Biomes: Desert Biome",15,[
     Q("Hot deserts are generally located:",["In the center of continents","On the western margins of continents between 10°-30° latitude","On the eastern margins of continents","Near the equator"],1,"Hot deserts lie on western continental margins at 10-30 degrees, under dry subtropical high pressure and trade winds."),
     Q("The largest hot desert in the world is:",["Thar","Gobi","Sahara","Atacama"],2,"The Sahara is the largest hot desert (about 9 million sq km)."),
     Q("Which of the following is a \"Cold Desert\"?",["Sahara","Thar","Ladakh","Kalahari"],2,"Ladakh is a high-altitude cold desert in the Himalayan rain shadow. Sahara, Thar and Kalahari are hot."),
@@ -375,7 +408,7 @@ const APSC_BIOMES = [
     Q("The Great Indian Bustard is a critically endangered bird species found in which Indian biome?",["Tropical Rainforest","Thar Desert","Himalayan Tundra","Mangrove Forest"],1,"The Great Indian Bustard is found in the Thar (Desert National Park, Rajasthan) and is critically endangered."),
     Q("Why does a camel have long limbs?",["To run fast","For heat regulation (increased surface area helps dissipate heat)","To store water","To dig burrows"],1,"Long limbs lift the body away from hot ground and increase surface area for heat loss. Humps store fat, not water.")
   ]),
-  mk("apsc-bio-6","Biomes – Mediterranean Biome",12,[
+  mk("apsc-bio-6","Biomes: Mediterranean Biome",12,[
     Q("The Mediterranean biome is typically located:",["On the eastern margins of continents between 30°-45° latitude","On the western margins of continents between 30°-45° latitude","In the center of continents","Near the equator"],1,"Mediterranean climate lies on western margins at 30-45 degrees (southern Europe, California, central Chile, SW Australia, SW South Africa)."),
     Q("What is the unique climatic characteristic of the Mediterranean biome?",["Rainfall in summer, dry winter","Rainfall in winter, dry summer","Rainfall throughout the year","No rainfall"],1,"Wet winters and dry hot summers make the Mediterranean climate unique."),
     Q("The vegetation of the Mediterranean biome is characterized by:",["Softwood trees","Sclerophyll vegetation (thick, waxy, leathery leaves)","Needle-shaped leaves","Broad evergreen leaves"],1,"Sclerophyll vegetation has thick, small, leathery, waxy leaves that resist summer drought."),
@@ -389,7 +422,7 @@ const APSC_BIOMES = [
     Q("The shrub vegetation found in the Mediterranean biome is called:",["Chaparral","Steppe","Taiga","Llanos"],0,"Chaparral (or maquis) is the dense evergreen shrub vegetation of the Mediterranean biome."),
     Q("An animal adaptation in the Mediterranean biome to escape the hot, dry summer is:",["Aestivation","Hibernation","Thick white fur","Migration to the South Pole"],0,"Animals aestivate in the hot dry summer. Hibernation is for cold winters.")
   ]),
-  mk("apsc-bio-7","Biomes – Steppe (Temperate Grassland)",10,[
+  mk("apsc-bio-7","Biomes: Steppe (Temperate Grassland)",10,[
     Q("The Steppe biome is primarily found in which latitudinal zone?",["0°-10°","10°-30°","30°-45° (Mid-continent)","60°-90°"],2,"Temperate grassland (Steppe) lies in mid-continent regions at about 30-45 degrees (extending to about 55 in places)."),
     Q("In North America, the Temperate Grasslands are known as:",["Pampas","Prairies","Downs","Pustza"],1,"North American temperate grasslands = Prairies."),
     Q("In South America, the Temperate Grasslands are known as:",["Prairies","Pampas","Downs","Steppe"],1,"South American temperate grasslands = Pampas (Argentina, Uruguay)."),
@@ -401,7 +434,7 @@ const APSC_BIOMES = [
     Q("The grasslands of North America (Prairies) are often called the \"Granary of the World\" because:",["They are the world's largest wheat-producing regions","They have the largest cattle population","They have the most diverse forests","They are the largest source of coal"],0,"The Prairies produce large amounts of wheat and maize, hence \"Granary of the World\"."),
     Q("Burrowing animals like prairie dogs and ground squirrels are common in the Steppe biome because:",["They need to escape predators","They use burrows to escape the heat and raise their young","They are aquatic","They cannot run fast"],1,"Burrowing animals (prairie dogs, ground squirrels) use burrows for shelter from heat and predators and for raising young.")
   ]),
-  mk("apsc-bio-8","Biomes – British Type",10,[
+  mk("apsc-bio-8","Biomes: British Type",10,[
     Q("The British Type climate is found in which latitudinal margin?",["30°-45° Eastern margin","45°-60° Western margin","10°-30° Eastern margin","60°-90° Northern margin"],1,"British type: 45-60 degrees, western margins (NW Europe, British Columbia, southern Chile, Tasmania, New Zealand)."),
     Q("Which of the following is a defining characteristic of the British Type climate?",["Four well-developed seasons (Summer, Winter, Spring, Autumn)","Heavy summer rainfall","Extreme cold winters","Desert conditions"],0,"Four distinct seasons and rainfall in all seasons are the hallmark of the British type climate."),
     Q("The British Type climate is heavily influenced by:",["Trade Winds","Westerlies throughout the year","Polar Easterlies","Monsoons"],1,"Westerlies blow all year and bring moisture from the ocean."),
@@ -413,7 +446,7 @@ const APSC_BIOMES = [
     Q("The term \"Lumbering\" refers to:",["Cutting and processing of trees (wood cutting industry)","Dairy farming","Fishing","Mining"],0,"Lumbering = felling trees and processing timber."),
     Q("Which of the following regions experiences a British Type climate?",["Amazon Basin","Tasmania (Australia)","Sahara Desert","Central Asia"],1,"Tasmania has a British type (cool temperate maritime) climate. Amazon is tropical, the Sahara is desert.")
   ]),
-  mk("apsc-bio-9","Biomes – Temperate Rainforest and Taiga",12,[
+  mk("apsc-bio-9","Biomes: Temperate Rainforest and Taiga",12,[
     Q("The Temperate Rainforest is found in which region of North America?",["East Coast","Pacific Coast (Northern California to Southern Alaska)","Central USA","Gulf of Mexico"],1,"Temperate rainforests are on the Pacific coast of North America from northern California to southern Alaska."),
     Q("The Taiga biome is also known as:",["Tropical Rainforest","Boreal Forest","Temperate Grassland","Tundra"],1,"Taiga = Boreal forest (also called the northern coniferous forest)."),
     Q("The Taiga biome is primarily found in:",["Canada, Alaska, and Siberia","India and Southeast Asia","South America and Africa","Australia and New Zealand"],0,"Taiga covers Canada, Alaska, Scandinavia and Siberia, south of the tundra."),
@@ -427,7 +460,7 @@ const APSC_BIOMES = [
     Q("The Taiga is important globally because:",["It is the world's largest terrestrial biome and a major carbon sink","It is the world's largest desert","It has the highest biodiversity","It produces most of the world's food"],0,"The taiga is the largest terrestrial biome and stores huge amounts of carbon in trees, peat and soil."),
     Q("The Chinese type of climate is found on which margin?",["Western margin of continents in 30°-45° latitude","Eastern margin of continents in 30°-45° latitude","Eastern margin in 60°-90° latitude","Central region of continents"],1,"China type: eastern margins at 30-45 degrees, with summer-heavy rain from monsoon-like winds.")
   ]),
-  mk("apsc-bio-10","Biomes – Tundra and China Type",7,[
+  mk("apsc-bio-10","Biomes: Tundra and China Type",7,[
     Q("The Tundra biome is characterized by:",["Dense forests","Treeless plains with permafrost, mosses, and lichens","Tall grasses","High biodiversity"],1,"Tundra: treeless, permafrost below, only mosses, lichens, sedges and dwarf shrubs, with a very short growing season."),
     Q("\"Permafrost\" refers to:",["Permanently frozen subsoil","A type of forest","A desert condition","A type of soil erosion"],0,"Permafrost is permanently frozen subsoil (the active top layer thaws briefly in summer)."),
     Q("The Alpine Tundra differs from the Arctic Tundra by:",["The presence of trees","Its location at high altitudes instead of high latitudes","Its high temperature","Its dense vegetation"],1,"Alpine tundra is found on high mountains above the tree line, whereas Arctic tundra occurs at high latitudes."),
@@ -436,7 +469,7 @@ const APSC_BIOMES = [
     Q("The Gulf Type and Natal Type are sub-types of:",["British Type","China Type","Mediterranean Type","Steppe Type"],1,"Gulf type (USA Gulf coast) and Natal type (South Africa) are sub-types of the China type climate."),
     Q("Which of the following crops is best suited for the Gulf Type (China Type) climate?",["Rice and Tobacco","Wheat and Barley","Tea and Coffee","Rubber and Cocoa"],0,"Rice, tobacco and cotton (and sugarcane) grow best with warm, humid summers, as in the Gulf region.")
   ]),
-  mk("apsc-bio-11","Biomes – Indian Forest Classification",12,[
+  mk("apsc-bio-11","Biomes: Indian Forest Classification",12,[
     Q("How many types of forests are classified in India based on rainfall and vegetation?",["5","10","16","20"],2,"Champion and Seth (1968) classified Indian forests into 16 major types in 5 groups."),
     Q("Which forest type is found in regions with very high rainfall (e.g., Western Ghats, North-East)?",["Tropical Dry Deciduous","Tropical Wet Evergreen","Thorn Forest","Montane Forest"],1,"Tropical wet evergreen forests occur in the Western Ghats, North-East India and the Andamans, where rainfall is above about 250 cm."),
     Q("The Tropical Deciduous forests of India are characterized by:",["Trees shedding leaves during the dry season (e.g., Teak, Sal)","Evergreen trees","Thorny bushes","Coniferous trees"],0,"Tropical deciduous forests shed leaves in the dry season: teak, sal, sandalwood, shisham."),
@@ -450,7 +483,7 @@ const APSC_BIOMES = [
     Q("The Palghat Gap is significant in the context of Indian forests because:",["It allows the South-West monsoon to reach Tamil Nadu, leading to the Dry Evergreen Forest","It prevents any rainfall in Tamil Nadu","It is the highest peak in India","It is the largest mangrove forest"],0,"⚠ Verify: The Palghat Gap is a break in the Western Ghats that lets monsoon winds cross to the east. Dry evergreen forest is more typically linked to the Tamil Nadu coast (north-east monsoon)."),
     Q("Which of the following is NOT a classification of forest based on \"Administration\" in India?",["Reserve Forest","Protected Forest","Village Forest","ISFR Forest"],3,"Administrative classes are Reserved, Protected and Unclassed forests (plus village/community forests). The ISFR is a survey report by FSI, not a category.")
   ]),
-  mk("apsc-bio-12","Biomes – Forest Conservation and ISFR",12,[
+  mk("apsc-bio-12","Biomes: Forest Conservation and ISFR",12,[
     Q("According to the Indian State of Forest Report (ISFR 2021), the total forest cover of India is approximately:",["713,378 sq km","500,000 sq km","800,000 sq km","600,000 sq km"],0,"⚠ Verify: ISFR 2021 reported India's forest cover as about 7,13,789 sq km (21.71% of area), so option A (713,378) is the nearest. Newer ISFR editions give slightly higher figures; use your syllabus edition."),
     Q("Under ISFR classification, a forest with a canopy cover of more than 70% is classified as:",["Open Forest","Moderately Dense Forest","Very Dense Forest","Scrub"],2,"Very Dense Forest (VDF) has canopy density of 70% or more. Moderately Dense: 40-70%. Open: 10-40%. Scrub: below 10%."),
     Q("Under ISFR classification, a forest with a canopy cover between 10% and 40% is classified as:",["Very Dense Forest","Moderately Dense Forest","Open Forest","Scrub"],2,"Open forest = canopy density 10-40%."),
@@ -466,7 +499,7 @@ const APSC_BIOMES = [
   ])
 ];
 const APSC_ECOLOGY = [
-  mk("apsc-eco-1","Ecology – Fundamental Concepts",18,[
+  mk("apsc-eco-1","Ecology: Fundamental Concepts",18,[
     Q("The word \"Environment\" is derived from which French word?",["Environs","Environner","Ecologie","Oikos"],1,"\"Environment\" comes from the French environner, meaning \"to encircle or surround\". \"Oikos\" (Greek, house) is the root of Ecology."),
     Q("Who coined the term \"Ecology\" and in which year?",["A.G. Tansley, 1935","Ernst Haeckel, 1866","Eugene Odum, 1971","Charles Darwin, 1859"],1,"German biologist Ernst Haeckel coined \"Oekologie\" in 1866 from Greek oikos (house) + logos (study). Tansley (1935) coined \"ecosystem\"."),
     Q("Which of the following correctly defines \"Environment\"?",["Study of interactions between organisms","Sum total of biotic and abiotic components surrounding an organism","Functional unit of biosphere","Zone of junction between two ecosystems"],1,"Environment = everything that surrounds an organism: living (biotic) + non-living (abiotic) components. Option C describes the ecosystem and D the ecotone."),
@@ -486,7 +519,7 @@ const APSC_ECOLOGY = [
     Q("Which is the correct hierarchical level of organization in ecology?",["Organism, community, population, ecosystem, biome","Organism, population, ecosystem, community, biome","Organism, ecosystem, community, population, biome","Organism, population, community, ecosystem, biome"],3,"Organism → Population → Community → Ecosystem → Biome. Remember: O-P-C-E-B."),
     Q("The biological community and its physical environment exchanging matter and energy is known as:",["Biome","Niche","Ecosystem","Ecotone"],2,"Ecosystem = biotic community + abiotic environment, linked by energy flow and nutrient cycling.")
   ]),
-  mk("apsc-eco-2","Ecology – Habitat, Niche, Ecotone and Edge Effect",12,[
+  mk("apsc-eco-2","Ecology: Habitat, Niche, Ecotone and Edge Effect",12,[
     Q("\"Habitat\" refers to:",["Functional role of an organism","Physical address of an organism","Trophic level of an organism","Interaction with other species"],1,"Habitat = the address (where it lives). Niche = the profession (what it does)."),
     Q("\"Niche\" is defined as:",["Physical space occupied by an organism","Functional role played by an organism in its ecosystem","Both A and B","Neither A nor B"],1,"Niche is the functional role: food, feeding time, interactions and the conditions the species tolerates."),
     Q("If three birds live on the same tree, what is different among them?",["Habitat","Niche","Both habitat and niche","Neither"],1,"They share the same habitat (the tree) but differ in niche: feeding height, food type or feeding time. This reduces competition."),
@@ -500,7 +533,7 @@ const APSC_ECOLOGY = [
     Q("The word 'niche' refers to:",["habitat plus interaction with environment","interaction of the organisms with the environment only","habitat of the organism only","interactions among the organisms"],0,"Niche covers both where the organism lives and how it interacts with its environment."),
     Q("The area where two different ecosystems overlap each other is called:",["habitat","niche","ecotone","ecoline"],2,"Overlap/transition zone = ecotone. (Direct APSC PYQ)")
   ]),
-  mk("apsc-eco-3","Ecology – Trophic Levels, Food Chains and Food Webs",10,[
+  mk("apsc-eco-3","Ecology: Trophic Levels, Food Chains and Food Webs",10,[
     Q("\"Trophic level\" refers to:",["Position of organism in food chain based on nutritional needs","Physical location of organism","Size of organism","Habitat of organism"],0,"Trophic level = feeding position: producer (1st), primary consumer (2nd), secondary consumer (3rd), and so on."),
     Q("In the food chain Grass → Deer → Tiger, what is the trophic level of Deer?",["Producer","Primary consumer","Secondary consumer","Tertiary consumer"],1,"Deer eats producers (grass), so it is a herbivore and primary consumer (2nd trophic level)."),
     Q("Which is NOT a type of food chain?",["Grazing food chain","Detritus food chain","Parasitic food chain","Symbiotic food chain"],3,"The three types are grazing (predator), detritus and parasitic. \"Symbiotic\" is a type of interaction, not a food chain."),
@@ -512,7 +545,7 @@ const APSC_ECOLOGY = [
     Q("Trophic level implies to:",["a graphical representation of the energy","the position occupied by an organism in a food chain","a pyramid of organisms","the level of interaction between biotic and abiotic factors"],1,"Trophic level = position in the food chain. (Direct APSC PYQ)"),
     Q("Which statement is correct with respect to food chain?",["Every component of food chain forms trophic level.","Interrelation between different food chains is known as food web.","All the chains formed by nutritional relations are used to understand energy flow.","All of the above"],3,"All three statements are true: links are trophic levels, interconnected chains make a food web, and chains help trace energy flow.")
   ]),
-  mk("apsc-eco-4","Ecology – Ecological Pyramids",13,[
+  mk("apsc-eco-4","Ecology: Ecological Pyramids",13,[
     Q("Which ecological pyramid is ALWAYS upright?",["Pyramid of number","Pyramid of biomass","Pyramid of energy","All of the above"],2,"Energy is lost as heat at each step (10% law), so the energy pyramid can never be inverted."),
     Q("In an aquatic ecosystem, the pyramid of biomass is:",["Always upright","Always inverted","Sometimes upright, sometimes inverted","Spindle-shaped"],1,"Standard exam answer: inverted, since tiny phytoplankton (low standing biomass) are eaten faster than they accumulate. Exceptions exist but exam keys follow this."),
     Q("The pyramid of biomass is inverted in aquatic ecosystems because:",["Producers are large","Phytoplankton have rapid turnover and low biomass","Consumers are small","Energy increases at higher levels"],1,"Phytoplankton reproduce very fast but are grazed rapidly, so standing biomass stays small compared with zooplankton and fish."),
@@ -527,7 +560,7 @@ const APSC_ECOLOGY = [
     Q("The pyramid of biomass in a parasitic ecosystem is:",["inverted","upright","rhomboidal","liver"],0,"Few large hosts support many small parasites, so the pyramid is inverted (key answer)."),
     Q("In the process of energy transfer in an ecosystem:",["energy flow is cyclic","energy content is the same in all trophic levels","energy content increases towards higher trophic levels","energy content decreases towards higher trophic levels"],3,"Energy flows in one direction and decreases at each level. Nutrients cycle; energy does not.")
   ]),
-  mk("apsc-eco-5","Ecology – Energy Flow and Productivity",10,[
+  mk("apsc-eco-5","Ecology: Energy Flow and Productivity",10,[
     Q("Which is NOT a function of an ecosystem?",["Productivity","Energy flow","Decomposition","Speciation"],3,"Ecosystem functions: productivity, energy flow, decomposition, nutrient cycling. Speciation is an evolutionary process."),
     Q("Gross Primary Productivity (GPP) minus respiration losses equals:",["Secondary productivity","Net Primary Productivity","Gross Secondary Productivity","Biomass"],1,"NPP = GPP - R. NPP is the energy available to consumers."),
     Q("What percentage of energy is transferred from one trophic level to the next?",["1%","5%","10%","20%"],2,"About 10% passes on; roughly 90% is lost as heat, respiration and undigested matter."),
@@ -539,7 +572,7 @@ const APSC_ECOLOGY = [
     Q("Net community productivity of an ecological system is:",["the rate of storage of organic matter in plant tissues that exceeds the respiratory use","the total rate of photosynthesis","the rate of storage of organic matter not used by heterotrophs during a specific period","the rate of energy storage at consumer levels"],2,"Net community productivity = organic matter stored after use by both autotrophs and heterotrophs."),
     Q("What percentage of energy coming from the sun is re-radiated towards space?",["15%","30%","25%","50%"],1,"Earth's albedo is about 30%; the rest is absorbed by atmosphere, land and oceans.")
   ]),
-  mk("apsc-eco-6","Ecology – Biotic Interactions and Decomposers",15,[
+  mk("apsc-eco-6","Ecology: Biotic Interactions and Decomposers",15,[
     Q("An interaction in which one species benefits and the other is neither harmed nor benefited is:",["Mutualism","Commensalism","Predation","Parasitism"],1,"Commensalism is (+,0). Mutualism is (+,+), predation and parasitism are (+,-), amensalism is (-,0), competition is (-,-)."),
     Q("The relationship between a climber and the host corresponds to:",["neutralism","commensalism","parasitism","mutualism"],1,"The climber uses the host for support without harming it: commensalism."),
     Q("A lichen is a/an:",["symbiotic partnership of a fungus and an alga","agglomerate of bacteria used for bioremediation","example of association of two competing species","epiphytic parasite mostly found in urban plantations"],0,"Lichen = fungus (mycobiont) + alga or cyanobacterium (photobiont): mutualistic symbiosis. Lichens are also SO2 pollution indicators."),
@@ -556,7 +589,7 @@ const APSC_ECOLOGY = [
     Q("Vermicomposting refers to:",["earthworm-added composting","microbial composting","anaerobic composting","bokashi composting"],0,"Vermicomposting uses earthworms to convert organic waste to nutrient-rich vermicompost."),
     Q("Animals that feed upon organic matter present in soil or mud are known as:",["macrophages","microphases","detritus","saprophytes"],2,"Key answer: detritus feeders (detritivores). The option wording \"detritus\" is the intended choice.")
   ]),
-  mk("apsc-eco-7","Ecology – Biogeochemical Cycles",35,[
+  mk("apsc-eco-7","Ecology: Biogeochemical Cycles",35,[
     Q("Which is a gaseous biogeochemical cycle?",["Phosphorus cycle","Sulfur cycle","Carbon cycle","None of the above"],2,"Carbon (and nitrogen) have an atmospheric reservoir: gaseous. Phosphorus is sedimentary; sulfur is both."),
     Q("Bacteria converting ammonia to nitrite are:",["Nitrobacter","Nitrosomonas","Rhizobium","Pseudomonas"],1,"Nitrosomonas: NH3 → NO2-. (so = step one, nitrite.)"),
     Q("Bacteria converting nitrite to nitrate are:",["Nitrosomonas","Nitrobacter","Azotobacter","Clostridium"],1,"Nitrobacter: NO2- → NO3-."),
@@ -593,7 +626,7 @@ const APSC_ECOLOGY = [
     Q("The ecosystem receives nitrogen from outside through:",["industries","electrification of nitrogen","biological nitrogen fixation","All of the above"],3,"Inputs: industrial fertilizers, atmospheric (lightning) fixation and biological fixation."),
     Q("Which is the logical sequence of the carbon cycle?",["Photosynthesis-consumer-decomposer","Decomposers-consumer-photosynthesis","Photosynthesis-decomposer-consumer","Consumer-photosynthesis-decomposer"],0,"Producers fix carbon, consumers eat it, decomposers return it as CO2.")
   ]),
-  mk("apsc-eco-8","Ecology – Ecological Succession",28,[
+  mk("apsc-eco-8","Ecology: Ecological Succession",28,[
     Q("The final stable community in ecological succession is called:",["Pioneer community","Seral community","Climax community","Intermediate community"],2,"The climax community is in equilibrium with the climate and self-perpetuating."),
     Q("Primary succession occurs on:",["Bare rock","Newly formed volcanic island","Both A and B","After forest fire"],2,"Primary succession starts where no soil or life existed: bare rock, lava, new islands. A burnt forest still has soil (secondary)."),
     Q("Secondary succession is faster than primary because:",["Soil is already present","Pioneers are already there","Climate is favorable","None of the above"],0,"Existing soil with seeds and nutrients skips the slow soil-formation phase."),
@@ -623,7 +656,7 @@ const APSC_ECOLOGY = [
     Q("The succession that begins predominantly in inorganic environment is:",["heterotrophic succession","binary succession","secondary succession","autotrophic succession"],3,"Autotrophic succession starts inorganic; heterotrophic starts organic."),
     Q("The last community in a succession is called:",["ecosystem","climax community","ecotone","serial community"],1,"Climax community.")
   ]),
-  mk("apsc-eco-9","Ecology – Adaptations",29,[
+  mk("apsc-eco-9","Ecology: Adaptations",29,[
     Q("Thermoregulation is an example of:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],0,"Internal body processes maintaining temperature (shivering, sweating) are physiological."),
     Q("Hibernation is an example of:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],1,"Winter dormancy (key answer: behavioral). Metabolic changes occur too, but exams classify it as behavioral."),
     Q("Aestivation is a behavioral adaptation to avoid:",["Cold","Heat and dryness","Predators","Floods"],1,"Aestivation = summer sleep (snails, lungfish, frogs)."),
@@ -654,7 +687,7 @@ const APSC_ECOLOGY = [
     Q("Which plants are suitable for bio-monitoring of SO2?",["Cucumber and marigold","Tobacco and bean","Moss and lichens","Tomato and orchids"],2,"Lichens and mosses are very sensitive to SO2."),
     Q("Indicators of atmospheric pollution are:",["liverworts","ferns","epiphytic lichens","Both (A) and (C)"],2,"Epiphytic lichens are classic air-quality indicators (key answer C).")
   ]),
-  mk("apsc-eco-10","Ecology – Ecosystem Types",28,[
+  mk("apsc-eco-10","Ecology: Ecosystem Types",28,[
     Q("Which forest type covers the maximum area in India?",["Tropical dry evergreen forest","Tropical rainforest","Tropical moist deciduous forest","Tropical dry deciduous forest"],2,"⚠ Verify: Key answer: tropical moist deciduous. Check: FSI reports often list tropical dry deciduous as the largest; follow your syllabus source."),
     Q("The Terai forest is an example of:",["Tropical","Deciduous","Coniferous","Temperate deciduous"],1,"Terai lies at the Himalayan foothills with moist deciduous forest (e.g. Sal)."),
     Q("Temperate evergreen forests in India are found in:",["Eastern and Western Himalayas","Western Ghats","Eastern Ghats","Aravalli"],0,"Himalayan temperate zone (about 1,500-3,500 m)."),
@@ -684,7 +717,7 @@ const APSC_ECOLOGY = [
     Q("Which ecosystem is used by migratory birds as seasonal homes?",["Wetland","Grassland","Savannas","Tundra"],0,"Wetland (repeat of Q186)."),
     Q("In which zone can freshwater lake fish survive but depend upon two other zones for food?",["Littoral zone","Limnetic zone","Profundal zone","Benthic zone"],2,"Key answer: profundal. Deep and dark, no photosynthesis, so food comes from littoral and limnetic zones.")
   ]),
-  mk("apsc-eco-11","Ecology – Population Ecology",21,[
+  mk("apsc-eco-11","Ecology: Population Ecology",21,[
     Q("The number of individuals per unit area is called:",["Population density","Population growth","Population intensity","Population size"],0,"Density = individuals per unit area or volume."),
     Q("The carrying capacity of a population is determined by:",["Population growth","Natality","Limiting resources","Mortality"],2,"Food, water and space set the limit K."),
     Q("According to Shelford's law of tolerance, organisms with wide tolerance show:",["Narrow distribution with low population","Wide distribution with high population","Narrow distribution with high population","Wide distribution with low population"],1,"Wide tolerance (eurytopic) gives wide distribution and abundance."),
@@ -707,7 +740,7 @@ const APSC_ECOLOGY = [
     Q("The dispersion pattern in which individuals are evenly spaced is called:",["Uniform","Random","Clumped","None"],0,"Uniform: territorial species."),
     Q("In population ecology, number of individuals per unit area or volume is:",["population density","population growth","population intensity","population size"],0,"Same as Q199.")
   ]),
-  mk("apsc-eco-12","Ecology – Ecosystem Stability, Services and Homeostasis",22,[
+  mk("apsc-eco-12","Ecology: Ecosystem Stability, Services and Homeostasis",22,[
     Q("Ecosystem homeostasis is affected by:",["Biotic factors","Abiotic factors","Both A and B","None"],2,"Both living and non-living factors influence stability."),
     Q("Stability of a complex ecosystem can be assessed by:",["Human interference","Species diversity","Variation of climatological parameters","None"],1,"More species = more stability and resilience."),
     Q("A matured ecosystem is characterized by:",["High net productivity with open nutrient cycle","High net productivity with closed nutrient cycle","Low net productivity with closed nutrient cycle and good nutrient conservation","Low net productivity with closed nutrient cycle and poor nutrient conservation"],2,"Mature (climax) systems: low net productivity, tight nutrient cycling, good conservation."),
@@ -731,7 +764,7 @@ const APSC_ECOLOGY = [
     Q("Black carbon does which to the environment?",["Help to control global warming","Help in rain formation","Help to deplete glaciers","Help in photosynthesis"],2,"Soot darkens snow and ice, lowering albedo and speeding melt."),
     Q("The largest volume of freshwater is present in:",["lakes","rivers","fossil water","polar ice"],3,"About 68-69% of freshwater is in glaciers and ice caps.")
   ]),
-  mk("apsc-eco-13","Ecology – Speciation and Evolution",11,[
+  mk("apsc-eco-13","Ecology: Speciation and Evolution",11,[
     Q("Allopatric speciation is due to:",["Geographic isolation","Reproductive isolation","Both A and B","None"],2,"Geographic barrier first, then reproductive isolation develops."),
     Q("Sympatric speciation occurs due to:",["Geographic barrier","Ecological niche separation","Continental drift","Mutation only"],1,"Sym = same place: speciation without a geographic barrier."),
     Q("Parapatric speciation involves:",["Complete geographic separation","Partial geographic separation","No geographic separation","None"],1,"Adjacent populations with a partial barrier."),
@@ -744,7 +777,7 @@ const APSC_ECOLOGY = [
     Q("The founder effect is associated with:",["Genetic drift","Natural selection","Gene flow","Mutation"],0,"A small founder group carries a non-representative gene pool: genetic drift."),
     Q("Allopatric speciation is due to interaction between:",["geographical isolation and reproductive isolation","geographic isolation","reproductive isolation","adaptive isolation"],0,"Same as Q242.")
   ]),
-  mk("apsc-eco-14","Ecology – Direct PYQ Hits",10,[
+  mk("apsc-eco-14","Ecology: Direct PYQ Hits",10,[
     Q("The area where two different ecosystems overlap each other is called:",["habitat","niche","ecotone","ecoline"],2,"Ecotone (see Q30)."),
     Q("Which explains that the ecological pyramid of energy always remains upright?",["Laws of nature","Lindeman's ten percent law","Mendel's law","Laws of conservation of energy"],1,"Lindeman's 10% law (see Q46)."),
     Q("Which organism is incorrectly paired with its trophic level?",["Phytoplankton: Primary producer","Kingfisher: Tertiary consumer","Zooplankton: Primary consumer","Duckweed: Primary consumer"],3,"Duckweed is a producer (see Q36)."),
@@ -769,6 +802,150 @@ function uniqueQs(tests){
   }));
   return out;
 }
+/* ---- Add tests to HISTORY, BOOKS or MATHS below. Example:
+   const HISTORY = [ mk("his-1","Ahom Dynasty",10,[ Q("Question",["A","B","C","D"],0,"Explanation") ]) ];
+---- */
+const ADRE = [], CTET = [], GHC = [], CURRENT = [], BED = [], DEPT = [], HISTORY = [], BOOKS = [], MATHS = [];
+/* ---- APSC Books and Authors (from the PYQ decks) ---- */
+const Qf = (...x) => ({ ...Q(...x), fixed:true });
+BOOKS.push(
+  mk("books-1","Assam Books and Authors Part 1",37,[
+    Q("Who is the author of The Golden Road: How Ancient India Transformed the World?",["Amitav Ghosh", "William Dalrymple", "Ramachandra Guha", "Shobhaa De"],1,"The Golden Road is by William Dalrymple.","JDO (DOJ/TDD/1/25/8) Q.52"),
+    Qf("Match books in List-I with their respective authors in List-II:\n\nList-I\na. Ledolam\nb. Abhimanyu\nc. Moro Eta Sapon Ase\nd. Mayabritta\n\nList-II\n1. Mrinal Kalita\n2. Juri Borah Borgohain\n3. Dr. Rita Choudhury\n4. Dr. Rubul Mout",["a-1, b-2, c-4, d-3", "a-2, b-1, c-4, d-3", "a-2, b-1, c-3, d-4", "a-4, b-1, c-2, d-3"],1,"Correct pairs: Ledolam: Juri Borah Borgohain; Abhimanyu: Mrinal Kalita; Moro Eta Sapon Ase: Dr. Rubul Mout; Mayabritta: Dr. Rita Choudhury.","JDO (DOJ/TDD/1/25/8) Q.73"),
+    Qf("Consider the following statements. Which is/are not correct?\nI. Sarathi, a well-known composition in Assamese on moral precepts, was written by Satyanath Bora.\nII. The first Assamese novel written by Padmanath Gohain Baruah is Bhanumati.\nIII. The first editor of Assamese periodical Jonaki was Lakshminath Bezbarua.\nIV. Raghunath Chaudhary was known as Bihogi Kobi.",["Only I", "Only II", "Only III", "Only IV"],2,"Jonaki's first editor was Chandra Kumar Agarwala, not Lakshminath Bezbarua.","JDO (DOJ/TDD/1/25/8) Q.75"),
+    Qf("Which titles and names of poets are correctly matched?\nI. Papori Kobi — Ganesh Gogoi\nII. Nijarar Kobi — Sailadhar Rajkhowa\nIII. Geeti Kobi — Rudra Barua\nIV. Sewali Kobi — Ratnakanta Barkakati",["I and II only", "I, II and IV only", "II, III and IV only", "I, II, III and IV"],1,"⚠ Verify: this answer is less certain, please double-check. Geeti Kobi is Parvati Prasad Baruwa, so III is wrong.","JDO (DOJ/TDD/1/25/8) Q.54"),
+    Q("Gunamala was a unique composition of",["Madhavdev", "Sankardev", "Madhava Kandali", "Rama Saraswati"],1,"Gunamala is a composition of Sankardev.","JDO (DOJ/TDD/1/25/8) Q.74"),
+    Qf("Which of the following books is/are not written by Dr. A. P. J. Abdul Kalam?\n(i) Wings of Fire\n(ii) You are Unique\n(iii) Indomitable Spirit\n(iv) My Country My Life",["Only (i)", "Only (ii)", "Only (iii)", "Only (iv)"],3,"My Country My Life is by L.K. Advani, not Dr. Kalam.","AE Civil WRD – GS Paper I (13/2025) Q.8"),
+    Qf("Match the following:\n\nList-I\na. Buddhacharita\nb. Sutralankara\nc. Milinda Panha\nd. Madhyamika Karika\n\nList-II\n1. Nagasena\n2. Ashvaghosa\n3. Nagarjuna\n4. Asanga",["a-2, b-4, c-1, d-3", "a-4, b-2, c-1, d-3", "a-2, b-4, c-3, d-1", "a-1, b-4, c-2, d-3"],0,"Correct pairs: Buddhacharita: Ashvaghosa; Sutralankara: Asanga; Milinda Panha: Nagasena; Madhyamika Karika: Nagarjuna.","AE Mechanical WRD – GS & GE Paper II (15/2025) Q.2"),
+    Q("Harshacharita was written by",["Kautilya", "Hiuen Tsang", "Aryabhata", "Banabhatta"],3,"Answer: Banabhatta.","AE Mechanical WRD – GS & GE Paper II (15/2025) Q.4"),
+    Q("The illustration work of the medieval Assamese text Hastividyarnava was done by",["Dibar and Dosai", "Rama Saraswati", "Sukumar Barkaith", "Suryakhan Daibegra"],0,"Hastividyarnava was illustrated by Dilbar and Dosai.","AE Mechanical WRD – GS & GE Paper II (15/2025) Q.7"),
+    Q("Ain-i-Akbari was written by",["Akbar", "Abul Fazl", "Amir Khusrow", "Ziauddin Barani"],1,"Answer: Abul Fazl.","AE Mechanical WRD – GS & GE Paper II (15/2025) Q.14"),
+    Q("The author of Pre-Ahom Assam is",["S.L. Baruah", "S.K. Bhuyan", "Navanint Lahiri", "Edward Gait"],2,"Answer: Navanint Lahiri.","AE Mechanical WRD – GS & GE Paper II (15/2025) Q.17"),
+    Q("Hastyayurveda, a work on Veterinary Science, was authored by",["Varahamihira", "Kautilya", "Aryabhata", "Palkapya"],3,"Answer: Palkapya.","AE Mechanical WRD – GS & GE Paper II (15/2025) Q.26"),
+    Q("The 'Hastividyarnava Paintings' are a magnificent creative work of",["Dilbar and Dosai", "Ruchi Bapu and Purnakam", "Durgaram Betha", "Ghanashyam Khargharia Phukan"],0,"Answer: Dilbar and Dosai.","AE PHE – GS (31/2025) Q.26"),
+    Q("Who wrote the Assamese play Ram Nabami, considered one of the first modern Assamese plays?",["Lakshminath Bezbarua", "Gunabhiram Barua", "Hemchandra Barua", "Bhattadev"],1,"Answer: Gunabhiram Barua.","AE PHE – GS (31/2025) Q.90"),
+    Qf("Consider the following pairs of Assamese Buranjis and Authors. How many pairs are correct?\nI. Deodhai Assam Buranji — Dutiram Hazarika\nII. Tungkhungia Buranji — Srinath Barbarua\nIII. Assam Buranji Puthi — Bisweswar Vaidyadhip\nIV. Asamar Padya-Buranji — Atan Burhagohain",["One", "Two", "Three", "Four"],1,"⚠ Verify: this answer is less certain, please double-check. II and III are correct.","DMO – GS (34/2025) Q.76"),
+    Qf("Consider the following pairs of Literary Works and Authors. How many pairs are correct?\nI. Pita Putra — Homer Borgohain\nII. Mirljanabhi — Arupa Patangia Kalita\nIII. Dinar Pisat Din — Nirmal Prabha Bordoloi\nIV. Dhumuha ant Ramdhenu — Bhabendra Nath Saikia",["One", "Two", "Three", "Four"],2,"I, II and III are correct. Dhumuha Aru Ramdhenu is by Homen Borgohain, so IV is wrong.","DMO – GS (34/2025) Q.78"),
+    Q("Who compiled the Buranji Vivek Ratna, a chronicle on political, cultural and religious history of Assam?",["Bisweswar Vaidyadhip", "Maniram Dewan", "Dutiram Hazarika", "Srinath Duara Barbarua"],1,"Answer: Maniram Dewan.","DMO – GS (34/2025) Q.98"),
+    Q("The Pherengadao was an important biopic novel in Assamese literary history. Who was its author?",["Yeshe Dorjee Thongchi", "Medini Choudhury", "Bishnu Prasad Rabha", "Parag Das"],1,"⚠ Verify: this answer is less certain, please double-check. Answer: Medini Choudhury.","DMO – GS (34/2025) Q.69"),
+    Qf("Match the following Books in List-I with their Authors in List-II:\n\nList-I\na. Pharingbore Bator Katha Jane\nb. Bhool Satya\nc. Iyat Ekhon Aranya Asil\nd. Bengsata\n\nList-II\n1. Apurba Kumar Saikia\n2. Manoj Kumar Goswami\n3. Sameer Tanti\n4. Anuradha Sharma Pujari",["a-3, b-2, c-4, d-1", "a-2, b-3, c-4, d-1", "a-3, b-2, c-1, d-4", "a-4, b-2, c-3, d-1"],0,"Correct pairs: Pharingbore Bator Katha Jane: Sameer Tanti; Bhool Satya: Manoj Kumar Goswami; Iyat Ekhon Aranya Asil: Anuradha Sharma Pujari; Bengsata: Apurba Kumar Saikia.","ADO – GS (Advt 09/25) Q.2"),
+    Qf("Match the following Books with Authors:\n\nList-I\na. The Discovery of India\nb. My Experiments with Truth\nc. Poverty and un-British Rule in India\nd. India Divided\n\nList-II\n1. Dadabhai Naoroji\n2. Dr. Rajendra Prasad\n3. Mahatma Gandhi\n4. Jawaharlal Nehru",["a-3, b-4, c-1, d-2", "a-4, b-3, c-2, d-1", "a-1, b-3, c-4, d-2", "a-4, b-3, c-1, d-2"],3,"Correct pairs: The Discovery of India: Jawaharlal Nehru; My Experiments with Truth: Mahatma Gandhi; Poverty and un-British Rule in India: Dadabhai Naoroji; India Divided: Dr. Rajendra Prasad.","ADO – GS (Advt 09/25) Q.21"),
+    Q("Who was the first President of Asom Sahitya Sabha?",["Padmanath Gohain Baruah", "Laxminath Bezbaruah", "Ananda Chandra Agarwala", "Ambika Giri Raichoudhury"],0,"⚠ Verify: this answer is less certain, please double-check. Answer: Padmanath Gohain Baruah.","ADO – GS (Advt 09/25) Q.39"),
+    Qf("Match the following books (List-I) with the corresponding authors (List-II):\n\nList-I\na. Iyat Ekhan Aranya Asil\nb. Katha Ratnakar\nc. Jangam\nd. Dainee\n\nList-II\n1. Debendranath Acharya\n2. Manoranjan Lahari\n3. Anuradha Sharma Pujari\n4. Dhrubajyoti Bora",["a-3, b-4, c-1, d-2", "a-4, b-3, c-1, d-2", "a-3, b-4, c-2, d-1", "a-1, b-4, c-3, d-2"],0,"Correct pairs: Iyat Ekhan Aranya Asil: Anuradha Sharma Pujari; Katha Ratnakar: Dhrubajyoti Bora; Jangam: Debendranath Acharya; Dainee: Manoranjan Lahari.","CDPO – GK (33/2023) Q.89"),
+    Qf("Match the following books (List-I) with the corresponding authors (List-II):\n\nList-I\na. Gita Govinda\nb. Indica\nc. Buddhacharita\nd. Panchatantra\n\nList-II\n1. Vishnu Sharma\n2. Jayadeva\n3. Asvaghosa\n4. Megasthenes",["a-4, b-2, c-3, d-1", "a-2, b-4, c-1, d-3", "a-3, b-4, c-2, d-1", "a-2, b-4, c-3, d-1"],3,"Correct pairs: Gita Govinda: Jayadeva; Indica: Megasthenes; Buddhacharita: Asvaghosa; Panchatantra: Vishnu Sharma.","CDPO – GK (33/2023) Q.90"),
+    Qf("Which of the following plays was/were written by Mahapurush Sankardeva?\n(i) Bhojan Bihar\n(ii) Bhumi Letowa\n(iii) Keli-Gopal\n(iv) Patni Prasadas",["(i) and (ii)", "(i) and (iii)", "(iii) and (iv)", "(ii) and (iv)"],2,"Bhojan Bihar and Bhumi Letowa are Madhavdev's plays.","CDPO – GK (33/2023) Q.62"),
+    Q("Assamese, Its Formation and Development is a doctoral dissertation written by",["Dr. Birinchi Kr. Barua", "Dr. Surya Kr. Bhuyan", "Dr. Banikanta Kakati", "Dr. Bhupen Hazarika"],2,"Answer: Dr. Banikanta Kakati.","CDPO – GK (33/2023) Q.86"),
+    Q("A famous work of this Jnanpith Award recipient is Gulapi Jamur Lagna. Identify the person.",["Nilmani Phookan (Jr.)", "Birendra Kumar Bhattacharya", "Mamoni Raisom Goswami", "None of them"],0,"Answer: Nilmani Phookan (Jr.).","CDPO – GK (33/2023) Q.95"),
+    Q("Sankardeva recognized one great poet as 'Apramadi Kobi'. Who was he?",["Ananta Kandali", "Bhattadeva", "Madhava Kandali", "Mahendra Kandali"],2,"Answer: Madhava Kandali.","CDPO – GK (33/2023) Q.97"),
+    Q("Silent Spring brought worldwide attention to the destruction of wildlife through pesticides. Who is its author?",["Wangari Maathai", "Rachel Carson", "Gaylord Nelson", "Vandana Shiva"],1,"Answer: Rachel Carson.","CDPO – GK (33/2023) Q.98"),
+    Q("Who was the author of Namghosa?",["Mahapurush Sankardev", "Mahapurush Madhavdev", "Mahapurush Damodardev", "Mahapurush Haridev"],1,"Namghosa was written by Madhavdev.","Grade IV – GS (30/2025) Q.25"),
+    Q("Who is the author of Assamese: Its Formation and Development, a scientific treatise on the history of the Assamese language?",["Dr. Maheswar Neog", "Dr. Banikanta Kakati", "Dr. Birinchi Kumar Barua", "Dr. Prafulla Dutta Goswami"],1,"Answer: Dr. Banikanta Kakati.","JE Civil PWD – GS & English (05/2025) Q.33"),
+    Q("Which of the following Ankiya Nats was not written by Srimanta Sankardev?",["Bhojan Behar", "Ram Bijoy", "Kaliya Daman", "Parijat Haran"],0,"Bhojan Behar is by Madhavdev, not Sankardev.","JE Civil PWD – GS & English (05/2025) Q.45"),
+    Qf("Which pairs of Newspapers/Magazines and their Editors is/are correct?\n(i) Assam News — Gunabhiram Baruah\n(ii) Assam Bandhu — Hemchandra Baruah\n(iii) Jonaki — Chandra Kumar Agarwala",["(i) and (ii)", "(i) and (iii)", "(ii) and (iii)", "(i), (ii) and (iii)"],1,"⚠ Verify: this answer is less certain, please double-check. Assam Bandhu was edited by Gunabhiram Barua, so (ii) is wrong.","JE Civil PWD – GS & English (05/2025) Q.73"),
+    Qf("Sahitya Akademi Award 2024 — which statements are correct?\n(i) Dipak Kumar Sharma won for his Sanskrit poetry collection Bhaskaracaritam.\n(ii) Bhaskaracaritam chronicles the characteristics of the ancient King Bhaskaravarmana.",["Only (i)", "Only (ii)", "Both (i) and (ii)", "Neither (i) nor (ii)"],2,"Answer: Both (i) and (ii).","JE Civil PWD – GS & English (05/2025) Q.74"),
+    Q("Who wrote the second Assamese novel, Sudhannar Upakhyan?",["Padmavati Devi Phukanani", "Chandraprava Saikiani", "Swarnalata Baruah", "Nalinibala Devi"],0,"Answer: Padmavati Devi Phukanani.","JE Civil PWD – GS & English (05/2025) Q.90"),
+    Q("Which of the following films is not directed by Bhabendra Nath Saikia?",["Agnisnan", "Sarothi", "Sandhya Raag", "Halodhia Soraive Baodhan Khai"],3,"Halodhia Soraye Baodhan Khai was directed by Jahnu Barua.","JE Civil PWD – GS & English (05/2025) Q.96"),
+    Q("Patanjali was",["a philosopher of the Yogachara school", "an author of a book on Ayurveda", "a philosopher of the Madhyamika school", "the author of a commentary on Panini's Sanskrit Grammar"],3,"Answer: the author of a commentary on Panini's Sanskrit Grammar.","IS DEEO – GS (32/2023) Q.7"),
+    Q("Which was the first drama of Srimanta Sankardev?",["Cihna Yatra", "Patni Prasadad", "Keli-Gopal", "Parijat-Haran"],0,"Answer: Cihna Yatra.","IS DEEO – GS (32/2023) Q.30")
+  ]),
+  mk("books-2","Assam Books and Authors Part 2",36,[
+    Qf("Match List-I with List-II:\n\nList-I\na. Kalaguru Bishnu\nb. Jyoti Prasad\nc. Jyotindra Nath\nd. Ambikagiri\n\nList-II\n1. Sunpahi Rabha\n2. Rupalim Agarwala\n3. Omar Tirtha Duwara\n4. Tumi Raichowdhury",["a-2, b-1, c-3, d-4", "a-1, b-2, c-3, d-4", "a-1, b-2, c-4, d-3", "a-3, b-2, c-1, d-4"],1,"⚠ Verify: this answer is less certain, please double-check. Correct pairs: Kalaguru Bishnu: Sunpahi Rabha; Jyoti Prasad: Rupalim Agarwala; Jyotindra Nath: Omar Tirtha Duwara; Ambikagiri: Tumi Raichowdhury.","AE PHE – GS (28/2023) Q.37"),
+    Q("Who wrote Karagaror Cithi?",["Gopinath Bordoloi", "M. Tayyebulla", "Omeo Kumar Das", "Puspalata Das"],3,"⚠ Verify: this answer is less certain, please double-check. Answer: Puspalata Das.","AE PWD – GS (2024) Q.21"),
+    Q("Nirupama Borgohain's Sahitya Akademi winning novel Abhiyatri (1996) was based on which Assamese female character?",["Joymati", "Kanaklata Barua", "Chandraprabha Saikiani", "Aideu Handique"],2,"Answer: Chandraprabha Saikiani.","AE PWD – GS (2024) Q.22"),
+    Q("The Fall of a Sparrow is the autobiography of the 'Birdman of India'. He is",["Chewang Norphel", "Rajendra Singh", "Anwaruddin Choudhury", "Salim Ali"],3,"Answer: Salim Ali.","AE PWD – GS (2024) Q.45"),
+    Qf("Match the Authors (List-I) with Books (List-II):\n\nList-I\na. Kalidasa\nb. Shudraka\nc. Bharavi\nd. Vishakhadatta\n\nList-II\n1. Mudrarakshasa\n2. Kiratarjuniya\n3. Mrichhakatika\n4. Meghaduta",["a-3, b-4, c-2, d-1", "a-4, b-3, c-2, d-1", "a-4, b-3, c-1, d-2", "a-2, b-3, c-4, d-1"],1,"Correct pairs: Kalidasa: Meghaduta; Shudraka: Mrichhakatika; Bharavi: Kiratarjuniya; Vishakhadatta: Mudrarakshasa.","AE PWD – GS (2024) Q.61"),
+    Q("Tarikh-i-Firoz Shahi was written by",["Amir Khusrau", "Habib", "Mubarak Shah", "Ziauddin Barani"],3,"Answer: Ziauddin Barani.","AE PWD – GS (2024) Q.62"),
+    Q("Pitri Bhitha: the author of this book was a firebrand Assamese woman. Choose the correct name.",["Jogeswari", "Amalprava Das", "Chandraprabha Saikiani", "Nalinibala Devi"],2,"Answer: Chandraprabha Saikiani.","AE PWD – GS (2024) Q.70"),
+    Qf("Match the Books (List-I) with Authors (List-II):\n\nList-I\na. Falanee\nb. Katha Ratnakar\nc. Sankaradeva and His Times\nd. Koka Deutar Haar\n\nList-II\n1. Dr. Dhrubajyoti Borah\n2. Navakanta Baruah\n3. Dr. Maheswar Neog\n4. Arupa Kalita Patangia",["a-1, b-4, c-3, d-2", "a-4, b-1, c-2, d-3", "a-4, b-1, c-3, d-2", "a-3, b-1, c-4, d-2"],2,"Correct pairs: Falanee: Arupa Kalita Patangia; Katha Ratnakar: Dr. Dhrubajyoti Borah; Sankaradeva and His Times: Dr. Maheswar Neog; Koka Deutar Haar: Navakanta Baruah.","AE PWD – GS (2024) Q.71"),
+    Q("Dhanada Kumari Saikia got Assam Sahitya Award in 1929 for her book on indigenous Assamese cooking. The book is",["Pan-Bhojan", "Amar Khadyo Sanskriti", "Randhan-Kala", "Randhani Ba Randhan Pranali"],3,"⚠ Verify: this answer is less certain, please double-check. Answer: Randhani Ba Randhan Pranali.","AE PWD – GS (2024) Q.75"),
+    Q("Who is the author of the book Pariharya?",["Pradip Acharya", "Manoj Kumar Goswami", "Anuradha Sharma Pujari", "Anubhab Tulsi"],1,"⚠ Verify: this answer is less certain, please double-check. Answer: Manoj Kumar Goswami.","AE PWD – GS (2024) Q.76"),
+    Qf("Match the female writers from North-East India with their books:\n\nList-I\n(a) Parismita Singh\n(b) Mamang Dai\n(c) Janice Pariat\n(d) Temsula Ao\n\nList-II\n(i) Boats on Land\n(ii) These Hills Called Home\n(iii) Peace Has Come\n(iv) The Black Hill",["a-iv, b-iii, c-i, d-ii", "a-iii, b-iv, c-ii, d-i", "a-i, b-iv, c-iii, d-ii", "a-iii, b-iv, c-i, d-ii"],3,"⚠ Verify: this answer is less certain, please double-check. Correct pairs: Parismita Singh: Peace Has Come; Mamang Dai: The Black Hill; Janice Pariat: Boats on Land; Temsula Ao: These Hills Called Home.","Asst. Architect PWD – GS (02/2025) Q.69"),
+    Q("Which is the first Assamese daily newspaper?",["Natun Asamiya", "Assam Bandhu", "Orunodoi", "Dainik Batori"],3,"Answer: Dainik Batori.","Asst. Director, Cottage Industries – GS (06/2025) Q.96"),
+    Qf("Which of the following pairs is/are correctly matched?\n(i) Si-yu-ki : Banabhatta\n(ii) Harshacharita : Hiuen Tsang\n(iii) Tarikh Al Hind : Al-Biruni\n(iv) Rajatarangini : Kalhana",["(i) and (ii)", "(ii) and (iii)", "(iii) and (iv)", "(i) and (iv)"],2,"Si-yu-ki is by Hiuen Tsang and Harshacharita is by Banabhatta.","Computer Applications RA – GS (09/2024) Q.30"),
+    Qf("How many of the following statements are incorrect?\nI. Bhagavad Gita was composed by Valmiki.\nII. Gita Govinda was composed by Jayadeva.\nIII. Chandrakanta Abhidhan was authored by Chandra Kanta Agarwala.\nIV. Gunamala was written by Srimanta Madhavdeva.",["One", "Two", "Three", "Four"],2,"⚠ Verify: this answer is less certain, please double-check. I, III and IV are incorrect. The Gita is by Vyasa and Gunamala is by Sankardev. Please check statement III.","Computer Operator – GS (07/2024) Q.83"),
+    Qf("Match the books (List-I) with the authors (List-II):\n\nList-I\na. A Comprehensive History of Assam\nb. The Quest for Modern Assam: A History\nc. The Ahoms: A Reimagined History\nd. Asamiya Manuhar Itihas\n\nList-II\n1. Arup Jyoti Saikia\n2. Arup Kumar Dutta\n3. Dr. Nagen Saikia\n4. Swarnalata Baruah",["a-1, b-4, c-2, d-3", "a-4, b-1, c-3, d-2", "a-2, b-1, c-4, d-3", "a-4, b-1, c-2, d-3"],3,"⚠ Verify: this answer is less certain, please double-check. Correct pairs: A Comprehensive History of Assam: Swarnalata Baruah; The Quest for Modern Assam: A History: Arup Jyoti Saikia; The Ahoms: A Reimagined History: Arup Kumar Dutta; Asamiya Manuhar Itihas: Dr. Nagen Saikia.","CCE (P) – GS-I (2023) Q.1"),
+    Qf("Match the authors (List-I) with the books (List-II):\n\nList-I\na. Gunabhiram Baruah\nb. Harakanta Sarma Baruah\nc. Anandaram Dhekial Phukan\nd. Hemchandra Baruah\n\nList-II\n1. Asamiya Byakaran\n2. Asamiya Lora Mitra\n3. Ram Navami\n4. Sadar Aminar Atmajibani",["a-4, b-3, c-2, d-1", "a-3, b-4, c-1, d-2", "a-3, b-4, c-2, d-1", "a-2, b-4, c-3, d-1"],2,"Correct pairs: Gunabhiram Baruah: Ram Navami; Harakanta Sarma Baruah: Sadar Aminar Atmajibani; Anandaram Dhekial Phukan: Asamiya Lora Mitra; Hemchandra Baruah: Asamiya Byakaran.","CCE (P) – GS-I (2023) Q.83"),
+    Qf("Which of the following is/are not the work/works of Madhavdev?\n(i) Nam Ghosa\n(ii) Bhakti Ratnavali\n(iii) Bhumi Letowa\n(iv) Balichalan",["Only (i)", "Only (ii)", "Only (iii)", "Only (iv)"],3,"⚠ Verify: this answer is less certain, please double-check. Answer: Only (iv).","CCE (P) – GS-I (2023) Q.70"),
+    Qf("Which Ankiya Nats was/were not composed by Sankardev?\n(i) Kaliya Daman\n(ii) Patni Prasada\n(iii) Keli Gopal\n(iv) Arjun Bhanjan",["Only (i)", "Only (ii)", "Only (iii)", "Only (iv)"],3,"Arjun Bhanjan is by Madhavdev.","CCE (P) – GS-I (2023) Q.90"),
+    Qf("Authors Arup Kumar Dutta, Arupjyoti Saikia and Samrat Choudhury have common theme(s). Which is/are correct?\n(i) Acclaimed writers on the Brahmaputra\n(ii) Written on Assam's social history\n(iii) Written on tea and tea plantation history\n(iv) Written on Assam's geography",["(i) and (ii)", "(i) and (iii)", "(ii) and (iv)", "(i), (ii) and (iv)"],0,"⚠ Verify: this answer is less certain, please double-check. Answer: (i) and (ii).","CCE (P) – GS-I (2024) Q.22"),
+    Qf("Match the Prime Ministers (List-I) with the biographies/autobiographies (List-II):\n\nList-I\na. Narasimha Rao\nb. I. K. Gujral\nc. Manmohan Singh\nd. Narendra Modi\n\nList-II\n1. The Accidental Prime Minister\n2. Matters of Discretion\n3. The Man Who Remade India\n4. The Paradoxical Prime Minister",["a-2, b-3, c-1, d-4", "a-3, b-2, c-4, d-1", "a-3, b-2, c-1, d-4", "a-1, b-2, c-3, d-4"],2,"Correct pairs: Narasimha Rao: The Man Who Remade India; I. K. Gujral: Matters of Discretion; Manmohan Singh: The Accidental Prime Minister; Narendra Modi: The Paradoxical Prime Minister.","CCE (P) – GS-I (2024) Q.33"),
+    Qf("Match the books (List-I) with the authors (List-II):\n\nList-I\na. India Against Itself: Assam and the Politics of Nationality\nb. Burden of History: Assam and the Partitions\nc. Writing on the Wall: Reflections on the North-East\nd. Confronting the State: ULFA's Quest for Sovereignty\n\nList-II\n1. Udayon Misra\n2. Sanjib Baruah\n3. Nani Gopal Mahanta\n4. Sanjoy Hazarika",["a-1, b-2, c-4, d-3", "a-2, b-1, c-4, d-3", "a-2, b-1, c-3, d-4", "a-4, b-1, c-2, d-3"],1,"Correct pairs: India Against Itself: Assam and the Politics of Nationality: Sanjib Baruah; Burden of History: Assam and the Partitions: Udayon Misra; Writing on the Wall: Reflections on the North-East: Sanjoy Hazarika; Confronting the State: ULFA's Quest for Sovereignty: Nani Gopal Mahanta.","CCE (P) – GS-I (2024) Q.59"),
+    Qf("Match the authors (List-I) with the books (List-II):\n\nList-I\na. Amartya Sen\nb. Abhijit Banerjee and Esther Duflo\nc. Jeffrey D. Sachs\nd. Thomas Friedman\n\nList-II\n1. The End of Poverty\n2. The World is Flat\n3. Poor Economics\n4. Development as Freedom",["a-4, b-3, c-1, d-2", "a-3, b-4, c-1, d-2", "a-4, b-3, c-2, d-1", "a-1, b-3, c-4, d-2"],0,"Correct pairs: Amartya Sen: Development as Freedom; Abhijit Banerjee and Esther Duflo: Poor Economics; Jeffrey D. Sachs: The End of Poverty; Thomas Friedman: The World is Flat.","CCE (P) – GS-I (2024) Q.61"),
+    Qf("Consider the pairs (Book — Author). How many are correct?\nI. The Assamese: A Portrait of a Community — Audrey Cantlie\nII. The Assamese: Religion, Caste and Sect in an Indian Village — Sangeeta Barooah Pisharoty\nIII. The History of Civilization of the People of Assam — P. C. Choudhury\nIV. The Quest for Modern Assam: A History 1942-2000 — Arupjyoti Saikia",["One", "Two", "Three", "Four"],1,"III and IV are correct. The titles in I and II are swapped.","MVI – GS (08/2024) Q.17"),
+    Q("Which play is not written by Arun Sarma?",["Aahar", "Purush", "Baowna", "Sri Nibaran Bhattacharyya"],2,"Answer: Baowna.","MVI – GS (08/2024) Q.19"),
+    Q("The Assamese book of fiction Asbanta Electron was authored by",["Parag Chaliha", "Saurabh Kumar Chaliha", "Bhabendra Nath Saikia", "Lakshmi Nandan Bora"],1,"Answer: Saurabh Kumar Chaliha.","MVI – GS (08/2024) Q.71"),
+    Q("A former parliamentarian from Assam authored The Red River and the Blue Hills. Who?",["Hem Barua", "Dinesh Chandra Goswami", "Renuka Devi Barkataki", "Tarun Gogoi"],0,"Answer: Hem Barua.","MVI – GS (08/2024) Q.72"),
+    Qf("Match the Book with its Author:\n\nList-I\na. Kathanibari Ghat\nb. Monchalekha\nc. The Comprehensive History of Assam\nd. Mariam Astin Athaba Hira Barua\n\nList-II\n1. Atul Chandra Hazarika\n2. H. K. Barpujari\n3. Mahim Bora\n4. Arupa Patangia Kalita",["a-1, b-3, c-2, d-4", "a-3, b-1, c-4, d-2", "a-3, b-1, c-2, d-4", "a-2, b-1, c-3, d-4"],2,"Correct pairs: Kathanibari Ghat: Mahim Bora; Monchalekha: Atul Chandra Hazarika; The Comprehensive History of Assam: H. K. Barpujari; Mariam Astin Athaba Hira Barua: Arupa Patangia Kalita.","MVI – GS (08/2024) Q.83"),
+    Q("Who was the first Editor of the nationalist newspaper Hindoo Patriot?",["Subhash Chandra Bose", "Girish Chandra Ghosh", "Harish Chandra Mukherjee", "Vinayak Damodar Savarkar"],1,"Answer: Girish Chandra Ghosh.","MVI – GS (08/2024) Q.6"),
+    Q("Who was the first Assamese recipient of the Sahitya Akademi Award?",["Dimbeswar Neog", "Jatindra Nath Duwara", "Atul Chandra Hazarika", "Raghunath Choudhary"],1,"Answer: Jatindra Nath Duwara.","MVI – GS (08/2024) Q.69"),
+    Q("Who was the first Secretary of the Assam Sahitya Sabha?",["Benudhar Rajkhowa", "Sarat Chandra Goswami", "Surjya Hazarika", "Lakshminath Bezbarua"],1,"⚠ Verify: this answer is less certain, please double-check. Answer: Sarat Chandra Goswami.","MVI – GS (08/2024) Q.77"),
+    Q("The first Assamese sonnet, Priyotomar Sithi, was written by",["Hemchandra Goswami", "Hemchandra Barua", "Chandra Kumar Agarwala", "Rajanikanta Bordoloi"],0,"Answer: Hemchandra Goswami.","MVI – GS (08/2024) Q.78"),
+    Q("The logo of the Assam Sahitya Sabha was designed by",["Sobha Brahma", "Jugal Das", "Mitradev Mahanta", "None of them"],2,"⚠ Verify: this answer is less certain, please double-check. Answer: Mitradev Mahanta.","MVI – GS (08/2024) Q.79"),
+    Qf("Match the Indian Classic (List-I) with its author (List-II):\n\nList-I\na. Gora\nb. The Guide\nc. Devdas\nd. Godan\n\nList-II\n1. Sarat Chandra Chattopadhyay\n2. Munshi Premchand\n3. R. K. Narayan\n4. Rabindranath Tagore",["a-3, b-4, c-1, d-2", "a-4, b-3, c-2, d-1", "a-1, b-3, c-4, d-2", "a-4, b-3, c-1, d-2"],3,"Correct pairs: Gora: Rabindranath Tagore; The Guide: R. K. Narayan; Devdas: Sarat Chandra Chattopadhyay; Godan: Munshi Premchand.","CCE (P) – GS-I (2025) Q.12"),
+    Q("Which writer from Assam is not a recipient of the Jnanpeeth Award?",["Birendra Kumar Bhattacharya", "Mamoni Raisom Goswami", "Sourav Kumar Chaliha", "Nilmani Phookan"],2,"The writer is Saurabh Kumar Chaliha, who did not receive the Jnanpith Award.","CCE (P) – GS-I (2025) Q.19"),
+    Qf("Match the authors (List-I) with their works (List-II):\n\nList-I\na. Hema Saraswati\nb. Bakul Kayastha\nc. Kaviraj Chakraborty\nd. Dutiram Hazarika\n\nList-II\n1. Kali Bharat Buranji\n2. Prahlada Charita\n3. Kitabat Manjari\n4. Sankhachuda Vadha",["a-3, b-2, c-4, d-1", "a-2, b-3, c-4, d-1", "a-2, b-3, c-1, d-4", "a-4, b-3, c-2, d-1"],1,"Correct pairs: Hema Saraswati: Prahlada Charita; Bakul Kayastha: Kitabat Manjari; Kaviraj Chakraborty: Sankhachuda Vadha; Dutiram Hazarika: Kali Bharat Buranji.","CCE (P) – GS-I (2025) Q.34"),
+    Qf("Which statements about the play Nil Darpan are true?\n1. It was written in 1860.\n2. Its author is Munshi Premchand.\n3. Its author is Dinabandhu Mitra.\n4. It portrayed the oppression of Bengal peasants by European indigo planters.",["1 and 2 only", "1, 3 and 4 only", "2, 3 and 4 only", "1, 2 and 4 only"],1,"Nil Darpan was written by Dinabandhu Mitra in 1860, not by Premchand.","CCE (P) – GS-I (2025) Q.31")
+  ]),
+  mk("books-3","Assam Books and Authors Part 3",36,[
+    Qf("Consider the pairs of Assamese literary Magazines and Editors. How many are correct?\nI. Awhan — Raghunath Choudhary\nII. Jayanti — Dina Nath Sarma\nIII. Jonaki — Chandra Kumar Agarwala\nIV. Monideep — Mahendra Bora",["One", "Two", "Three", "Four"],2,"⚠ Verify: this answer is less certain, please double-check. II, III and IV are correct.","Inspector of Schools – GS (07/2025) Q.48"),
+    Qf("Consider the pairs of Literary Works and Authors. How many are correct?\nI. Ram Navami — Gunabhiram Barua\nII. Kaniyar Kirtan — Hemchandra Barua\nIII. Gyanmalini — Mafizuddin Ahmed Hazarika\nIV. Omar Tirtha — Jatindranath Duwara",["One", "Two", "Three", "Four"],3,"⚠ Verify: this answer is less certain, please double-check. All four pairs are correct.","Inspector of Schools – GS (07/2025) Q.49"),
+    Qf("Consider the pairs of Sobriquets and Poets. How many are incorrect?\nI. Nijarar Kavi — Sailadhar Rajkhowa\nII. Dhwani Kavi — Binanda Chandra Barua\nIII. Geetikavi — Parvati Prasad Barua\nIV. Sewali Kavi — Chandra Kumar Agarwala",["One", "Two", "Three", "Four"],0,"⚠ Verify: this answer is less certain, please double-check. Only IV is incorrect. Sewali Kobi is Ratnakanta Barkakati.","Inspector of Schools – GS (07/2025) Q.50"),
+    Q("Jibanar Batat was written by Binanda Chandra Baruah under one pen name; Seuti Pator Kahini under another. Select the correct pen names.",["Rashna Baruah and Madhavi Baruah", "Bina Baruah and Dhwani Kanta", "Bina Baruah and Rashna Baruah", "Dhwani Kanta and Pratima Baruah"],2,"Answer: Bina Baruah and Rashna Baruah.","Inspector of Legal Metrology – GS Q.68"),
+    Q("Which is the first novel in the Assamese language?",["Bhanumati", "Miri Jiyori", "Bidhi", "Nomal"],0,"Answer: Bhanumati.","JE Mechanical – GS (18/2025) Q.70"),
+    Q("Who wrote Amuktamalyada?",["Krishnadevaraya", "Pulakeshin II", "Harshavardhana", "Bhamaha"],0,"Answer: Krishnadevaraya.","JE Mechanical – GS (18/2025) Q.73"),
+    Q("Which is not correctly matched? (Book — Writer)",["Humayun Nama — Gulbadan Begum", "Akbar Nama — Abul Fazl", "Kitab-ul-Hind — Al-Biruni", "Tughlaq Nama — Ibn Battuta"],3,"Tughlaq Nama is by Amir Khusrau.","JE Mechanical – GS (18/2025) Q.77"),
+    Q("For which book did Sameer Tanti receive the Sahitya Akademi Award 2024 in Assamese?",["Bhul Satya", "Foringbure Bator Kotha Jane", "Vaal Kota Jui", "Sakalu Bichhedei Premer Path"],1,"The book is Pharingbore Bator Katha Jane.","JE Mechanical – GS (18/2025) Q.39"),
+    Q("The famous book India Wins Freedom is the autobiography of",["Bipin Chandra Pal", "Bal Gangadhar Tilak", "Maulana Abul Kalam Azad", "Lala Lajpat Rai"],2,"Answer: Maulana Abul Kalam Azad.","JE PHE – GS (27/2025) Q.25"),
+    Q("How many 'Ghoshas' are incorporated in the Namghosa?",["1000", "1500", "2000", "2200"],0,"Answer: 1000.","JE PHE – GS (27/2025) Q.21"),
+    Q("Kirtan Ghosa, a religious text of the Vaishnavite tradition, was written by",["Tulsidas", "Kabir", "Guru Nanak", "Srimanta Sankardeva"],3,"Answer: Srimanta Sankardeva.","JE PHE – GS (27/2025) Q.70"),
+    Q("The Jnanpith Award was conferred on Birendra Kumar Bhattacharya for his book",["Sagartalir Sankha", "Mamare Dhara Tarowal", "Mritunjay", "Surujmukhir Swapna"],2,"Answer: Mritunjay.","JE PHE – GS (27/2025) Q.81"),
+    Q("Who is the author of To Cancer, with Love: My Journey of Joy?",["Yuvraj Singh", "Sharat Kumar", "Neelam Misra", "Neelam Kumar"],3,"Answer: Neelam Kumar.","JE PHE – GS (27/2025) Q.97"),
+    Q("Assam Buranji, authored by Haliram Dhekial Phukan, was published in 1829 in which language?",["Assamese", "English", "Sanskrit", "Bengali"],3,"Answer: Bengali.","JE Soil (Civil) – GK (26/2025) Q.52"),
+    Q("Who is the writer of A Comprehensive History of Assam?",["Swarnalata Barua", "Dambarudhar Nath", "H. K. Barpujari", "S. K. Bhuyan"],0,"⚠ Verify: this answer is less certain, please double-check. Answer: Swarnalata Barua.","JE Soil (Civil) – GK (26/2025) Q.75"),
+    Qf("Match the Assamese Novels (List-I) with the Writers (List-II):\n\nList-I\na. Ayanaanta\nb. Asimat Jar Heral Seema\nc. Maharathi\nd. Debabala\n\nList-II\n1. Manikuntala Bhattacharya\n2. Arupa Patangia Kalita\n3. Kanchan Baruah\n4. Chandra Prasad Saikia",["a-2, b-1, c-4, d-3", "a-1, b-2, c-4, d-3", "a-2, b-1, c-3, d-4", "a-4, b-1, c-2, d-3"],0,"⚠ Verify: this answer is less certain, please double-check. Correct pairs: Ayanaanta: Arupa Patangia Kalita; Asimat Jar Heral Seema: Manikuntala Bhattacharya; Maharathi: Chandra Prasad Saikia; Debabala: Kanchan Baruah.","JE Soil (Civil) – GK (26/2025) Q.76"),
+    Q("Yatriker Yatra is the first Assamese translation of an English novel entitled",["Born Free", "A Journey to the Centre of the Earth", "The Pilgrim's Progress", "Far from the Madding Crowd"],2,"Answer: The Pilgrim's Progress.","JE Soil (Civil) – GK (26/2025) Q.100"),
+    Q("Which Buranjis were written by Ratna Kandali and Arjun Das Bairagi?",["Tripura Buranji", "Kachari Buranji and Asom Buranji", "Tripura Buranji and Kamrup Buranji", "Kachari Buranji"],2,"⚠ Verify: this answer is less certain, please double-check. Answer: Tripura Buranji and Kamrup Buranji.","AAO APDCL – GK (Paper I, Part II) Q.44"),
+    Qf("Match the Assamese novels (List-I) with the authors (List-II):\n\nList-I\na. Sahebpurar Boroshun\nb. Pallavi Prithvi\nc. Urmilar Sokulu\nd. Mare Asom Jive Kun\n\nList-II\n1. Rita Choudhury\n2. Anuradha Sharma Pujari\n3. Nirupama Borgohain\n4. Kanchan Baruah",["a-3, b-2, c-4, d-1", "a-2, b-3, c-4, d-1", "a-2, b-3, c-1, d-4", "a-4, b-3, c-2, d-1"],1,"⚠ Verify: this answer is less certain, please double-check. Correct pairs: Sahebpurar Boroshun: Anuradha Sharma Pujari; Pallavi Prithvi: Nirupama Borgohain; Urmilar Sokulu: Kanchan Baruah; Mare Asom Jive Kun: Rita Choudhury.","AAO AEGCL – GK (Paper I, Part II) Q.48"),
+    Qf("Match the books with their authors:\n\nList-I\nI. Bon Phul\nII. Bhool Satya\nIII. Iyat Akhon Aranya Asil\nIV. Bhaskaracaritam\n\nList-II\n1. Anuradha Sharma Pujari\n2. Jatindra Nath Duwara\n3. Dipak Kumar Sharma\n4. Manoj Kumar Goswami",["I-2, II-4, III-1, IV-3", "I-4, II-2, III-1, IV-3", "I-2, II-4, III-3, IV-1", "I-1, II-4, III-2, IV-3"],0,"Correct pairs: Bon Phul: Jatindra Nath Duwara; Bhool Satya: Manoj Kumar Goswami; Iyat Akhon Aranya Asil: Anuradha Sharma Pujari; Bhaskaracaritam: Dipak Kumar Sharma.","Inspector of Statistics – GK (03/2025) Q.19"),
+    Q("Dilbar and Dosai drew scenes from the Ahom Royal Court. The compilation of such art is found in the manuscript known as",["Darrang Raj Vansaulai", "Dharma Puran", "Sankhachuda-Vadha", "Hastividyarnava"],3,"Answer: Hastividyarnava.","Law Assistant – GA-II (03/2024) Q.22"),
+    Qf("Match the prize-winning Assamese books (List-I) with the authors (List-II):\n\nList-I\na. Patal Bhairavi\nb. Iyaruingam\nc. Aghari Atmar Kahini\nd. Jangam\n\nList-II\n1. Devendranath Acharya\n2. Lakshmi Nandan Bora\n3. Birendra Kumar Bhattacharya\n4. Syed Abdul Malik",["a-3, b-2, c-4, d-1", "a-2, b-3, c-1, d-4", "a-2, b-3, c-4, d-1", "a-4, b-3, c-2, d-1"],2,"Correct pairs: Patal Bhairavi: Lakshmi Nandan Bora; Iyaruingam: Birendra Kumar Bhattacharya; Aghari Atmar Kahini: Syed Abdul Malik; Jangam: Devendranath Acharya.","Law Assistant – GA-II (03/2024) Q.58"),
+    Q("Which is not a literary work of Mahapurush Srimanta Sankardeva?",["Bhakti Ratnawali", "Anadi Patana", "Ajamila Upakhyana", "Bhakti Pradipa"],0,"Bhakti Ratnavali is Madhavdev's work.","Law Assistant – GA-II (03/2024) Q.59"),
+    Qf("Match the names of books with the names of authors:\n\nList-I\na. Sugandhi Pokhila\nb. Mayabritta\nc. Dhanya Nara Tanu Bhal\nd. Agnissan\n\nList-II\n1. Bhabendra Nath Saikia\n2. Syed Abdul Malik\n3. Reeta Choudhury\n4. Hiren Bhattacharya",["a-4, b-3, c-2, d-1", "a-3, b-4, c-2, d-1", "a-4, b-3, c-1, d-2", "a-2, b-3, c-4, d-1"],0,"Correct pairs: Sugandhi Pokhila: Hiren Bhattacharya; Mayabritta: Reeta Choudhury; Dhanya Nara Tanu Bhal: Syed Abdul Malik; Agnissan: Bhabendra Nath Saikia.","JAA – GS (24/2024) Q.22"),
+    Qf("Which statements is/are not correct?\nI. The Jnanpith Award is presented once in four years.\nII. The latest person from Assam to receive it was Indira Goswami.\nIII. Birendra Kumar Bhattacharya was the first from Assam to get it, in 1979.\nIV. Nilamoni Phukan received it for the year 2021.",["I and II", "II and III", "III and IV", "I and IV"],0,"The Jnanpith is awarded yearly, and the latest Assam winner is Nilmani Phookan (2021).","JAA – GS (24/2024) Q.23"),
+    Qf("Which statements are correct?\nI. Kirtan Ghosha was composed by Madhavdev and Srimanta Sankardeva.\nII. Dharmapustak, the Assamese Bible, was translated by Atmaram Sarma at the initiative of the Baptist Missionary.\nIII. Kaviraja Madhava Kandali was notable for the earliest rendering of the Valmiki-Ramayana into Assamese.\nIV. Bholanath Borooah, after whom B. Borooah College was named, was a pioneer Assamese businessman.",["I, II and III", "II, III and IV", "I, III and IV", "I, II and IV"],1,"Kirtan Ghosha was composed by Sankardeva alone.","JAA – GS (24/2024) Q.25"),
+    Qf("Which pairs of names and nicknames do not match correctly?\nI. Mafizuddin Ahmed Hazarika — Papori Kabi\nII. Debakanta Barua — Atindriya badi Kabi\nIII. Radha Govinda Barua — Singha Purush\nIV. Ganesh Chandra Gogoi — Bihogi Kabi",["I and II", "II and III", "I and IV", "III and IV"],2,"Papori Kobi is Ganesh Gogoi and Bihogi Kobi is Raghunath Choudhary.","JAA – GS (24/2024) Q.28"),
+    Q("Name the author of the book Poverty and Un-British Rule in India.",["Lala Lajpat Rai", "Dadabhai Naoroji", "Bal Gangadhar Tilak", "Sardar Vallabhbhai Patel"],1,"Answer: Dadabhai Naoroji.","JAA – GS (24/2024) Q.67"),
+    Qf("Which dramas was/were not written by Srimanta Sankardeva?\n1. Keli Gopal\n2. Arjun Bhanjan\n3. Ram Vijay\n4. Rukmini Haran",["Only 1", "Only 2", "Only 3", "Only 4"],1,"Arjun Bhanjan is by Madhavdev.","Scientific Officer (Biology) & GS – Regional Lab (01/2025) Q.79"),
+    Qf("Which persons did not receive the Sahitya Akademi Award?\n1. Jatindra Nath Duwara\n2. Manikuntala Bhattacharya\n3. Jyoti Prasad Agarwala\n4. Anuradha Sharma Pujari",["1 and 2", "1 and 4", "2 and 3", "3 and 4"],2,"Answer: 2 and 3.","Scientific Officer (Biology) & GS – Regional Lab (01/2025) Q.80"),
+    Q("Which is not correctly matched?",["Mttcn — by Rita Chowdhury", "Mereng — written by Anuradha Sharma Pujari", "Maharothi — written by Chandra Prasad Saikia", "Mor Jivan Souravan — written by Homen Borgohain"],3,"⚠ Verify: this answer is less certain, please double-check. Answer: Mor Jivan Souravan — written by Homen Borgohain.","Steno Grade I (2025) Q.86"),
+    Q("Which statement regarding Bhabendranath Saikia is not correct?",["Awarded Sahitya Akademi Award in 1976.", "Awarded Assam Valley Literary Award in 1990.", "Awarded Saraswati Samman Award in 1995.", "Awarded Srimanta Sankardev Award in 1998."],2,"Answer: Awarded Saraswati Samman Award in 1995..","UTO – GS & English (29/2025) Q.46"),
+    Q("The book Planter Raj to Swaraj: Freedom Struggle and Electoral Politics in Assam 1826-1947 is written by",["Lakshminath Bezbarua", "Indira Goswami", "Amalendu Guha", "Birendra Kumar Bhattacharya"],2,"Answer: Amalendu Guha.","UTO – GS & English (29/2025) Q.48"),
+    Qf("About the Assamese magazine Assam Bandhu, identify the correct statements:\n(i) A monthly magazine covering science, arts and literature.\n(ii) Started and edited by Gunabhiram Barua.\n(iii) Edited at Nagaon and printed at Calcutta (Kolkata).\n(iv) Only twelve issues were published.",["(i), (ii) and (iii) only", "(ii), (iii) and (iv) only", "(i), (ii) and (iv) only", "(i), (ii), (iii) and (iv)"],3,"⚠ Verify: this answer is less certain, please double-check. Answer: (i), (ii), (iii) and (iv).","UTO – GS & English (29/2025) Q.77"),
+    Q("Which book is the most important literary source for the study of the early history of Assam?",["The Mahabharata", "Harshacharita", "Kalika Purana", "Arthashastra"],2,"Answer: Kalika Purana.","UTO – GS & English (29/2025) Q.78"),
+    Qf("Identify the correct statements:\n(i) Awhan was first published in 1929 and continued for more than forty years.\n(ii) The Assamese State song 'O Mor Apunar Desh' was first published in Banhi in 1909.\n(iii) A new era (Jonaki Yuga) of modern Assamese literature began around the magazine Jonaki.\n(iv) Orunodoi was the first Assamese monthly magazine, from Sibsagar, launched by American Baptist missionaries, with Dr. Nathan Brown as first editor.",["(i), (ii) and (iii) only", "(ii), (iii) and (iv) only", "(i), (ii) and (iv) only", "(i), (ii), (iii) and (iv)"],3,"Answer: (i), (ii), (iii) and (iv).","UTO – GS & English (29/2025) Q.82")
+  ])
+);
+
+/* top:true = shown on the home page. kind:"folder" = opens a list of kids. Others hold tests. */
+const NODES = [
+  { id:"apsc",   title:"APSC PYQ Series", kind:"folder", top:true, kids:["evs","history","books","maths"] },
+  { id:"adre",   title:"ADRE", top:true, list:ADRE },
+  { id:"ctet",   title:"CTET", top:true, list:CTET },
+  { id:"ghc",    title:"Guwahati High Court", top:true, list:GHC },
+  { id:"ca",     title:"Current Affairs Test Based on Assam Tribune", top:true, list:CURRENT },
+  { id:"others", title:"Other Assam Government Exams", kind:"folder", top:true, kids:["bed","dept"] },
+  { id:"evs",     title:"Environmental Science Test Series", route:"evs" },
+  { id:"history", title:"Assam History PYQ Test", list:HISTORY },
+  { id:"books",   title:"APSC Books and Authors", list:BOOKS },
+  { id:"maths",   title:"APSC PYQ Maths", list:MATHS },
+  { id:"bed",     title:"BEd Entrance Exam", list:BED },
+  { id:"dept",    title:"Departmental Exam", list:DEPT }
+];
+NODES.forEach(n=>{ if(n.list){ n.cat="n-"+n.id; n.list.forEach(t=>{ t.cat=n.cat; TESTS.push(t); }); } });
+const nodeOf = id => NODES.find(n=>n.id===id);
+const parentOf = id => NODES.find(n=>n.kids && n.kids.includes(id));
+const nodeOfTest = t => NODES.find(n=>n.cat && n.cat===t.cat);
+const testsOfNode = n => TESTS.filter(t=>t.cat===n.cat);
 const getPart = id => [...APSC_ECOLOGY, ...APSC_BIOMES].find(t=>t.id===id);
 const U1 = UNITS[0];
 const U1_PLAN = [
@@ -783,23 +960,27 @@ const U1_PLAN = [
   { id:"pop",  title:U1.topics[4].h, desc:U1.topics[4].t, ids:["apsc-eco-11"], combined:false }
 ];
 U1.sections = [];
+/* split a long single test into smaller separate tests of about 12 questions */
+function splitTest(t, size){
+  const n = Math.ceil(t.questions.length/size), per = Math.ceil(t.questions.length/n), out = [];
+  for(let i=0;i<n;i++){
+    const qs = t.questions.slice(i*per,(i+1)*per);
+    out.push({ ...t, id:t.id+"-p"+(i+1), title:t.title+" Part "+(i+1), questions:qs, minutes:Math.max(8,qs.length) });
+  }
+  return out;
+}
 U1_PLAN.forEach(sec=>{
-  const parts = sec.ids.map(getPart);
+  let parts = sec.ids.map(getPart);
+  if(!sec.combined && sec.id!=="pyq"){
+    parts = parts.flatMap(p => p.questions.length>15 ? splitTest(p,12) : [p]);
+  }
   parts.forEach(p=>{ p.unit="u1"; p.sec=sec.id; });
   const list = [];
-  if(sec.combined){
-    const qs = uniqueQs(parts);
-    TESTS.push({ id:"u1-"+sec.id+"-all", cat:"apsc-evs", unit:"u1", sec:sec.id, derived:true,
-      title: sec.title+" – Complete Test", minutes:Math.round(qs.length*0.75), free:true, questions:qs, feat:true });
-    list.push("u1-"+sec.id+"-all");
-  }
   parts.forEach(p=>{ TESTS.push(p); list.push(p.id); });
   U1.sections.push({ id:sec.id, title:sec.title, desc:sec.desc, tests:list });
 });
 const POOL = uniqueQs([...APSC_ECOLOGY, ...APSC_BIOMES]);
-TESTS.unshift({ id:"u1-mixed", cat:"apsc-evs", unit:"u1", derived:true, feat:true, random:100,
-  title:"Unit I – Mixed Mock (100 random questions)", minutes:75, free:true, questions:POOL });
-getPart("apsc-eco-14").feat = true;
+["apsc-eco-14","apsc-eco-1","apsc-eco-7-p1","apsc-eco-10"].forEach(id=>{ const t=TESTS.find(x=>x.id===id); if(t) t.feat=true; });
 
 /* =====================================================
    4. APP CODE (you normally don't need to edit below)
@@ -866,7 +1047,7 @@ function openLogin(){
   loadGoogle(ok=>{
     if(!ok){ msg.style.color="var(--bad)"; msg.textContent="Could not load Google sign-in. Check your internet connection and try again."; return; }
     google.accounts.id.initialize({ client_id:SITE.googleClientId, callback:handleCredential, auto_select:false });
-    google.accounts.id.renderButton(box, { theme:"outline", size:"large", text:"signin_with", shape:"pill", width:280 });
+    google.accounts.id.renderButton(box, { theme:"filled_blue", size:"large", text:"continue_with", shape:"pill", width:280 });
   });
 }
 function closeLogin(){ const d=$("#loginDlg"); if(d && d.open) d.close(); pendingTest=null; }
@@ -915,10 +1096,12 @@ function go(v, arg){
 window.addEventListener("hashchange", render);
 function render(){
   const [v, arg] = (location.hash.replace("#","")||"home").split("/");
-  const navv = (v==="unit"||v==="start") ? "series" : v;
+  const navv = ["unit","start","evs","sec","series"].includes(v) ? "sec" : v;
   document.querySelectorAll(".links button").forEach(b=>b.classList.toggle("on", b.dataset.v===navv));
   window.scrollTo(0,0);
-  if(v==="series") return viewSeries();
+  if(v==="series") return viewNode("apsc");
+  if(v==="evs") return viewEvs();
+  if(v==="sec") return viewNode(arg);
   if(v==="unit") return viewUnit(arg);
   if(v==="leaderboard") return viewLeaderboard();
   if(v==="results") return viewResults();
@@ -935,7 +1118,6 @@ const testsOfUnit = u => TESTS.filter(t=>t.unit===u.id);
 function testTile(t){
   const n = t.random || t.questions.length;
   return `<div class="card tile ${t.derived?'hl':''}" onclick="go('start','${t.id}')">
-    <div class="ico">${t.derived?'🎯':'📝'}</div>
     <h3>${esc(t.title)}</h3>
     <small>${n} MCQs${t.random?' (new set every attempt)':''} · ${t.minutes} min</small>
     <span class="badge">FREE</span>
@@ -943,7 +1125,7 @@ function testTile(t){
 }
 function unitTile(u){
   return `<div class="card tile" onclick="go('unit','${u.id}')">
-    <div class="ico">${u.icon}</div><h3>Unit ${u.no}: ${esc(u.title)}</h3>
+    <h3>Unit ${u.no}: ${esc(u.title)}</h3>
     <small>${u.ready ? POOL.length+' MCQs · '+testsOfUnit(u).length+' tests' : u.topics.length+' syllabus topics'}</small>
     <span class="badge ${u.ready?'':'soon'}">${u.ready?'LIVE':'COMING SOON'}</span>
   </div>`;
@@ -951,61 +1133,55 @@ function unitTile(u){
 function totalMcqs(){ return POOL.length; }
 
 /* ---- HOME ---- */
-let sampleChoice = null;
+const ICON = {
+  folder:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>`,
+  file:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>`,
+  test:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 14l2 2 4-4"/></svg>`,
+  go:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`
+};
+function nodeMeta(n){
+  if(n.route) return UNITS.length+" Units · "+POOL.length+" MCQs";
+  if(n.kids){ const c=n.kids.length; return c+(c===1?" Section":" Sections"); }
+  const ts = testsOfNode(n);
+  if(!ts.length) return "Coming soon";
+  const q = ts.reduce((a,t)=>a+(t.random||t.questions.length),0);
+  return ts.length+(ts.length===1?" Test":" Tests")+" · "+q+" MCQs";
+}
+function nodeGo(n){ return n.route ? `go('${n.route}')` : `go('sec','${n.id}')`; }
+function nodeCard(n){
+  return `<div class="org" onclick="${nodeGo(n)}">
+    <div class="oi">${n.kids||n.route?ICON.folder:ICON.file}</div>
+    <div class="ot"><b>${esc(n.title)}</b><small>${nodeMeta(n)}</small></div>
+    <span class="ch">${ICON.go}</span></div>`;
+}
+function testRow(t){
+  const n = t.random || t.questions.length;
+  return `<div class="org" onclick="go('start','${t.id}')">
+    <div class="oi">${ICON.test}</div>
+    <div class="ot"><b>${esc(t.title)}</b><small>${n} MCQs · ${t.minutes} min</small></div>
+    <span class="ch">${ICON.go}</span></div>`;
+}
 function viewHome(){
-  const s = POOL[0];
   const board = leaderboardData().slice(0,3);
   const feat = TESTS.filter(t=>t.feat).slice(0,4);
   app.innerHTML = `
-  <div class="wrap">
-    <div class="hero">
-      <div>
-        <span class="pill">Free · Sign in with Google to save your progress</span>
-        <h1>Crack APSC <em>Environmental Science</em> with The Duo</h1>
-        <p class="sub">Syllabus-wise mock test series for APSC Forest Ranger / Soil Conservation Ranger. Timed tests with negative marking, explanations for every answer, and a weekly leaderboard.</p>
-        <a class="btn primary" onclick="go('series')">Start Practicing Free</a>
-        <a class="btn red" href="${SITE.youtube}" target="_blank" rel="noopener">▶ Watch on YouTube</a>
-        <div class="stats">
-          <div><b>${totalMcqs()}+</b><small>MCQs</small></div>
-          <div><b>${TESTS.filter(t=>!t.derived).length}</b><small>Topic tests</small></div>
-          <div><b>${UNITS.length}</b><small>Syllabus units</small></div>
+  <div class="wrap" style="padding-top:24px">
+    <section class="blk" style="margin-top:0">
+      <div class="sh"><h2 class="lab">Browse by Exam</h2></div>
+      <div class="orggrid">${NODES.filter(n=>n.top).map(nodeCard).join("")}</div>
+    </section>
+
+    <section class="blk">
+      <div class="twocol">
+        <div>
+          <div class="sh"><h2 class="lab">Featured Tests</h2><a onclick="go('sec','apsc')">View All</a></div>
+          ${feat.map(testRow).join("")}
         </div>
-      </div>
-      <div class="card sample" id="sample">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-          <div class="tag">TRY A SAMPLE MCQ</div>${langSeg('setLang')}
+        <div>
+          <div class="sh"><h2 class="lab">Top 3 This Week</h2><a onclick="go('leaderboard')">View All</a></div>
+          <div class="card">${board.length? board.map(lbRow).join("") :
+            `<div class="empty">No scores yet. Finish a test to claim the first spot!</div>`}</div>
         </div>
-        <div class="q">${esc(tx(s.q))}</div>
-        ${s.o.map((o,i)=>`<button class="opt ${sampleClass(i,s)}" onclick="pickSample(${i})">
-          <span class="l">${"ABCD"[i]}</span><span>${esc(tx(o))}</span></button>`).join("")}
-        ${sampleChoice!==null && s.exp ? `<div class="expl"><b>Explanation:</b> ${esc(s.exp)}</div>` : ''}
-        <small style="color:var(--muted)">Tap an option — this is how every test works.</small>
-      </div>
-    </div>
-
-    <section class="blk">
-      <div class="sh"><h2>Syllabus Units</h2><a onclick="go('series')">View All</a></div>
-      <div class="grid">${UNITS.map(unitTile).join("")}</div>
-    </section>
-
-    <section class="blk">
-      <div class="sh"><h2>Featured Tests</h2><a onclick="go('unit','u1')">View All</a></div>
-      <div class="grid">${feat.map(testTile).join("")}</div>
-    </section>
-
-    <section class="blk">
-      <div class="sh"><h2>Top 3 This Week</h2><a onclick="go('leaderboard')">View All</a></div>
-      <div class="card">${board.length? board.map(lbRow).join("") :
-        `<div class="empty">No scores yet. Finish a test to claim the first spot!</div>`}</div>
-    </section>
-
-    <section class="blk">
-      <div class="sh"><h2>Why The Duo Test</h2></div>
-      <div class="why">
-        <div class="card"><h3>Follows the APSC syllabus</h3><p>Tests are grouped unit by unit, exactly like the official syllabus.</p></div>
-        <div class="card"><h3>Real exam feel</h3><p>Timer plus ${SITE.negativeMarking} negative marking per wrong answer.</p></div>
-        <div class="card"><h3>Learn from mistakes</h3><p>Every question has an explanation, and past APSC questions are tagged.</p></div>
-        <div class="card"><h3>Works on any phone</h3><p>No app to install. Sign in with Google and start.</p></div>
       </div>
     </section>
 
@@ -1025,9 +1201,32 @@ function sampleClass(i,s){
 }
 function pickSample(i){ if(sampleChoice!==null) return; sampleChoice=i; viewHome(); }
 
-/* ---- TEST SERIES (all units) ---- */
-function viewSeries(){
+/* ---- breadcrumbs ---- */
+function trail(id){
+  const n = nodeOf(id), p = parentOf(id);
+  return (p?trail(p.id)+" › ":`<a onclick="go('home')">Home</a> › `)+`<a onclick="${nodeGo(n)}">${esc(n.title)}</a>`;
+}
+const CRUMB_EVS = {toString(){ return trail("evs"); }};
+
+/* ---- FOLDER OR TEST LIST PAGE ---- */
+function viewNode(id){
+  const n = nodeOf(id); if(!n) return go("home");
+  if(n.route) return go(n.route);
+  const p = parentOf(id);
+  let body;
+  if(n.kids) body = `<div class="orggrid">${n.kids.map(k=>nodeCard(nodeOf(k))).join("")}</div>`;
+  else { const list = testsOfNode(n); body = list.length ? `<div class="grid">${list.map(testTile).join("")}</div>` : `<div class="empty">No tests added yet.</div>`; }
   app.innerHTML = `<div class="wrap" style="padding-top:24px">
+    <div class="crumb">${p?trail(p.id):`<a onclick="go('home')">Home</a>`} › ${esc(n.title)}</div>
+    <div class="sh"><h2>${esc(n.title)}</h2></div>
+    ${body}
+  </div>`;
+}
+
+/* ---- ENVIRONMENTAL SCIENCE TEST SERIES (all units) ---- */
+function viewEvs(){
+  app.innerHTML = `<div class="wrap" style="padding-top:24px">
+    <div class="crumb">${trail("evs")}</div>
     <div class="card" style="margin-bottom:22px">
       <span class="pill">APSC ADVT. NO 25/2025</span>
       <h2 style="margin:4px 0 6px">${esc(SERIES.title)}</h2>
@@ -1050,7 +1249,7 @@ function viewSeries(){
 
 /* ---- ONE UNIT ---- */
 function viewUnit(id){
-  const u = unitOf(id); if(!u) return go("series");
+  const u = unitOf(id); if(!u) return go("evs");
   let body;
   if(!u.ready){
     body = `<div class="card"><b>Syllabus topics</b>
@@ -1058,9 +1257,7 @@ function viewUnit(id){
       <p style="margin-top:14px;color:var(--muted)">Mock tests for this unit are being prepared. Subscribe on YouTube to know when they go live.</p>
       <p style="margin-top:12px"><a class="btn red" href="${SITE.youtube}" target="_blank" rel="noopener">▶ The Duo on YouTube</a></p></div>`;
   } else {
-    const mixed = TESTS.find(t=>t.id==="u1-mixed");
-    body = `<div class="grid">${testTile(mixed)}</div>` +
-      u.sections.map(sec=>`
+    body = u.sections.map(sec=>`
         <div class="secbox">
           <h3>${esc(sec.title)}</h3>
           <div class="desc">${esc(sec.desc)}</div>
@@ -1068,7 +1265,7 @@ function viewUnit(id){
         </div>`).join("");
   }
   app.innerHTML = `<div class="wrap" style="padding-top:24px">
-    <div class="crumb"><a onclick="go('series')">Test Series</a> › Unit ${u.no}</div>
+    <div class="crumb">${CRUMB_EVS} › Unit ${u.no}</div>
     <div class="sh"><h2>Unit ${u.no}: ${esc(u.title)}</h2></div>
     ${body}
   </div>`;
@@ -1082,7 +1279,7 @@ function viewStart(id){
   const best = past.length ? Math.max(...past.map(a=>a.pct)) : null;
   const n = t.random || t.questions.length;
   app.innerHTML = `<div class="wrap" style="padding-top:24px;max-width:640px">
-    ${u?`<div class="crumb"><a onclick="go('series')">Test Series</a> › <a onclick="go('unit','${u.id}')">Unit ${u.no}</a></div>`:''}
+    <div class="crumb">${u?`${CRUMB_EVS} › <a onclick="go('unit','${u.id}')">Unit ${u.no}</a>`:(nodeOfTest(t)?trail(nodeOfTest(t).id):`<a onclick="go('home')">Home</a>`)}</div>
     <div class="card">
       <span class="badge">FREE</span>
       <h2 style="margin:10px 0 4px">${esc(t.title)}</h2>
@@ -1096,10 +1293,22 @@ function viewStart(id){
       ${t.random?'<p style="color:var(--muted);margin-bottom:14px">Each attempt picks a fresh random set of questions from the whole unit.</p>':''}
       ${HAS_AS()?`<p style="margin-bottom:14px;color:var(--muted)">Choose your language. You can switch it during the test too.</p>
       <div style="margin-bottom:18px">${langSeg('setLangStart')}</div>`:''}
-      ${needLogin()?'<p style="margin-bottom:12px;color:var(--muted)">Sign in with Google to take this test.</p>':''}
-      <button class="btn primary" onclick="startTest('${t.id}')">${needLogin()?'Sign in & Start':'Start Test'}</button>
-      <button class="btn ghost" onclick="${u?`go('unit','${u.id}')`:`go('series')`}">Back</button>
+      ${needLogin()?'<p style="margin-bottom:12px;color:var(--muted)">Sign in with Google to take this test. One tap, no separate sign-up.</p>':''}
+      ${needLogin() && SITE.googleClientId ? '<div id="gInline" style="min-height:44px;margin-bottom:14px"></div>'
+        : `<button class="btn primary" onclick="startTest('${t.id}')">${needLogin()?'Sign in & Start':'Start Test'}</button>`}
+      <button class="btn ghost" onclick="${u?`go('unit','${u.id}')`:(nodeOfTest(t)?`go('sec','${nodeOfTest(t).id}')`:`go('home')`)}">Back</button>
     </div></div>`;
+  if(needLogin() && SITE.googleClientId) inlineGoogle(id);
+}
+function inlineGoogle(id){
+  const box = $("#gInline"); if(!box) return;
+  pendingTest = id;
+  loadGoogle(ok=>{
+    if(!ok){ box.innerHTML = `<button class="btn primary" onclick="startTest('${id}')">Sign in & Start</button>`; return; }
+    google.accounts.id.initialize({ client_id:SITE.googleClientId, callback:handleCredential, auto_select:true });
+    google.accounts.id.renderButton(box, { theme:"filled_blue", size:"large", text:"continue_with", shape:"pill", width:280 });
+    google.accounts.id.prompt();   // Google One Tap for returning users
+  });
 }
 function setLangStart(l){ LANG=l; localStorage.setItem("duo_lang",l); viewStart(location.hash.split("/")[1]); }
 
@@ -1112,7 +1321,7 @@ function shuffleArr(a){
   return a;
 }
 function shuffleQ(q){
-  if(!SITE.shuffleOptions) return q;
+  if(!SITE.shuffleOptions || q.fixed) return q;
   if(q.o.some(x=>REF_O.test(x.en)||/^\(?[A-D]\)?\s*(and|&)\s/.test(x.en)) || REF_E.test(q.exp||"")) return q;
   const idx = shuffleArr([0,1,2,3]);
   return { ...q, o: idx.map(i=>q.o[i]), a: idx.indexOf(q.a) };
@@ -1149,7 +1358,8 @@ function renderQuestion(){
   </div></div>
   <div class="wrap" style="max-width:720px">
     <div class="qbox card">
-      <div class="qno">Question ${T.i+1} of ${n}</div>
+      <div class="qno" style="display:flex;justify-content:space-between"><span>Question ${T.i+1} of ${n}</span><a style="cursor:pointer;color:var(--brand)" onclick="reportQ(${T.i})">Report</a></div>
+      ${q.src?`<div class="srctag">Exam: ${esc(q.src)}</div>`:''}
       <div class="qtext">${esc(tx(q.q))}</div>
       ${q.o.map((o,i)=>`<button class="opt ${T.ans[T.i]===i?'sel':''}" onclick="choose(${i})">
         <span class="l">${"ABCD"[i]}</span><span>${esc(tx(o))}</span></button>`).join("")}
@@ -1230,7 +1440,7 @@ function viewResult(){
       </div>
       <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
         <button class="btn primary" onclick="startTest('${t.id}')">Retry</button>
-        <button class="btn ghost" onclick="go('series')">More Tests</button>
+        <button class="btn ghost" onclick="go('home')">More Tests</button>
         <button class="btn ghost" onclick="go('leaderboard')">Leaderboard</button>
         <button class="btn ghost" onclick="shareScore()">Share</button>
       </div>
@@ -1244,12 +1454,53 @@ function viewResult(){
 function setLangResult(l){ LANG=l; localStorage.setItem("duo_lang",l); viewResult(); }
 function reviewItem(q,i,pick){
   return `<div class="card rev" style="margin-bottom:12px">
-    <div class="qno">Q${i+1}${pick===null?' · Skipped':pick===q.a?' · Correct ✅':' · Wrong ❌'}</div>
+    <div class="qno" style="display:flex;justify-content:space-between"><span>Q${i+1}${pick===null?' · Skipped':pick===q.a?' · Correct ✅':' · Wrong ❌'}</span><a style="cursor:pointer;color:var(--brand)" onclick="reportQ(${i})">Doubt? Report</a></div>
+    ${q.src?`<div class="srctag">Exam: ${esc(q.src)}</div>`:''}
     <div class="qtext" style="font-size:17px">${esc(tx(q.q))}</div>
     ${q.o.map((o,k)=>`<div class="opt ${k===q.a?'right':(k===pick?'wrong':'')}" style="cursor:default">
       <span class="l">${"ABCD"[k]}</span><span>${esc(tx(o))}</span></div>`).join("")}
     ${q.exp?`<div class="expl"><b>Explanation:</b> ${esc(q.exp)}</div>`:''}
   </div>`;
+}
+/* ---- report a doubtful question ---- */
+let RPT = null;
+function reportQ(i){
+  if(!T) return;
+  RPT = { test:T.test, i, q:T.test.questions[i], pick:T.ans[i] };
+  const d = $("#reportDlg");
+  $("#rpNote").value = ""; $("#rpMsg").textContent = "";
+  $("#rpWa").classList.toggle("hidden", !SITE.reportWhatsApp);
+  $("#rpMail").classList.toggle("hidden", !SITE.reportEmail);
+  if(!SITE.reportWhatsApp && !SITE.reportEmail) $("#rpMsg").textContent = "Tap Copy and send the text to The Duo on YouTube or WhatsApp.";
+  d.showModal();
+}
+function reportText(){
+  const {test,i,q,pick} = RPT, u = getUser();
+  const L = x => "ABCD"[x];
+  return [
+    "QUESTION REPORT - The Duo Test",
+    "Test: "+test.title+" ("+test.id+")",
+    "Question number in this attempt: "+(i+1),
+    "Question: "+(q.q.en||""),
+    q.o.map((o,k)=>L(k)+") "+(o.en||"")).join("\n"),
+    "Answer in key: "+L(q.a)+") "+(q.o[q.a].en||""),
+    "Student chose: "+(pick===null?"not answered":L(pick)+") "+(q.o[pick].en||"")),
+    "Reason: "+$("#rpReason").value,
+    "Note: "+($("#rpNote").value.trim()||"-"),
+    "From: "+(u?u.name+(u.email?" ("+u.email+")":""):"unknown")
+  ].join("\n");
+}
+function sendReport(how){
+  if(!RPT) return;
+  const text = reportText(), msg = $("#rpMsg");
+  if(how==="wa"){ window.open("https://wa.me/"+SITE.reportWhatsApp+"?text="+encodeURIComponent(text),"_blank"); }
+  else if(how==="mail"){ location.href = "mailto:"+SITE.reportEmail+"?subject="+encodeURIComponent("Question report: "+RPT.test.title)+"&body="+encodeURIComponent(text); }
+  else {
+    try{ navigator.clipboard.writeText(text); msg.textContent = "Copied. Paste it to The Duo."; }
+    catch(e){ msg.textContent = "Could not copy. Please select and copy the question manually."; }
+    return;
+  }
+  msg.textContent = "Thank you. Your report is ready to send.";
 }
 function shareScore(){
   const text = `I scored ${LAST.pct}% in "${LAST.title}" on The Duo Test (${SERIES.short})! Try it: ${location.href.split("#")[0]}`;
