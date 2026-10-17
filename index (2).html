@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Duo Test - APSC Environmental Science Mock Test Series</title>
+<meta name="description" content="Syllabus-wise mock test series for APSC Forest Ranger / Soil Conservation Ranger (Environmental Science). Timed tests with negative marking and explanations, by The Duo.">
+<style>
+
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1b2133; --muted:#667085; --line:#e4e7ef;
+  --brand:#5b3df5; --brand2:#ff6b3d; --good:#12a150; --bad:#e5383b; --warn:#f59e0b;
+  --radius:16px; --shadow:0 6px 24px rgba(30,30,80,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Bengali","Noto Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* header */
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.3px;cursor:pointer}
+.logo span{background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:6px;align-items:center}
+.links button{background:none;padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600}
+.links button:hover,.links button.on{background:#eef0ff;color:var(--brand)}
+.yt{background:#ff0033!important;color:#fff!important}
+.menu-btn{display:none;background:none;font-size:24px}
+@media(max-width:720px){
+  .menu-btn{display:block}
+  .links{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:10px 16px;border-bottom:1px solid var(--line)}
+  .links.open{display:flex}
+}
+
+/* hero */
+.hero{padding:40px 0 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.pill{display:inline-block;background:#eef0ff;color:var(--brand);font-weight:700;font-size:13px;padding:5px 12px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-1px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{color:var(--muted);margin:14px 0 20px;font-size:17px}
+.btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:700}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn.ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.btn.red{background:#ff0033;color:#fff}
+.stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.stats b{display:block;font-size:24px}
+.stats small{color:var(--muted)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+.sample .tag{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:8px}
+.sample .q{font-weight:700;margin-bottom:12px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;margin-bottom:9px;color:var(--ink)}
+.opt:hover{border-color:var(--brand)}
+.opt .l{flex:none;width:26px;height:26px;border-radius:50%;background:#eef0ff;color:var(--brand);font-weight:800;display:grid;place-items:center;font-size:13px}
+.opt.sel{border-color:var(--brand);background:#f3f1ff}
+.opt.right{border-color:var(--good);background:#eafaf1}
+.opt.wrong{border-color:var(--bad);background:#fdecec}
+.opt.right .l{background:var(--good);color:#fff}
+.opt.wrong .l{background:var(--bad);color:#fff}
+.opt.sel .l{background:var(--brand);color:#fff}
+
+.seg{display:inline-flex;background:#eceef6;border-radius:10px;padding:3px}
+.seg button{background:none;padding:5px 12px;border-radius:8px;font-weight:700;color:var(--muted);font-size:13px}
+.seg button.on{background:#fff;color:var(--brand);box-shadow:0 1px 4px rgba(0,0,0,.1)}
+
+/* sections */
+section.blk{margin:34px 0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.sh h2{font-size:22px;letter-spacing:-.3px}
+.sh a{color:var(--brand);font-weight:700;font-size:14px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tile{cursor:pointer;transition:.15s;display:flex;flex-direction:column;gap:6px}
+.tile:hover{transform:translateY(-3px);border-color:var(--brand)}
+.tile .ico{font-size:28px}
+.tile h3{font-size:17px}
+.tile small{color:var(--muted)}
+.badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 8px;border-radius:99px;background:#eafaf1;color:var(--good);width:max-content}
+.badge.lock{background:#fff3e6;color:var(--brand2)}
+
+.lb-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.lb-row:last-child{border:0}
+.rank{width:28px;font-weight:800;color:var(--brand)}
+.av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
+.lb-row .grow{flex:1}
+.lb-row .pc{font-weight:800}
+.empty{color:var(--muted);padding:10px 0}
+
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.why .card h3{margin-bottom:4px;font-size:16px}
+.why .card p{color:var(--muted);font-size:14px}
+
+.cta{background:linear-gradient(135deg,var(--brand),#8b5cf6);color:#fff;border-radius:22px;padding:30px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta h2{font-size:24px}
+.cta p{opacity:.9}
+
+footer{background:#fff;border-top:1px solid var(--line);margin-top:50px;padding:30px 0;color:var(--muted);font-size:14px}
+.fgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+
+/* test */
+.tbar{position:sticky;top:60px;z-index:10;background:#fff;border-bottom:1px solid var(--line);padding:10px 0}
+.tbar .row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.timer{font-weight:800;font-variant-numeric:tabular-nums;background:#fff3e6;color:var(--brand2);padding:6px 12px;border-radius:10px}
+.timer.low{background:#fdecec;color:var(--bad)}
+.prog{height:6px;background:#eceef6;border-radius:99px;margin-top:10px;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));width:0;transition:.2s}
+.qbox{margin:18px 0}
+.qno{color:var(--muted);font-weight:700;font-size:13px;margin-bottom:6px}
+.qtext{font-size:19px;font-weight:700;margin-bottom:16px}
+.qtext small{display:block;font-size:15px;font-weight:600;color:var(--muted);margin-top:4px}
+.opt small{display:block;color:var(--muted);font-size:13px}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:8px}
+.palette{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.palette button{width:36px;height:36px;border-radius:10px;background:#fff;border:1.5px solid var(--line);font-weight:700;color:var(--muted)}
+.palette button.ans{background:var(--brand);border-color:var(--brand);color:#fff}
+.palette button.cur{outline:3px solid #c9c0ff}
+
+/* result */
+.score{text-align:center}
+.score .big{font-size:56px;font-weight:900;letter-spacing:-2px;background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0}
+.rgrid div{background:#f6f7fb;border-radius:12px;padding:12px}
+.rgrid b{display:block;font-size:22px}
+.expl{background:#f3f1ff;border-radius:10px;padding:10px 12px;margin:6px 0 18px;font-size:14px}
+.rev{margin-bottom:6px}
+.hidden{display:none!important}
+dialog{border:0;border-radius:16px;padding:24px;max-width:380px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(10,10,30,.5)}
+dialog input{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;margin:12px 0}
+
+/* ---- additions: series, units, login ---- */
+.userarea{display:flex;align-items:center;gap:8px}
+.userarea img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+.userarea .nm{font-weight:700;font-size:14px;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn.sm{padding:8px 14px;border-radius:10px;font-size:14px}
+.badge.soon{background:#eef0ff;color:var(--brand)}
+.crumb{color:var(--muted);font-size:14px;margin-bottom:12px}
+.crumb a{color:var(--brand);cursor:pointer;font-weight:700}
+.tile.hl{border-color:var(--brand);background:linear-gradient(135deg,#f3f1ff,#fff)}
+.secbox{margin:26px 0}
+.secbox h3{font-size:19px}
+.secbox .desc{color:var(--muted);font-size:14px;margin:2px 0 12px}
+.ucard{display:flex;gap:16px;align-items:flex-start;margin-bottom:14px;cursor:pointer;transition:.15s}
+.ucard:hover{border-color:var(--brand)}
+.ucard .no{flex:none;width:48px;height:48px;border-radius:14px;background:#eef0ff;color:var(--brand);font-weight:900;display:grid;place-items:center;font-size:17px}
+.ucard.soon .no{background:#f1f2f6;color:var(--muted)}
+.ucard h3{font-size:18px;margin-bottom:2px}
+.topic-list{margin:8px 0 0 18px;color:var(--muted);font-size:14px}
+.topic-list li{margin-bottom:3px}
+.topic-list b{color:var(--ink)}
+.row2{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.res-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.res-row:last-child{border:0}
+.res-row .grow{flex:1;min-width:0}
+code{background:#eef0ff;padding:1px 5px;border-radius:5px;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo" onclick="go('home')">The Duo <span>Test</span></div>
+    <button class="menu-btn" onclick="document.getElementById('links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <nav class="links" id="links">
+      <button data-v="home" onclick="go('home')">Home</button>
+      <button data-v="series" onclick="go('series')">Test Series</button>
+      <button data-v="leaderboard" onclick="go('leaderboard')">Leaderboard</button>
+      <button data-v="results" onclick="go('results')">My Results</button>
+      <button data-v="about" onclick="go('about')">About</button>
+      <a class="btn yt" id="ytTop" target="_blank" rel="noopener" style="padding:8px 14px;border-radius:10px">▶ YouTube</a>
+      <div class="userarea" id="userArea"></div>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <div class="logo" style="margin-bottom:6px">The Duo <span>Test</span></div>
+      <div>APSC Environmental Science mock tests, made by The Duo YouTube channel.</div>
+    </div>
+    <div>
+      <div>© <span id="yr"></span> The Duo. All rights reserved.</div>
+      <div><a id="ytFoot" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">Subscribe on YouTube</a></div>
+    </div>
+  </div>
+</footer>
+
+<dialog id="loginDlg">
+  <h3>Sign in to continue</h3>
+  <p style="color:var(--muted);font-size:14px;margin-top:6px">Sign in with your Google account to take tests, save your results and appear on the leaderboard.</p>
+  <div id="gBtn" style="min-height:44px;display:flex;justify-content:center;margin:18px 0 8px"></div>
+  <p id="gMsg" style="color:var(--bad);font-size:13px;min-height:18px"></p>
+  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
+    <button id="guestBtn" class="btn ghost hidden" onclick="guestLogin()">Continue as guest</button>
+    <button class="btn ghost" onclick="closeLogin()">Not now</button>
+  </div>
+</dialog>
+
+<dialog id="confDlg">
+  <h3>Submit test?</h3>
+  <p id="confMsg" style="color:var(--muted);margin:10px 0 16px"></p>
+  <div style="display:flex;gap:8px;justify-content:flex-end">
+    <button class="btn ghost" onclick="confirmNo()">Keep working</button>
+    <button class="btn primary" onclick="confirmYes()">Submit</button>
+  </div>
+</dialog>
+
+<dialog id="shareDlg">
+  <h3>Share your score</h3>
+  <p style="color:var(--muted);font-size:14px;margin:8px 0">Copy this text and paste it anywhere:</p>
+  <p id="shareTxt" style="background:#f6f7fb;border-radius:10px;padding:10px;font-size:14px;margin-bottom:14px;user-select:all"></p>
+  <div style="text-align:right"><button class="btn primary" onclick="document.getElementById('shareDlg').close()">Close</button></div>
+</dialog>
+
+<dialog id="nameDlg">
+  <h3>Join the leaderboard</h3>
+  <p style="color:var(--muted);font-size:14px">Enter your name. It is saved only in this browser.</p>
+  <input id="nmIn" placeholder="Your name" maxlength="24">
+  <input id="dsIn" placeholder="District (optional)" maxlength="24">
+  <div style="display:flex;gap:8px;justify-content:flex-end">
+    <button class="btn ghost" onclick="skipName()">Skip</button>
+    <button class="btn primary" onclick="saveName()">Save</button>
+  </div>
+</dialog>
+
+<script>
+/* =====================================================
+   1. SITE SETTINGS — edit these
+   ===================================================== */
+const SITE = {
+  name: "The Duo",
+  youtube: "https://www.youtube.com/@theduo",   // <- put your real channel link
+  whatsapp: "",                                  // optional channel/group link
+
+  // GOOGLE LOGIN. Paste your OAuth "Web application" Client ID here, e.g. "1234-abcd.apps.googleusercontent.com"
+  // (Google Cloud Console > APIs & Services > Credentials). Add your website address under
+  // "Authorized JavaScript origins". While this is empty, people can only continue as a guest.
+  googleClientId: "",
+  requireLogin: true,        // true = students must sign in before starting a test
+
+  negativeMarking: 0.25,     // marks lost per wrong answer
+  marksPerQuestion: 1,
+  shuffleOptions: true       // shuffle A-D order every attempt (skipped for questions that refer to option letters)
+};
+
+/* =====================================================
+   2. TEST SERIES + SYLLABUS (from the APSC syllabus PDF)
+   ===================================================== */
+const SERIES = {
+  title: "APSC Forest Ranger / Soil Conservation Ranger – Environmental Science Mock Test Series",
+  short: "APSC Environmental Science Mock Test Series",
+  sub: "Syllabus-wise mock tests for Paper III/IV, Optional Subject: Environmental Science (Advt. No. 25/2025).",
+  marks: 200, hours: 2
+};
+const UNITS = [
+  { id:"u1", no:"I", icon:"🌿", title:"Ecology and Ecosystems", ready:true, topics:[
+    {h:"Fundamental Concepts", t:"Understanding ecological principles, energy flow in ecosystems, food chains and webs, ecological pyramids, and biotic interactions."},
+    {h:"Ecosystem Types", t:"Studying terrestrial (forest, grassland, desert, tundra, alpine) and aquatic (lake, mangrove, coral reefs) ecosystems, including their characteristics and processes."},
+    {h:"Biogeochemical Cycles", t:"Understanding the cycling of essential elements like carbon, nitrogen, and phosphorus."},
+    {h:"Ecosystem Stability", t:"Factors affecting stability and ecosystem services."},
+    {h:"Population Ecology", t:"Population characteristics, growth, regulation, and dispersion."} ]},
+  { id:"u2", no:"II", icon:"🏭", title:"Environmental Pollution", ready:false, topics:[
+    {h:"Types of Pollutants", t:"Air, water, soil, noise, radioactive, and thermal pollution."},
+    {h:"Sources and Impacts", t:"Understanding the sources, causes, effects, and consequences of various pollutants."},
+    {h:"Waste Management", t:"Solid waste disposal, management, and waste-to-energy conversion."},
+    {h:"Pollution Control", t:"Initiatives like Bharat Stage Standards, recent advancements in pollution control technologies."},
+    {h:"E-waste and Plastic Pollution", t:"Specific focus on emerging challenges."} ]},
+  { id:"u3", no:"III", icon:"🦋", title:"Biodiversity", ready:false, topics:[
+    {h:"Levels of Biodiversity", t:"Understanding genetic, species, and ecosystem diversity."},
+    {h:"Biodiversity Measurement", t:"Methods for assessing biodiversity."},
+    {h:"Biodiversity in India", t:"Flora and fauna, biogeographical classification, and conservation efforts."},
+    {h:"Threatened Species", t:"IUCN Red Data Book, threatened species, and conservation strategies."},
+    {h:"Protected Area Network", t:"National parks, sanctuaries, and biosphere reserves."} ]},
+  { id:"u4", no:"IV", icon:"📋", title:"Environmental Impact Assessment (EIA)", ready:false, topics:[
+    {h:"Importance and Need", t:"Understanding the role of EIA in environmental management."},
+    {h:"EIA Process", t:"Steps involved in an EIA cycle."},
+    {h:"Components of EIA", t:"Identifying and assessing potential environmental impacts."},
+    {h:"Drawbacks and Recommendations", t:"Addressing the challenges and limitations of EIA."} ]},
+  { id:"u5", no:"V", icon:"🌡️", title:"Climate Change", ready:false, topics:[
+    {h:"Greenhouse Gases", t:"Understanding the role of greenhouse gases in climate change."},
+    {h:"Global Warming and Ozone Depletion", t:"Causes, impacts, and mitigation strategies."},
+    {h:"Acid Rain and Smog", t:"Formation and impacts."},
+    {h:"Sustainable Development", t:"Principles and practices for sustainable development."} ]},
+  { id:"u6", no:"VI", icon:"⚖️", title:"Environmental Ethics and Social Issues", ready:false, topics:[
+    {h:"Unsustainable Practices", t:"Understanding the social and environmental consequences of unsustainable development."},
+    {h:"Water Conservation and Management", t:"Rainwater harvesting, watershed management, and water resources management."},
+    {h:"Resettlement and Rehabilitation", t:"Social issues related to displacement due to development projects."},
+    {h:"Environmental Legislation", t:"Awareness of relevant environmental laws and regulations."} ]},
+  { id:"u7", no:"VII", icon:"🏛️", title:"Government Initiatives", ready:false, topics:[
+    {h:"National and International Policies", t:"Understanding government initiatives and policies related to environmental protection."},
+    {h:"Conservation Projects", t:"Awareness of ongoing conservation projects and initiatives in India."} ]}
+];
+
+/* =====================================================
+   3. TESTS & QUESTIONS
+   Q(question,[A,B,C,D],correctIndex,explanation)  — correctIndex counts from 0.
+   Explanations that start with "⚠ Verify" are the amber "Verify" notes from your PDFs.
+   ===================================================== */
+const TESTS = [];
+const Q = (q,o,a,exp)=>({q:{en:q}, o:o.map(x=>({en:x})), a, exp});
+const mk = (id,title,n,questions)=>({
+  id, cat:"apsc-evs", title, minutes:Math.max(8,n), free:true, questions
+});
+const APSC_BIOMES = [
+  mk("apsc-bio-1","Biomes – Introduction to Biomes and Climatic Zones",10,[
+    Q("A \"Biome\" is best defined as:",["A single ecosystem with specific flora and fauna","A group of similar ecosystems found in different geographical locations with similar climates","The entire biosphere of the Earth","A community of organisms interacting with each other"],1,"A biome is a large region defined by climate, with characteristic vegetation and animals. The same biome can occur on different continents (e.g. savanna in Africa, Brazil and Australia)."),
+    Q("Which two primary factors determine the flora and fauna of a biome?",["Latitude and Longitude","Temperature and Precipitation (Climate)","Soil type and Topography","Altitude and Wind velocity"],1,"Temperature and precipitation decide which plants can grow, and plants in turn decide which animals live there."),
+    Q("According to the latitudinal classification of biomes, the region between 30° and 45° latitude is called:",["Tropical Region","Warm Temperate Region","Cool Temperate Region","Polar Region"],1,"Latitude zones: 0-10 tropical rainforest belt, 10-30 tropical/subtropical, 30-45 warm temperate, 45-60 cool temperate, 60-90 polar."),
+    Q("The hot deserts of the world are mostly found in which latitudinal margin?",["Eastern margin between 10°-30°","Western margin between 10°-30°","Western margin between 45°-60°","Eastern margin between 30°-45°"],1,"Trade winds blow from east to west, dropping their moisture on eastern coasts. By the time they reach western margins they are dry, so hot deserts form on western margins at 10-30 degrees."),
+    Q("Which type of climate is found in the Eastern margin of the Warm Temperate region (30°-45°)?",["Mediterranean Type","British Type","China Type (Monsoon)","Savanna Type"],2,"The eastern margin of the warm temperate zone has the monsoon-influenced China type climate with rain all year, peaking in summer."),
+    Q("The region between 45°-60° latitude in the Western margin is characterized by which climate?",["Mediterranean","British Type (Cool Temperate Western Margin)","Steppe","Taiga"],1,"Westerlies bring rain all year to the western margin at 45-60 degrees: the British type (cool temperate western margin)."),
+    Q("The Central part of continents between 30°-45° latitude is dominated by:",["Deserts","Tropical Rainforests","Temperate Grasslands (Steppe)","Taiga"],2,"Continental interiors at 30-45 degrees are far from the sea and get moderate rain, so temperate grasslands (Steppe) develop."),
+    Q("Which biome is found in the 60°-90° latitudinal region?",["Taiga","Tundra","Steppe","Savanna"],1,"The 60-90 degree zone is cold and treeless: Tundra. Taiga lies just south of it."),
+    Q("Which of the following is NOT a type of terrestrial biome?",["Tundra","Coral Reef","Taiga","Savanna"],1,"A coral reef is a marine ecosystem. Tundra, taiga and savanna are terrestrial biomes."),
+    Q("The term \"Llanos\" and \"Campos\" refer to which type of biome?",["Tropical Grasslands (Savanna) in South America","Temperate Grasslands in North America","Tropical Rainforests in Africa","Desert in South America"],0,"Llanos (Venezuela and Colombia) and Campos (Brazil) are the tropical savanna grasslands of South America.")
+  ]),
+  mk("apsc-bio-2","Biomes – Tropical Rainforest",10,[
+    Q("The Tropical Rainforest biome is primarily distributed between:",["10°N and 10°S of the Equator","10° and 30° latitude","30° and 45° latitude","45° and 60° latitude"],0,"The equatorial tropical rainforest belt lies roughly 10 degrees N to 10 degrees S."),
+    Q("Which of the following regions is a major location of the Tropical Rainforest biome?",["Amazon Basin (Brazil)","Sahara Desert (Africa)","Central Asia","Mediterranean Sea region"],0,"The Amazon Basin is the largest tropical rainforest. The Congo Basin and Indonesia are other major regions."),
+    Q("Why does the Tropical Rainforest receive rainfall almost throughout the year?",["Due to the presence of Westernlies","Due to intense heating leading to low pressure and rising air (Convectional rain)","Due to trade winds from the ocean","Due to cold ocean currents"],1,"Intense heating near the equator causes air to rise (low pressure), cool and condense, giving daily convectional rain."),
+    Q("The phenomenon where different tree heights form distinct vertical layers in a Tropical Rainforest is called:",["Canopy","Layered Arrangement (Stratification)","Undergrowth","Epiphyte growth"],1,"Stratification: emergent layer, canopy, understorey and forest floor, because trees compete for light."),
+    Q("Which of the following is a characteristic of the trees found in the Tropical Rainforest?",["Softwood","Hardwood (e.g., Mahogany, Rosewood)","Needle-shaped leaves","Sclerophyllous leaves"],1,"Rainforest trees are hardwoods such as mahogany, rosewood and ebony. Needle leaves and softwood belong to taiga; sclerophylls to the Mediterranean."),
+    Q("Why is the wood-cutting (lumbering) industry underdeveloped in the Tropical Rainforest, despite having huge vegetation?",["The wood is too hard","High biodiversity means it is difficult to find a single species in large quantities, and dense forests hinder machinery","The trees are too soft","Government restrictions"],1,"With hundreds of species per hectare, pure stands of one species are rare, and dense growth and climate make logging costly. So lumbering is underdeveloped."),
+    Q("Plants that grow on the stems of other trees to reach sunlight in the rainforest are called:",["Parasites","Epiphytes","Saprophytes","Xerophytes"],1,"Epiphytes (orchids, ferns, bromeliads) grow on other plants for support and light, but are not parasites."),
+    Q("Which of the following animals is an \"arboreal\" (tree-dwelling) animal typically found in Tropical Rainforests?",["Camel","Monkey","Zebra","Polar Bear"],1,"Monkeys, sloths and tree frogs are arboreal rainforest animals. Camels belong to deserts and polar bears to the Arctic."),
+    Q("What type of biotic interaction is exhibited by an epiphyte growing on a tree?",["Parasitism","Mutualism","Commensalism","Predation"],2,"Commensalism (+,0): the epiphyte gains support and light, while the host tree is unaffected."),
+    Q("The Congo-Zaire Basin is a major region for which biome?",["Taiga","Tropical Rainforest","Desert","Tundra"],1,"The Congo (Zaire) Basin in Africa is the second largest tropical rainforest region.")
+  ]),
+  mk("apsc-bio-3","Biomes – Tropical Monsoon",10,[
+    Q("The Tropical Monsoon biome is largely found in which margin of the tropical region?",["Western Margin","Eastern Margin","Central Margin","Polar Margin"],1,"Tropical monsoon climate is found on the eastern margins of the tropics, where onshore winds bring seasonal rain (e.g. India, Myanmar, Southeast Asia)."),
+    Q("The defining climatic characteristic of the Tropical Monsoon biome is:",["Rainfall throughout the year","Seasonal reversal of winds","Winter rainfall only","No rainfall"],1,"Monsoon = seasonal reversal of winds: moist summer winds from the sea, dry winter winds from land."),
+    Q("Which country is the best example of a well-developed Tropical Monsoon climate?",["Brazil","India","Canada","Egypt"],1,"India is the classic monsoon climate country (also Bangladesh, Myanmar, Thailand)."),
+    Q("The dominant vegetation in the Tropical Monsoon biome is:",["Tropical Evergreen Forest","Tropical Deciduous Forest","Coniferous Forest","Tundra vegetation"],1,"Tropical deciduous (monsoon) forest dominates, as trees shed leaves in the dry season."),
+    Q("Trees in the Tropical Monsoon biome shed their leaves to survive which condition?",["Extreme cold","The dry season (summer heat)","Heavy rainfall","High humidity"],1,"Shedding leaves in the dry season reduces water loss through transpiration."),
+    Q("Which of the following is a characteristic tree of the Tropical Deciduous forest in India?",["Pine","Teak and Sal","Oak and Olive","Spruce and Fir"],1,"Teak and Sal are the main Indian tropical deciduous trees. Pine, spruce and fir are conifers; oak and olive are Mediterranean."),
+    Q("Which adaptation is seen in animals to survive the hot summer in the Monsoon biome?",["Hibernation","Aestivation","Migration to the poles","Thick fur growth"],1,"Many animals aestivate (summer dormancy) or migrate to escape the hot dry season."),
+    Q("Which of the following countries is NOT a part of the Tropical Monsoon biome?",["Myanmar","Thailand","Laos","United Kingdom"],3,"The UK has a cool temperate (British type) climate. Myanmar, Thailand and Laos are monsoon countries."),
+    Q("India is unique in having the natural habitat of both:",["Lion and Polar Bear","Lion and Tiger","Tiger and Penguin","Elephant and Kangaroo"],1,"India is the only country with natural habitats of both lion (Gir) and tiger."),
+    Q("Seasonal migration of animals in the Monsoon biome is primarily an adaptation to avoid:",["Predators","Environmental stress (lack of food and water in the dry season)","Cold weather","Forest fires"],1,"Animals migrate in the dry season to escape shortage of food and water (environmental stress).")
+  ]),
+  mk("apsc-bio-4","Biomes – Savanna (Tropical Grassland)",12,[
+    Q("The Savanna biome is typically found in which latitudinal range?",["0°-10° latitude","10°-30° N and S latitudes","45°-60° latitude","60°-90° latitude"],1,"Savanna lies roughly 10-30 degrees N and S, on both sides of the equatorial rainforest."),
+    Q("The Savanna biome develops in the mid-continent due to the influence of:",["Westernlies","Trade Winds (Easterlies)","Polar Easterlies","Monsoon winds"],1,"Trade winds (easterlies) bring rain to eastern coasts and leave interiors drier, so grassland with scattered trees forms inland."),
+    Q("As Trade winds move from the Eastern coast to the Western margin of a continent in the tropics, what happens?",["Rainfall increases","Rainfall decreases, leading to a desert on the western margin","Temperature drops to freezing","Forests become denser"],1,"Moving westward the trade winds lose moisture, so the continent's western side becomes arid and desert."),
+    Q("The tall grasses of the Savanna, which can grow up to 6-8 feet, are called:",["Sclerophylls","Elephant Grasses","Steppe Grasses","Tundra Mosses"],1,"Elephant grass in the African savanna can reach 6-8 feet (up to 3 m)."),
+    Q("What is a key characteristic of Savanna grasses?",["Lush green and highly nutritious","Wiry, coarse, and less nutritious","Needle-shaped","Broad leaves"],1,"Savanna grasses are coarse, wiry and low in nutrition, unlike lush temperate grasses."),
+    Q("Why do Savanna trees often have an \"umbrella shape\"?",["To absorb maximum sunlight","To protect against strong winds and reduce water loss","To provide shade to animals","For aesthetic purposes"],1,"The flat umbrella crown (e.g. acacia) reduces water loss and withstands strong winds and heat."),
+    Q("The \"Masai Mara\" tribe, known for their unique relationship with cattle (blood-drinking without harming them), belongs to which region?",["Brazil (Llanos)","Kenya (Africa)","Australia (Downs)","Argentina (Pampas)"],1,"The Maasai people of Kenya and Tanzania are cattle herders (Masai Mara is the reserve named after them)."),
+    Q("Which of the following is a major predator found in the Savanna?",["Polar Bear","Cheetah","Snow Leopard","Himalayan Wolf"],1,"Cheetah, lion and leopard are savanna predators. Polar bear, snow leopard and Himalayan wolf live in cold regions."),
+    Q("How are Savanna grasses adapted to survive frequent natural fires?",["They have thick bark","Their seeds are fire-resistant and drought-tolerant","They store water in their roots","They grow only during the winter"],1,"Savanna grass seeds are drought- and fire-tolerant, and the grasses regrow from protected underground buds after fires."),
+    Q("The Savanna grasslands of South America are known as:",["Prairies and Steppes","Llanos and Campos","Downs and Pustza","Pampas and Steppes"],1,"Llanos (Orinoco basin) and Campos (Brazil) are South American savannas."),
+    Q("Why is the dairy industry not well developed in the Savanna region?",["There is no cattle","The grasses lack nutrition, reducing milk yield in cattle","The climate is too cold","The government bans dairy farming"],1,"The grass is poor in nutrition, so cattle give little milk and dairying is undeveloped."),
+    Q("Which animal uses \"camouflage\" (stripes) as a defense mechanism in the Savanna?",["Elephant","Giraffe","Zebra","Lion"],2,"The zebra's stripes help confuse predators and act as camouflage in the savanna.")
+  ]),
+  mk("apsc-bio-5","Biomes – Desert Biome",15,[
+    Q("Hot deserts are generally located:",["In the center of continents","On the western margins of continents between 10°-30° latitude","On the eastern margins of continents","Near the equator"],1,"Hot deserts lie on western continental margins at 10-30 degrees, under dry subtropical high pressure and trade winds."),
+    Q("The largest hot desert in the world is:",["Thar","Gobi","Sahara","Atacama"],2,"The Sahara is the largest hot desert (about 9 million sq km)."),
+    Q("Which of the following is a \"Cold Desert\"?",["Sahara","Thar","Ladakh","Kalahari"],2,"Ladakh is a high-altitude cold desert in the Himalayan rain shadow. Sahara, Thar and Kalahari are hot."),
+    Q("The largest desert in the world is:",["Sahara (Hot Desert)","Antarctic Desert (Cold Desert)","Gobi Desert","Arabian Desert"],1,"Antarctica is technically the largest desert (very low precipitation). The Sahara is the largest hot desert."),
+    Q("The vegetation adapted to survive in deserts with very little water is called:",["Hydrophytes","Xerophytes","Halophytes","Epiphytes"],1,"Xerophytes are plants adapted to dry conditions. Hydrophytes live in water; halophytes in salty soil."),
+    Q("Which of the following is a morphological adaptation of desert plants?",["Large, broad leaves","Leaves modified into thorns to reduce water loss","Floating roots","Breathing roots (Pneumatophores)"],1,"Leaves reduced to spines or thorns cut transpiration: a morphological adaptation (e.g. cactus, Opuntia)."),
+    Q("In desert plants like cactus, photosynthesis is carried out by the:",["Leaves","Thorns","Green Stem","Roots"],2,"In cacti the leaves are reduced to spines, so the fleshy green stem carries out photosynthesis."),
+    Q("The \"waxy coating\" on the leaves/stems of desert plants helps to:",["Reflect sunlight","Prevent water evaporation (transpiration)","Attract pollinators","Absorb moisture from the air"],1,"The waxy cuticle seals the surface and reduces water loss by transpiration."),
+    Q("The Thar Desert of India is unique because:",["It is the hottest desert in the world","It has comparatively higher biodiversity due to the presence of some rivers and the Aravalli range","It receives snowfall in winter","It has no vegetation at all"],1,"The Thar is among the most biodiverse hot deserts because of its seasonal rain, Aravalli influence and varied habitats."),
+    Q("The underground river believed to flow beneath the Thar Desert is:",["Luni","Saraswati","Ganga","Yamuna"],1,"The Saraswati is believed (legend and some geological studies) to have flowed underground or dried up in the Thar region."),
+    Q("Which is the only river that flows through the Thar Desert?",["Luni","Indus","Narmada","Tapti"],0,"⚠ Verify: The Luni (from the Aravallis) is the main river of the Thar. It is seasonal and ends in the Rann of Kutch. Source wording says \"only\"; it is better described as the largest river of the Thar."),
+    Q("Ladakh is considered a cold desert primarily because:",["It is located at a high altitude in the rain shadow region of the Himalayas","It is located near the North Pole","It receives heavy snowfall throughout the year","It has dense coniferous forests"],0,"Ladakh lies in the rain shadow of the Himalayas at high altitude, so it is cold and extremely dry."),
+    Q("The famous saline lake in Ladakh, seen in the movie \"3 Idiots\", is:",["Wular Lake","Dal Lake","Pangong Tso","Chilika Lake"],2,"Pangong Tso (a brackish, high-altitude lake in Ladakh) appears in the film 3 Idiots."),
+    Q("The Great Indian Bustard is a critically endangered bird species found in which Indian biome?",["Tropical Rainforest","Thar Desert","Himalayan Tundra","Mangrove Forest"],1,"The Great Indian Bustard is found in the Thar (Desert National Park, Rajasthan) and is critically endangered."),
+    Q("Why does a camel have long limbs?",["To run fast","For heat regulation (increased surface area helps dissipate heat)","To store water","To dig burrows"],1,"Long limbs lift the body away from hot ground and increase surface area for heat loss. Humps store fat, not water.")
+  ]),
+  mk("apsc-bio-6","Biomes – Mediterranean Biome",12,[
+    Q("The Mediterranean biome is typically located:",["On the eastern margins of continents between 30°-45° latitude","On the western margins of continents between 30°-45° latitude","In the center of continents","Near the equator"],1,"Mediterranean climate lies on western margins at 30-45 degrees (southern Europe, California, central Chile, SW Australia, SW South Africa)."),
+    Q("What is the unique climatic characteristic of the Mediterranean biome?",["Rainfall in summer, dry winter","Rainfall in winter, dry summer","Rainfall throughout the year","No rainfall"],1,"Wet winters and dry hot summers make the Mediterranean climate unique."),
+    Q("The vegetation of the Mediterranean biome is characterized by:",["Softwood trees","Sclerophyll vegetation (thick, waxy, leathery leaves)","Needle-shaped leaves","Broad evergreen leaves"],1,"Sclerophyll vegetation has thick, small, leathery, waxy leaves that resist summer drought."),
+    Q("Why do Mediterranean plants have thick, waxy leaves?",["To absorb sunlight","To retain moisture and survive the dry summer","To protect themselves from heavy rain","To attract insects"],1,"The thick waxy leaves reduce water loss during the long dry summer."),
+    Q("Which of the following is a common tree species in the Mediterranean biome?",["Teak and Sal","Pine and Spruce","Oak and Olive","Mahogany and Rosewood"],2,"Oak (including cork oak) and olive are typical Mediterranean trees."),
+    Q("The wine-making industry (Viticulture) is famous in the Mediterranean region because:",["The climate is ideal for growing citrus fruits and grapes","The soil is rich in nutrients","The region receives heavy rainfall year-round","The region is very cold"],0,"Sunny, dry summers and mild wet winters suit grapes, olives and citrus fruits, supporting viticulture."),
+    Q("The cork used in wine bottles comes from which tree?",["Olive","Eucalyptus","Oak","Pine"],2,"Cork comes from the bark of the cork oak (Quercus suber)."),
+    Q("Which of the following regions is NOT a part of the Mediterranean biome?",["Central Chile","California (USA)","South-Western Australia","Amazon Basin"],3,"The Amazon Basin has a tropical rainforest climate, not a Mediterranean one."),
+    Q("The Mediterranean climate is also known as:",["China type","Steppe type","Warm Temperate Western Margin","Cool Temperate Eastern Margin"],2,"The Mediterranean type is also called the Warm Temperate Western Margin climate."),
+    Q("Which animal is a common small mammal in the Mediterranean biome?",["Polar Bear","Hedgehog","Kangaroo","Lemming"],1,"Hedgehogs and other small mammals are found in Mediterranean scrub. Kangaroos are Australian, lemmings Arctic."),
+    Q("The shrub vegetation found in the Mediterranean biome is called:",["Chaparral","Steppe","Taiga","Llanos"],0,"Chaparral (or maquis) is the dense evergreen shrub vegetation of the Mediterranean biome."),
+    Q("An animal adaptation in the Mediterranean biome to escape the hot, dry summer is:",["Aestivation","Hibernation","Thick white fur","Migration to the South Pole"],0,"Animals aestivate in the hot dry summer. Hibernation is for cold winters.")
+  ]),
+  mk("apsc-bio-7","Biomes – Steppe (Temperate Grassland)",10,[
+    Q("The Steppe biome is primarily found in which latitudinal zone?",["0°-10°","10°-30°","30°-45° (Mid-continent)","60°-90°"],2,"Temperate grassland (Steppe) lies in mid-continent regions at about 30-45 degrees (extending to about 55 in places)."),
+    Q("In North America, the Temperate Grasslands are known as:",["Pampas","Prairies","Downs","Pustza"],1,"North American temperate grasslands = Prairies."),
+    Q("In South America, the Temperate Grasslands are known as:",["Prairies","Pampas","Downs","Steppe"],1,"South American temperate grasslands = Pampas (Argentina, Uruguay)."),
+    Q("In Australia, the Temperate Grasslands are known as:",["Downs","Pampas","Prairies","Pustza"],0,"Australian temperate grasslands = Downs (Darling Downs). Memory aid: Prairie-NA, Pampas-SA, Downs-Aus, Pustza-Hungary, Veld-South Africa."),
+    Q("The Temperate Grasslands of Hungary are called:",["Pampas","Prairies","Pustza","Downs"],2,"Hungary's temperate grassland is the Pustza."),
+    Q("Why are Steppe grasslands considered \"True Grasslands\"?",["They have dense forests","They have large areas of lush green, nutritious grasses and very few trees","They are found in deserts","They are covered with mosses"],1,"They are mostly treeless, with lush, nutritious grasses."),
+    Q("The Steppe biome is characterized by which type of climate?",["Tropical wet climate","Semi-arid climate with moderate temperature and rainfall","Extreme cold climate","Heavy winter rainfall"],1,"The Steppe has a semi-arid climate with moderate rainfall (about 25-75 cm) and wide temperature range."),
+    Q("Which of the following industries is highly developed in the Steppe biome due to nutritious grasses?",["Lumbering","Dairy industry and extensive farming","Fishing","Rubber plantation"],1,"Nutritious grasses support cattle rearing, dairying and large-scale wheat farming."),
+    Q("The grasslands of North America (Prairies) are often called the \"Granary of the World\" because:",["They are the world's largest wheat-producing regions","They have the largest cattle population","They have the most diverse forests","They are the largest source of coal"],0,"The Prairies produce large amounts of wheat and maize, hence \"Granary of the World\"."),
+    Q("Burrowing animals like prairie dogs and ground squirrels are common in the Steppe biome because:",["They need to escape predators","They use burrows to escape the heat and raise their young","They are aquatic","They cannot run fast"],1,"Burrowing animals (prairie dogs, ground squirrels) use burrows for shelter from heat and predators and for raising young.")
+  ]),
+  mk("apsc-bio-8","Biomes – British Type",10,[
+    Q("The British Type climate is found in which latitudinal margin?",["30°-45° Eastern margin","45°-60° Western margin","10°-30° Eastern margin","60°-90° Northern margin"],1,"British type: 45-60 degrees, western margins (NW Europe, British Columbia, southern Chile, Tasmania, New Zealand)."),
+    Q("Which of the following is a defining characteristic of the British Type climate?",["Four well-developed seasons (Summer, Winter, Spring, Autumn)","Heavy summer rainfall","Extreme cold winters","Desert conditions"],0,"Four distinct seasons and rainfall in all seasons are the hallmark of the British type climate."),
+    Q("The British Type climate is heavily influenced by:",["Trade Winds","Westerlies throughout the year","Polar Easterlies","Monsoons"],1,"Westerlies blow all year and bring moisture from the ocean."),
+    Q("The natural vegetation of the British Type climate is:",["Evergreen Rainforest","Deciduous Forest (Oak, Ash, Beech, Birch, Elm, Maple)","Coniferous Forest","Tundra vegetation"],1,"Mixed deciduous forest: oak, ash, beech, birch, elm, maple. Higher latitudes have conifers."),
+    Q("The tree leaf found on the national flag of Canada (a British Type climate region) is:",["Oak","Maple","Birch","Elm"],1,"The Maple leaf is on Canada's flag."),
+    Q("The British Type climate is famous for which type of farming?",["Shifting cultivation","Market gardening and Truck farming","Extensive wheat farming","Paddy cultivation"],1,"Market gardening and truck farming (vegetables, fruits) supply nearby cities."),
+    Q("\"Truck farming\" refers to:",["Farming using trucks","Large-scale production of vegetables and fruits for distant markets","Farming on trucks","Shifting cultivation"],1,"Truck farming = large-scale growing of vegetables and fruits sent to distant urban markets. The name comes from \"truck\" meaning barter or exchange."),
+    Q("Which industry is well-developed in the British Type climate due to the availability of softwood and transportation?",["Paper and Pulp industry","Cotton textile industry","Iron and Steel industry","Cement industry"],0,"Softwood from coniferous forests feeds the paper and pulp industry."),
+    Q("The term \"Lumbering\" refers to:",["Cutting and processing of trees (wood cutting industry)","Dairy farming","Fishing","Mining"],0,"Lumbering = felling trees and processing timber."),
+    Q("Which of the following regions experiences a British Type climate?",["Amazon Basin","Tasmania (Australia)","Sahara Desert","Central Asia"],1,"Tasmania has a British type (cool temperate maritime) climate. Amazon is tropical, the Sahara is desert.")
+  ]),
+  mk("apsc-bio-9","Biomes – Temperate Rainforest and Taiga",12,[
+    Q("The Temperate Rainforest is found in which region of North America?",["East Coast","Pacific Coast (Northern California to Southern Alaska)","Central USA","Gulf of Mexico"],1,"Temperate rainforests are on the Pacific coast of North America from northern California to southern Alaska."),
+    Q("The Taiga biome is also known as:",["Tropical Rainforest","Boreal Forest","Temperate Grassland","Tundra"],1,"Taiga = Boreal forest (also called the northern coniferous forest)."),
+    Q("The Taiga biome is primarily found in:",["Canada, Alaska, and Siberia","India and Southeast Asia","South America and Africa","Australia and New Zealand"],0,"Taiga covers Canada, Alaska, Scandinavia and Siberia, south of the tundra."),
+    Q("The trees in the Taiga biome are predominantly:",["Deciduous hardwood trees","Coniferous, needle-leaved evergreen trees (Pine, Spruce, Fir)","Broad-leaved trees","Shrubs and mosses"],1,"Taiga trees are needle-leaved evergreen conifers: pine, spruce, fir."),
+    Q("Why do Taiga trees have needle-shaped leaves?",["To absorb more sunlight","To prevent snow accumulation and reduce water loss (frost bite prevention)","To store water","To attract birds"],1,"Needle leaves shed snow, lose little water and tolerate frost. Evergreen leaves can photosynthesise as soon as it warms."),
+    Q("The wood of Taiga trees is classified as:",["Hardwood","Softwood","Ironwood","Ebony"],1,"Conifers produce softwood, the raw material for paper pulp and matches."),
+    Q("The growing season in the Taiga biome is:",["Very long (12 months)","Very short (a few months)","Continuous","Non-existent"],1,"Short summer, long cold winter: growing season only about 3-4 months."),
+    Q("Which adaptation is seen in animals of the Taiga to walk on snow without sinking?",["Long claws","Large feet (e.g., Snowshoe hare)","Thick white fur","Long tail"],1,"Large furry feet (snowshoe hare, lynx) spread weight on snow like snowshoes."),
+    Q("The Taiga biome is characterized by:",["High biodiversity","Low biodiversity and limited tree species","Tropical climate","High rainfall throughout the year"],1,"Cold and poor soils support few species, mostly conifers, giving low biodiversity."),
+    Q("Which of the following animals is a typical resident of the Taiga biome?",["Polar Bear","Moose","Zebra","Elephant"],1,"The moose lives in the taiga, along with lynx, wolf and brown bear. Polar bear is tundra; zebra and elephant are tropical."),
+    Q("The Taiga is important globally because:",["It is the world's largest terrestrial biome and a major carbon sink","It is the world's largest desert","It has the highest biodiversity","It produces most of the world's food"],0,"The taiga is the largest terrestrial biome and stores huge amounts of carbon in trees, peat and soil."),
+    Q("The Chinese type of climate is found on which margin?",["Western margin of continents in 30°-45° latitude","Eastern margin of continents in 30°-45° latitude","Eastern margin in 60°-90° latitude","Central region of continents"],1,"China type: eastern margins at 30-45 degrees, with summer-heavy rain from monsoon-like winds.")
+  ]),
+  mk("apsc-bio-10","Biomes – Tundra and China Type",7,[
+    Q("The Tundra biome is characterized by:",["Dense forests","Treeless plains with permafrost, mosses, and lichens","Tall grasses","High biodiversity"],1,"Tundra: treeless, permafrost below, only mosses, lichens, sedges and dwarf shrubs, with a very short growing season."),
+    Q("\"Permafrost\" refers to:",["Permanently frozen subsoil","A type of forest","A desert condition","A type of soil erosion"],0,"Permafrost is permanently frozen subsoil (the active top layer thaws briefly in summer)."),
+    Q("The Alpine Tundra differs from the Arctic Tundra by:",["The presence of trees","Its location at high altitudes instead of high latitudes","Its high temperature","Its dense vegetation"],1,"Alpine tundra is found on high mountains above the tree line, whereas Arctic tundra occurs at high latitudes."),
+    Q("Which animal is a major resident of the Tundra biome?",["Tiger","Polar Bear","Camel","Giraffe"],1,"The polar bear, Arctic fox, reindeer (caribou), musk ox and lemming live in the Arctic tundra."),
+    Q("The China type of climate is characterized by:",["Winter rainfall","Rainfall throughout the year, but heavily concentrated in summer","No rainfall","Snowfall only"],1,"China type: rain in all seasons but heaviest in summer (monsoon influence)."),
+    Q("The Gulf Type and Natal Type are sub-types of:",["British Type","China Type","Mediterranean Type","Steppe Type"],1,"Gulf type (USA Gulf coast) and Natal type (South Africa) are sub-types of the China type climate."),
+    Q("Which of the following crops is best suited for the Gulf Type (China Type) climate?",["Rice and Tobacco","Wheat and Barley","Tea and Coffee","Rubber and Cocoa"],0,"Rice, tobacco and cotton (and sugarcane) grow best with warm, humid summers, as in the Gulf region.")
+  ]),
+  mk("apsc-bio-11","Biomes – Indian Forest Classification",12,[
+    Q("How many types of forests are classified in India based on rainfall and vegetation?",["5","10","16","20"],2,"Champion and Seth (1968) classified Indian forests into 16 major types in 5 groups."),
+    Q("Which forest type is found in regions with very high rainfall (e.g., Western Ghats, North-East)?",["Tropical Dry Deciduous","Tropical Wet Evergreen","Thorn Forest","Montane Forest"],1,"Tropical wet evergreen forests occur in the Western Ghats, North-East India and the Andamans, where rainfall is above about 250 cm."),
+    Q("The Tropical Deciduous forests of India are characterized by:",["Trees shedding leaves during the dry season (e.g., Teak, Sal)","Evergreen trees","Thorny bushes","Coniferous trees"],0,"Tropical deciduous forests shed leaves in the dry season: teak, sal, sandalwood, shisham."),
+    Q("The \"Dry Evergreen Forest\" in India is found in:",["Rajasthan","Tamil Nadu (e.g., regions receiving both monsoons, like Palghat gap area)","Himalayan region","Sundarbans"],1,"⚠ Verify: Tropical dry evergreen forest is found mainly along the Tamil Nadu (Coromandel) coast, which gets the north-east monsoon. Source mentions Palghat Gap; the Coromandel coast is the usual textbook answer."),
+    Q("Thorn forests in India are primarily found in:",["Western and Central India (Rajasthan, Gujarat, MP)","North-East India","Western Ghats","Andaman and Nicobar Islands"],0,"Thorn forests lie in dry western and central India (Rajasthan, Gujarat, MP, Punjab, Haryana), e.g. acacia and babool."),
+    Q("Montane forests in India are found in:",["The Himalayas","The Thar Desert","The Deccan Plateau","The Coastal plains"],0,"Montane (temperate and sub-alpine) forests occur in the Himalayas and the high southern hills (Nilgiris)."),
+    Q("The Littoral and Swamp forests in India are found in:",["Coastal regions (e.g., Mangroves)","Himalayan regions","Central India","Desert regions"],0,"Littoral and swamp forests (mangroves, tidal forests) grow on coasts and deltas, e.g. Sundarbans."),
+    Q("Which forest type in India is known for its \"Broad-leaved\" trees, e.g., in Silent Valley National Park?",["Subtropical Broad-leaved Forest","Tropical Thorn Forest","Alpine Forest","Tundra"],0,"⚠ Verify: Silent Valley (Kerala) is chiefly tropical wet evergreen forest. Subtropical broad-leaved hill forests occur in the lower Himalayas and Western Ghats at about 1000-2000 m."),
+    Q("The \"Shola forests\" are found in:",["The high-altitude regions of the Western Ghats (above 1500m)","The deserts of Rajasthan","The mangroves of Sundarbans","The plains of Punjab"],0,"Shola forests are patches of stunted evergreen forest in valleys of the high Western Ghats (Nilgiris, Anamalai), above about 1500 m, with grassland on the slopes."),
+    Q("In the Indian Forest Classification, the \"Alpine\" forests are found above:",["1000 meters","2000 meters","2900 meters (Moist Alpine) and 3000-5000 meters (Dry Alpine)","500 meters"],2,"Alpine vegetation lies above the tree line: moist alpine scrub above about 2900 m, dry alpine scrub at about 3000-5000 m."),
+    Q("The Palghat Gap is significant in the context of Indian forests because:",["It allows the South-West monsoon to reach Tamil Nadu, leading to the Dry Evergreen Forest","It prevents any rainfall in Tamil Nadu","It is the highest peak in India","It is the largest mangrove forest"],0,"⚠ Verify: The Palghat Gap is a break in the Western Ghats that lets monsoon winds cross to the east. Dry evergreen forest is more typically linked to the Tamil Nadu coast (north-east monsoon)."),
+    Q("Which of the following is NOT a classification of forest based on \"Administration\" in India?",["Reserve Forest","Protected Forest","Village Forest","ISFR Forest"],3,"Administrative classes are Reserved, Protected and Unclassed forests (plus village/community forests). The ISFR is a survey report by FSI, not a category.")
+  ]),
+  mk("apsc-bio-12","Biomes – Forest Conservation and ISFR",12,[
+    Q("According to the Indian State of Forest Report (ISFR 2021), the total forest cover of India is approximately:",["713,378 sq km","500,000 sq km","800,000 sq km","600,000 sq km"],0,"⚠ Verify: ISFR 2021 reported India's forest cover as about 7,13,789 sq km (21.71% of area), so option A (713,378) is the nearest. Newer ISFR editions give slightly higher figures; use your syllabus edition."),
+    Q("Under ISFR classification, a forest with a canopy cover of more than 70% is classified as:",["Open Forest","Moderately Dense Forest","Very Dense Forest","Scrub"],2,"Very Dense Forest (VDF) has canopy density of 70% or more. Moderately Dense: 40-70%. Open: 10-40%. Scrub: below 10%."),
+    Q("Under ISFR classification, a forest with a canopy cover between 10% and 40% is classified as:",["Very Dense Forest","Moderately Dense Forest","Open Forest","Scrub"],2,"Open forest = canopy density 10-40%."),
+    Q("In India's administrative classification, which forest type has the most restrictions (public entry prohibited)?",["Protected Forest","Reserve Forest","Village Forest","Unclassed Forest"],1,"Reserved forests have the highest protection: entry and rights are prohibited unless permitted."),
+    Q("Shifting cultivation (Slash and Burn agriculture) is a major cause of deforestation in:",["North-Eastern States of India","Thar Desert","Western Ghats","Central India"],0,"Jhum (slash and burn) cultivation is widespread in North-East India and causes forest loss and soil erosion."),
+    Q("The \"Miyawaki Method\" is associated with:",["Urban forestry (creating dense native forests in urban areas)","Desert agriculture","Water harvesting","Mining"],0,"Miyawaki: Japanese ecologist Akira Miyawaki's method of planting dense native-species mini-forests (very close spacing, multiple layers) in small urban plots."),
+    Q("CAMPA funds are used for:",["Compensatory Afforestation","Wildlife tourism","Mining activities","Dam construction"],0,"CAMPA (Compensatory Afforestation Fund Management and Planning Authority) manages money paid by users of forest land for compensatory afforestation."),
+    Q("The Bonn Challenge aims to restore how many million hectares of degraded land by 2030?",["150 million","350 million","500 million","100 million"],1,"Bonn Challenge (2011): restore 150 million hectares by 2020 and 350 million hectares by 2030."),
+    Q("The New York Declaration on Forests is:",["A legally binding treaty","A voluntary and non-legally binding political declaration","A trade agreement","A climate protocol"],1,"The New York Declaration on Forests (2014) is a voluntary, non-binding political declaration to halve deforestation by 2020 and end it by 2030."),
+    Q("The UN Decade on Ecosystem Restoration was declared for the period:",["2021-2030","2011-2020","2030-2040","2020-2030"],0,"The UN Decade on Ecosystem Restoration runs 2021-2030."),
+    Q("Which organization manages the BioCarbon Fund Initiative for Sustainable Forest Landscapes?",["World Bank","IMF","WHO","UNESCO"],0,"The World Bank manages the BioCarbon Fund Initiative for Sustainable Forest Landscapes (ISFL)."),
+    Q("\"Carbon Sequestration\" by forests refers to:",["The release of CO2 into the atmosphere","The absorption and storage of CO2 from the atmosphere","The burning of fossil fuels","The planting of trees only for timber"],1,"Carbon sequestration is the capture and long-term storage of atmospheric CO2, e.g. in trees, soil and oceans.")
+  ])
+];
+const APSC_ECOLOGY = [
+  mk("apsc-eco-1","Ecology – Fundamental Concepts",18,[
+    Q("The word \"Environment\" is derived from which French word?",["Environs","Environner","Ecologie","Oikos"],1,"\"Environment\" comes from the French environner, meaning \"to encircle or surround\". \"Oikos\" (Greek, house) is the root of Ecology."),
+    Q("Who coined the term \"Ecology\" and in which year?",["A.G. Tansley, 1935","Ernst Haeckel, 1866","Eugene Odum, 1971","Charles Darwin, 1859"],1,"German biologist Ernst Haeckel coined \"Oekologie\" in 1866 from Greek oikos (house) + logos (study). Tansley (1935) coined \"ecosystem\"."),
+    Q("Which of the following correctly defines \"Environment\"?",["Study of interactions between organisms","Sum total of biotic and abiotic components surrounding an organism","Functional unit of biosphere","Zone of junction between two ecosystems"],1,"Environment = everything that surrounds an organism: living (biotic) + non-living (abiotic) components. Option C describes the ecosystem and D the ecotone."),
+    Q("The term \"Ecology\" literally means:",["Study of environment","Study of ecosystems","Study of interactions between organisms and their environment","Study of biodiversity"],2,"Ecology is the scientific study of the relationships between organisms and their surroundings (and with each other)."),
+    Q("Which sphere represents the zone where life can exist on Earth?",["Lithosphere","Atmosphere","Hydrosphere","Biosphere"],3,"The biosphere is the thin zone where the lithosphere, hydrosphere and atmosphere meet and support life."),
+    Q("Arrange smallest to largest: 1. Community 2. Population 3. Biome 4. Ecosystem 5. Individual 6. Biosphere",["5-2-1-4-3-6","5-1-2-4-3-6","5-2-4-1-3-6","2-5-1-4-3-6"],0,"Individual → Population → Community → Ecosystem → Biome → Biosphere. Each level adds a new layer of interaction."),
+    Q("What is the correct definition of \"Population\" in ecology?",["All organisms in an area","Group of similar species in an area","Group of different species interacting","Functional unit of biosphere"],1,"A population = individuals of the same species living in a given area at a given time. Different species together form a community."),
+    Q("Two organisms belong to the same species if:",["They look similar","They live in the same habitat","They can interbreed and produce fertile offspring","They eat the same food"],2,"The biological species concept: members interbreed and produce fertile offspring (a mule is sterile, so horse and donkey are different species)."),
+    Q("Which of the following is an example of \"Community\" in ecological terms?",["All tigers in Kaziranga","All organisms (plants, animals, microorganisms) in a forest patch","All deer in a grassland","A single elephant"],1,"A community includes all populations (plants, animals, microbes) living together in an area. A and C are populations; D is an individual."),
+    Q("\"Biome\" is best defined as:",["A single ecosystem","Similar ecosystems in different geographical locations","The entire biosphere","A community of organisms"],1,"A biome is a large region with similar climate, vegetation and fauna, e.g. tropical rainforest biomes in Amazon, Congo and Assam."),
+    Q("Who first coined the term 'ecosystem'?",["E. Haeckel, 1869","A.G. Tansley, 1935","Odum, 1971","None of the above"],1,"A.G. Tansley (1935) coined \"ecosystem\". Odum later popularised it as the basic functional unit of ecology."),
+    Q("The physical space occupied by an organism and its functional role in the community is referred to as:",["Ecozone","Home range","Ecological niche","Ecological habitat"],2,"Niche = habitat + functional role (what it eats, when it is active, how it interacts). (Direct APSC PYQ)"),
+    Q("The phenomenon of increased variety of plants as well as animals at the community junction is called:",["Ecad","Ecophene","Edge effect","Ecotype"],2,"At an ecotone, species from both adjoining communities plus some unique species meet, so diversity and density rise: the edge effect. (Direct APSC PYQ)"),
+    Q("Which sphere serves as an interacting sphere for the circulation of water and nutrients?",["Atmosphere","Hydrosphere","Lithosphere","Biosphere"],3,"The biosphere is where the other three spheres interact through living organisms, driving water and nutrient cycles."),
+    Q("All parts of earth where organisms live is known as:",["Biosphere","Mesosphere","Troposphere","Ionosphere"],0,"Biosphere = sum of all ecosystems on Earth. Mesosphere, troposphere and ionosphere are layers of the atmosphere."),
+    Q("All living organisms on the earth interacting with atmosphere constitute:",["Biosphere","Community","Biome","Association"],0,"Together with the lithosphere and hydrosphere, all living things form the biosphere."),
+    Q("Which is the correct hierarchical level of organization in ecology?",["Organism, community, population, ecosystem, biome","Organism, population, ecosystem, community, biome","Organism, ecosystem, community, population, biome","Organism, population, community, ecosystem, biome"],3,"Organism → Population → Community → Ecosystem → Biome. Remember: O-P-C-E-B."),
+    Q("The biological community and its physical environment exchanging matter and energy is known as:",["Biome","Niche","Ecosystem","Ecotone"],2,"Ecosystem = biotic community + abiotic environment, linked by energy flow and nutrient cycling.")
+  ]),
+  mk("apsc-eco-2","Ecology – Habitat, Niche, Ecotone and Edge Effect",12,[
+    Q("\"Habitat\" refers to:",["Functional role of an organism","Physical address of an organism","Trophic level of an organism","Interaction with other species"],1,"Habitat = the address (where it lives). Niche = the profession (what it does)."),
+    Q("\"Niche\" is defined as:",["Physical space occupied by an organism","Functional role played by an organism in its ecosystem","Both A and B","Neither A nor B"],1,"Niche is the functional role: food, feeding time, interactions and the conditions the species tolerates."),
+    Q("If three birds live on the same tree, what is different among them?",["Habitat","Niche","Both habitat and niche","Neither"],1,"They share the same habitat (the tree) but differ in niche: feeding height, food type or feeding time. This reduces competition."),
+    Q("\"Fundamental niche\" refers to:",["Niche in presence of competition","Niche in absence of ecological interaction/competition","Physical habitat","Realized niche"],1,"Fundamental niche = the full range of conditions a species could use with no competitors. The smaller niche actually used under competition is the realized niche."),
+    Q("Niche overlap between two species leads to:",["Mutualism","Competition","Commensalism","Parasitism"],1,"Overlap means shared resources, hence competition (Gause's competitive exclusion principle)."),
+    Q("Ecotone is defined as:",["Zone of junction between two diverse ecosystems","Functional unit of biosphere","Physical address of organism","Study of interactions"],0,"Ecotone = transition zone between two ecosystems, e.g. forest-grassland, estuary, mangrove."),
+    Q("Which of the following is an example of ecotone?",["Deep ocean","Mangrove forest","Desert interior","Polar ice cap"],1,"Mangroves lie between land and sea (marine and terrestrial), so they are an ecotone. Others are core ecosystem areas."),
+    Q("The \"Edge Effect\" refers to:",["Decrease in biodiversity at boundaries","Change in population and community structure at boundaries of habitats","Physical edge of an ecosystem","Trophic level changes"],1,"The edge effect is the change in species composition and density at habitat boundaries, usually an increase in variety and density."),
+    Q("\"Edge species\" are those that:",["Live only in one ecosystem","Have higher population density in ecotone than in either adjacent ecosystem","Are found only at higher trophic levels","Are decomposers"],1,"Edge species thrive in the ecotone, reaching greater density there than in either neighbouring community."),
+    Q("Which is TRUE about ecotones?",["They have lower biodiversity than adjacent ecosystems","They are always narrow","They can be narrow or wide","They have no unique species"],2,"Ecotones vary in width (a narrow forest edge vs a wide forest-savanna transition) and often have unique species."),
+    Q("The word 'niche' refers to:",["habitat plus interaction with environment","interaction of the organisms with the environment only","habitat of the organism only","interactions among the organisms"],0,"Niche covers both where the organism lives and how it interacts with its environment."),
+    Q("The area where two different ecosystems overlap each other is called:",["habitat","niche","ecotone","ecoline"],2,"Overlap/transition zone = ecotone. (Direct APSC PYQ)")
+  ]),
+  mk("apsc-eco-3","Ecology – Trophic Levels, Food Chains and Food Webs",10,[
+    Q("\"Trophic level\" refers to:",["Position of organism in food chain based on nutritional needs","Physical location of organism","Size of organism","Habitat of organism"],0,"Trophic level = feeding position: producer (1st), primary consumer (2nd), secondary consumer (3rd), and so on."),
+    Q("In the food chain Grass → Deer → Tiger, what is the trophic level of Deer?",["Producer","Primary consumer","Secondary consumer","Tertiary consumer"],1,"Deer eats producers (grass), so it is a herbivore and primary consumer (2nd trophic level)."),
+    Q("Which is NOT a type of food chain?",["Grazing food chain","Detritus food chain","Parasitic food chain","Symbiotic food chain"],3,"The three types are grazing (predator), detritus and parasitic. \"Symbiotic\" is a type of interaction, not a food chain."),
+    Q("In a detritus food chain, energy flow starts from:",["Living producers","Dead organic matter","Herbivores","Carnivores"],1,"Detritus chain: dead organic matter → detritivores/decomposers → their predators."),
+    Q("In terrestrial ecosystems, the major source of energy flow is:",["Grazing food chain","Detritus food chain","Parasitic food chain","Both A and B equally"],1,"On land most plant material is not eaten alive but enters the detritus chain; in aquatic systems the grazing chain dominates."),
+    Q("Which organism is incorrectly paired with its trophic level?",["Phytoplankton: Primary producer","Kingfisher: Tertiary consumer","Zooplankton: Primary consumer","Duckweed: Primary consumer"],3,"Duckweed (Lemna) is an aquatic plant, so it is a producer, not a consumer. (Direct APSC PYQ)"),
+    Q("Identify the food chain in which energy-rich compounds synthesized by producers are decomposed by microorganisms:",["Detritus food chain","Parasitic food chain","Predator food chain","Grazing food chain"],0,"Decomposition of producer-made organic matter by microbes characterises the detritus chain. (Direct APSC PYQ)"),
+    Q("Which of the following constitutes a food chain?",["Grass, wheat, mango","Grass, goat, human","Goat, cow, elephant","Grass, fish, goat"],1,"A chain needs producer → consumer → higher consumer: grass → goat → human. Others mix producers only or herbivores only."),
+    Q("Trophic level implies to:",["a graphical representation of the energy","the position occupied by an organism in a food chain","a pyramid of organisms","the level of interaction between biotic and abiotic factors"],1,"Trophic level = position in the food chain. (Direct APSC PYQ)"),
+    Q("Which statement is correct with respect to food chain?",["Every component of food chain forms trophic level.","Interrelation between different food chains is known as food web.","All the chains formed by nutritional relations are used to understand energy flow.","All of the above"],3,"All three statements are true: links are trophic levels, interconnected chains make a food web, and chains help trace energy flow.")
+  ]),
+  mk("apsc-eco-4","Ecology – Ecological Pyramids",13,[
+    Q("Which ecological pyramid is ALWAYS upright?",["Pyramid of number","Pyramid of biomass","Pyramid of energy","All of the above"],2,"Energy is lost as heat at each step (10% law), so the energy pyramid can never be inverted."),
+    Q("In an aquatic ecosystem, the pyramid of biomass is:",["Always upright","Always inverted","Sometimes upright, sometimes inverted","Spindle-shaped"],1,"Standard exam answer: inverted, since tiny phytoplankton (low standing biomass) are eaten faster than they accumulate. Exceptions exist but exam keys follow this."),
+    Q("The pyramid of biomass is inverted in aquatic ecosystems because:",["Producers are large","Phytoplankton have rapid turnover and low biomass","Consumers are small","Energy increases at higher levels"],1,"Phytoplankton reproduce very fast but are grazed rapidly, so standing biomass stays small compared with zooplankton and fish."),
+    Q("A \"spindle-shaped\" ecological pyramid is also called:",["Partially upright and inverted","Completely upright","Completely inverted","Linear"],0,"A spindle (rhomboidal) shape is wide in the middle: partly upright, partly inverted, e.g. pyramid of numbers in some forests."),
+    Q("The pyramid of numbers in a tree ecosystem is:",["Upright","Inverted","Spindle-shaped","Linear"],1,"One large tree supports many insects and birds, so the base has very few individuals: inverted."),
+    Q("Which explains that the ecological pyramid of energy always remains upright?",["Laws of nature","Lindeman's ten percent law","Mendel's law","Laws of conservation of energy"],1,"Only about 10% of energy passes to the next level (Lindeman), so each level has less energy. (Direct APSC PYQ)"),
+    Q("The pyramid of biomass is inverted in:",["Forest ecosystem","Grassland ecosystem","Aquatic ecosystem","Agroecosystem"],2,"Aquatic ecosystem (ponds, lakes, oceans). (Direct APSC PYQ)"),
+    Q("Graphical representation of trophic structure and function of an ecosystem is known as:",["biomass pyramid","trophic pyramid","ecological pyramid","None of the above"],2,"Charles Elton introduced ecological pyramids to show number, biomass or energy at each trophic level."),
+    Q("Energy contents in higher trophic levels are:",["less than lower trophic levels","more than lower trophic levels","independent of lower trophic levels","same as those of lower trophic levels"],0,"Energy shrinks at every step because of respiration and heat loss."),
+    Q("The pyramid that cannot be in a stable ecosystem is pyramid of:",["number","energy","biomass","All of the above"],0,"⚠ Verify: Key answer: number. Note: pyramids of number and biomass can be inverted in stable systems; only the energy pyramid is always upright. Follow the key but know the concept."),
+    Q("In lake ecosystem, the pyramid of biomass is:",["upright","inverted","Anything possible","None of the above"],1,"A lake behaves like other aquatic systems: small producer biomass supports larger consumer biomass."),
+    Q("The pyramid of biomass in a parasitic ecosystem is:",["inverted","upright","rhomboidal","liver"],0,"Few large hosts support many small parasites, so the pyramid is inverted (key answer)."),
+    Q("In the process of energy transfer in an ecosystem:",["energy flow is cyclic","energy content is the same in all trophic levels","energy content increases towards higher trophic levels","energy content decreases towards higher trophic levels"],3,"Energy flows in one direction and decreases at each level. Nutrients cycle; energy does not.")
+  ]),
+  mk("apsc-eco-5","Ecology – Energy Flow and Productivity",10,[
+    Q("Which is NOT a function of an ecosystem?",["Productivity","Energy flow","Decomposition","Speciation"],3,"Ecosystem functions: productivity, energy flow, decomposition, nutrient cycling. Speciation is an evolutionary process."),
+    Q("Gross Primary Productivity (GPP) minus respiration losses equals:",["Secondary productivity","Net Primary Productivity","Gross Secondary Productivity","Biomass"],1,"NPP = GPP - R. NPP is the energy available to consumers."),
+    Q("What percentage of energy is transferred from one trophic level to the next?",["1%","5%","10%","20%"],2,"About 10% passes on; roughly 90% is lost as heat, respiration and undigested matter."),
+    Q("The 10% law of energy transfer was given by:",["Odum","Lindeman","Tansley","Haeckel"],1,"Raymond Lindeman (1942) proposed the ten percent law."),
+    Q("What is \"Biomass\" according to the transcript?",["Total energy produced by plants","Stored energy (10%) in plants after respiration losses","Total weight of organisms","Energy lost during photosynthesis"],1,"Following the class framing: biomass is the energy fixed and stored in plant tissue after respiration losses (NPP)."),
+    Q("Which is the correct sequence of ecosystem functions?",["Energy flow → Productivity → Decomposition → Nutrient cycling","Productivity → Energy flow → Decomposition → Nutrient cycling","Decomposition → Productivity → Energy flow → Nutrient cycling","Nutrient cycling → Decomposition → Energy flow → Productivity"],1,"Plants first fix energy (productivity), it then flows through consumers, dead matter is decomposed and nutrients are recycled."),
+    Q("Identify the correct sequence of energy flow:",["Sun's energy → Primary producers → Carnivores","Sun's energy → Primary producers → Carnivores → Herbivores","Sun's energy → Herbivores → Primary producers","Sun's energy → Primary producers → Herbivores → Carnivores"],3,"Sun → producers → herbivores → carnivores: energy flows up the trophic ladder."),
+    Q("The energy in ecosystems flows in:",["unidirectional order","bidirectional order","multidirectional order","cyclic order"],0,"Energy moves one way only (sun → producers → consumers → heat). (Direct APSC PYQ)"),
+    Q("Net community productivity of an ecological system is:",["the rate of storage of organic matter in plant tissues that exceeds the respiratory use","the total rate of photosynthesis","the rate of storage of organic matter not used by heterotrophs during a specific period","the rate of energy storage at consumer levels"],2,"Net community productivity = organic matter stored after use by both autotrophs and heterotrophs."),
+    Q("What percentage of energy coming from the sun is re-radiated towards space?",["15%","30%","25%","50%"],1,"Earth's albedo is about 30%; the rest is absorbed by atmosphere, land and oceans.")
+  ]),
+  mk("apsc-eco-6","Ecology – Biotic Interactions and Decomposers",15,[
+    Q("An interaction in which one species benefits and the other is neither harmed nor benefited is:",["Mutualism","Commensalism","Predation","Parasitism"],1,"Commensalism is (+,0). Mutualism is (+,+), predation and parasitism are (+,-), amensalism is (-,0), competition is (-,-)."),
+    Q("The relationship between a climber and the host corresponds to:",["neutralism","commensalism","parasitism","mutualism"],1,"The climber uses the host for support without harming it: commensalism."),
+    Q("A lichen is a/an:",["symbiotic partnership of a fungus and an alga","agglomerate of bacteria used for bioremediation","example of association of two competing species","epiphytic parasite mostly found in urban plantations"],0,"Lichen = fungus (mycobiont) + alga or cyanobacterium (photobiont): mutualistic symbiosis. Lichens are also SO2 pollution indicators."),
+    Q("Inhibition of growth of one species by another through release of growth-inhibiting chemicals is called:",["ecotoxic mutualism","parasitic ecopathy","ecological imperialism","allelopathy"],3,"Allelopathy: a plant releases allelochemicals that suppress neighbours (e.g. black walnut, eucalyptus)."),
+    Q("Which is an example of amensalism?",["Honeybee and flower","Coral and Zooxanthellae","Black walnut tree and nearby plants","Lion and deer"],2,"Black walnut harms nearby plants (-) with no effect on itself (0): amensalism."),
+    Q("Coral and Zooxanthellae is an example of:",["Symbiosis (Mutualism)","Commensalism","Parasitism","Predation"],0,"The alga gets shelter and CO2; the coral gets food (photosynthate) and oxygen. Loss of algae causes coral bleaching."),
+    Q("Honeybee and flower is an example of:",["Proto-cooperation","Symbiosis","Commensalism","Parasitism"],0,"Both benefit, but the relationship is not obligatory: proto-cooperation (facultative mutualism)."),
+    Q("Head louse and human is an example of:",["Parasitism","Predation","Commensalism","Mutualism"],0,"Louse benefits while the host is harmed: ectoparasitism."),
+    Q("Lion and deer is an example of:",["Predation","Parasitism","Commensalism","Mutualism"],0,"Predator kills and eats prey: (+,-) predation."),
+    Q("The key difference between decomposers and detritivores is:",["Decomposers are larger","Decomposers do external digestion, detritivores do internal digestion","Detritivores are microorganisms","No difference"],1,"Decomposers (bacteria, fungi) secrete enzymes outside the body (external digestion); detritivores (earthworms, millipedes) ingest detritus and digest internally."),
+    Q("Which of the following is a detritivore?",["Bacteria","Fungi","Earthworm","Protozoa"],2,"Earthworms ingest dead organic matter. Bacteria and fungi are decomposers."),
+    Q("Saprotrophs are also known as:",["Producers","Primary consumers","Decomposers","Tertiary consumers"],2,"Saprotrophs feed on dead matter by absorption: decomposers."),
+    Q("Epigeic earthworms feed on:",["decaying organic matter on surface soil","mineralized soil","organically rich soil","deep soil"],0,"Epigeic = surface litter dwellers (e.g. Eisenia fetida, used in vermicomposting). Endogeic live in soil; anecic burrow deep."),
+    Q("Vermicomposting refers to:",["earthworm-added composting","microbial composting","anaerobic composting","bokashi composting"],0,"Vermicomposting uses earthworms to convert organic waste to nutrient-rich vermicompost."),
+    Q("Animals that feed upon organic matter present in soil or mud are known as:",["macrophages","microphases","detritus","saprophytes"],2,"Key answer: detritus feeders (detritivores). The option wording \"detritus\" is the intended choice.")
+  ]),
+  mk("apsc-eco-7","Ecology – Biogeochemical Cycles",35,[
+    Q("Which is a gaseous biogeochemical cycle?",["Phosphorus cycle","Sulfur cycle","Carbon cycle","None of the above"],2,"Carbon (and nitrogen) have an atmospheric reservoir: gaseous. Phosphorus is sedimentary; sulfur is both."),
+    Q("Bacteria converting ammonia to nitrite are:",["Nitrobacter","Nitrosomonas","Rhizobium","Pseudomonas"],1,"Nitrosomonas: NH3 → NO2-. (so = step one, nitrite.)"),
+    Q("Bacteria converting nitrite to nitrate are:",["Nitrosomonas","Nitrobacter","Azotobacter","Clostridium"],1,"Nitrobacter: NO2- → NO3-."),
+    Q("Denitrification is carried out by:",["Rhizobium","Nitrosomonas","Pseudomonas","Nitrobacter"],2,"Pseudomonas (and Thiobacillus) convert nitrate back to N2 gas under anaerobic conditions."),
+    Q("Which is a nitrogen-fixing bacterium in aquatic ecosystems?",["Rhizobium","Azotobacter","Nostoc","Nitrobacter"],2,"Nostoc (a cyanobacterium) fixes nitrogen in water and moist soil. Rhizobium is symbiotic in legume roots; Azotobacter is free-living in soil."),
+    Q("The process of ammonification is:",["Conversion of N2 to NH3","Conversion of NH3 to NO2-","Conversion of organic N to NH3","Conversion of NO3- to N2"],2,"Decomposers convert organic nitrogen (proteins, urea) in dead matter to ammonia."),
+    Q("Which cycle has no gaseous phase?",["Carbon cycle","Nitrogen cycle","Phosphorus cycle","Water cycle"],2,"Phosphorus moves through rocks, soil and water only: a sedimentary cycle."),
+    Q("The largest reservoir of carbon on Earth is:",["Atmosphere","Ocean","Fossil fuels","Sedimentary rocks"],3,"Carbonate rocks (limestone) hold the vast majority of Earth's carbon."),
+    Q("The largest sink of CO2 is:",["Forest","Ocean","Ice sheet","Grassland"],1,"Oceans absorb a large share of atmospheric CO2 (dissolution and marine photosynthesis)."),
+    Q("Which add carbon dioxide to the carbon cycle? I. Photosynthesis II. Respiration III. Decay of organic matter IV. Volcanic eruption",["I and IV only","II and III only","II, III and IV only","I, II, III and IV"],2,"Photosynthesis removes CO2; respiration, decay and volcanoes add it."),
+    Q("The sulfur cycle is primarily:",["Gaseous","Sedimentary","Both gaseous and sedimentary","Neither"],2,"Sulfur has an atmospheric phase (SO2, H2S) and a sedimentary reservoir (sulfate, pyrite)."),
+    Q("Acid rain is caused by:",["CO2 and O2","SO2 and NO2","CH4 and N2O","CFCs"],1,"SO2 and NOx form sulfuric and nitric acids in the atmosphere, lowering rain pH below 5.6."),
+    Q("The process of nitrogen fixation converts:",["N2 to NH3","NH3 to NO2-","NO3- to N2","Organic N to NH3"],0,"Atmospheric N2 is converted to ammonia by bacteria, lightning or industry (Haber-Bosch)."),
+    Q("Which is a free-living nitrogen fixer?",["Rhizobium","Azotobacter","Nitrosomonas","Nitrobacter"],1,"Azotobacter is a free-living aerobic soil fixer. Rhizobium is symbiotic."),
+    Q("The reservoir of nitrogen is:",["Lithosphere","Atmosphere","Hydrosphere","Biosphere"],1,"About 78% of air is N2, the main nitrogen reservoir."),
+    Q("Which is NOT a step in the nitrogen cycle?",["Nitrification","Denitrification","Ammonification","Carbonation"],3,"Steps: fixation, ammonification, nitrification, assimilation, denitrification."),
+    Q("The conversion of NO3- to N2 is called:",["Nitrification","Denitrification","Ammonification","Assimilation"],1,"Denitrification returns nitrogen to the atmosphere."),
+    Q("Which is a greenhouse gas involved in the carbon cycle?",["N2","O2","CO2","Ar"],2,"CO2 traps outgoing infrared radiation. N2, O2 and Ar are not greenhouse gases."),
+    Q("The main source of sulfur in the atmosphere is:",["Volcanic eruptions","Fossil fuel burning","Both A and B","None"],2,"Both natural (volcanoes) and anthropogenic (coal, oil burning) sources release SO2."),
+    Q("Which bacteria is involved in nitrification?",["Rhizobium","Nitrosomonas","Pseudomonas","Clostridium"],1,"Nitrification: Nitrosomonas (NH3 → NO2-) then Nitrobacter (NO2- → NO3-)."),
+    Q("The phosphorus cycle is slow because:",["It has no gaseous phase","It is insoluble in water","It is only found in rocks","Both A and B"],0,"Without an atmospheric reservoir, phosphorus returns only via slow weathering and sedimentation."),
+    Q("Which is a source of phosphorus in soil?",["Weathering of phosphate rocks","Decomposition of organic matter","Fertilizers","All of the above"],3,"Rocks, organic matter and fertilizers all supply soil phosphate."),
+    Q("The process of assimilation in the nitrogen cycle refers to:",["Conversion of N2 to NH3","Uptake of NO3- by plants","Conversion of NH3 to NO2-","Conversion of NO3- to N2"],1,"Plants absorb nitrate/ammonium and build it into proteins and nucleic acids."),
+    Q("Which is NOT a greenhouse gas?",["CO2","CH4","N2O","N2"],3,"N2 is diatomic and does not absorb infrared radiation."),
+    Q("Which belongs to the sedimentary cycle?",["Carbon cycle","Phosphorus cycle","Nitrogen cycle","None of the above"],1,"Phosphorus is the classic sedimentary cycle."),
+    Q("The cyclic manner in which nutrients move in the environment is collectively known as:",["hydrological cycle","biogeochemical cycle","biochemical cycle","geochemical cycle"],1,"Bio (living) + geo (earth) + chemical: nutrient cycling between organisms and environment."),
+    Q("Cycling of nutrients among living organisms, air, water and soil is:",["geochemical cycle","biogeochemical cycle","nitrogen cycle","carbon cycle"],1,"Same concept as Q104."),
+    Q("The maximum volume of the earth's carbon is present in:",["plants and animals","atmosphere","ocean","sedimentary deposits"],3,"Limestone and other sediments hold most of Earth's carbon."),
+    Q("The largest sink of CO2 gas is:",["Forest","Ocean","Ice sheet","Grassland"],1,"Oceans."),
+    Q("Which is the most abundant mineral on earth?",["Feldspar","Olivine","Muscovite","Biotite"],0,"Feldspars make up about 50-60% of the crust."),
+    Q("Most abundant cation and anion in groundwater?",["Na+ and Cl-","Ca2+ and HCO3-","Na+ and HCO3-","Ca2+ and Cl-"],1,"Carbonate rock weathering makes Ca2+ and HCO3- dominant in most groundwater."),
+    Q("The most abundant element of the Earth's crust is:",["Silicon","Oxygen","Iron","Calcium"],1,"Oxygen (about 46%) then silicon (about 28%). (Whole Earth: iron is most abundant.)"),
+    Q("Nutrient present as nitrogen in the soil is:",["NH4","NO3","NO2","All of the above"],3,"Soil nitrogen occurs as ammonium, nitrite and nitrate (plus organic N)."),
+    Q("The ecosystem receives nitrogen from outside through:",["industries","electrification of nitrogen","biological nitrogen fixation","All of the above"],3,"Inputs: industrial fertilizers, atmospheric (lightning) fixation and biological fixation."),
+    Q("Which is the logical sequence of the carbon cycle?",["Photosynthesis-consumer-decomposer","Decomposers-consumer-photosynthesis","Photosynthesis-decomposer-consumer","Consumer-photosynthesis-decomposer"],0,"Producers fix carbon, consumers eat it, decomposers return it as CO2.")
+  ]),
+  mk("apsc-eco-8","Ecology – Ecological Succession",28,[
+    Q("The final stable community in ecological succession is called:",["Pioneer community","Seral community","Climax community","Intermediate community"],2,"The climax community is in equilibrium with the climate and self-perpetuating."),
+    Q("Primary succession occurs on:",["Bare rock","Newly formed volcanic island","Both A and B","After forest fire"],2,"Primary succession starts where no soil or life existed: bare rock, lava, new islands. A burnt forest still has soil (secondary)."),
+    Q("Secondary succession is faster than primary because:",["Soil is already present","Pioneers are already there","Climate is favorable","None of the above"],0,"Existing soil with seeds and nutrients skips the slow soil-formation phase."),
+    Q("The pioneer species in primary succession on bare rock are:",["Grasses","Lichens and mosses","Shrubs","Trees"],1,"Crustose lichens secrete acids that weather rock into soil, followed by mosses."),
+    Q("Hydrarch succession starts in:",["Dry area","Aquatic area","Grassland","Forest"],1,"Hydro = water: it begins in ponds and lakes."),
+    Q("Xerarch succession starts in:",["Water","Dry area","Wetland","Mangrove"],1,"Xero = dry: begins on bare rock or sand."),
+    Q("The correct sequence of succession stages is:",["Nudation → Migration → Ecesis → Competition → Reaction → Stabilization","Migration → Nudation → Ecesis → Competition → Reaction → Stabilization","Nudation → Ecesis → Migration → Competition → Reaction → Stabilization","Nudation → Migration → Competition → Ecesis → Reaction → Stabilization"],0,"Memory aid: N-M-E-C-R-S. Bare area, arrival of seeds, establishment, competition, modification of habitat, climax."),
+    Q("Autogenic succession is driven by:",["External factors","Internal factors","Both","None"],1,"Autogenic: changes caused by the community itself."),
+    Q("Allogenic succession is driven by:",["Internal factors","External factors","Both","None"],1,"Allogenic: external forces such as floods, fire, erosion."),
+    Q("Autotrophic succession is driven by:",["Heterotrophs","Autotrophs","Decomposers","Detritivores"],1,"Starts in an inorganic environment dominated by green plants; energy fixed exceeds respiration."),
+    Q("Heterotrophic succession is driven by:",["Plants","Animals","Decomposers","Both A and B"],2,"Begins in an organic-rich environment (e.g. dead matter), dominated by bacteria, fungi and other heterotrophs."),
+    Q("The highest productivity in ecological succession is observed:",["At pioneer stage","At climax stage","Just before climax","After climax"],2,"⚠ Verify: Key answer: just before climax (late seral stages). At climax, production roughly equals respiration, so net productivity is low."),
+    Q("In hydrarch succession, the sequence is:",["Phytoplankton → Floating plants → Rooted plants → Trees","Trees → Shrubs → Grasses → Phytoplankton","Grasses → Shrubs → Trees → Phytoplankton","None"],0,"Phytoplankton → submerged → floating → reed swamp → sedge-meadow → woodland."),
+    Q("In xerarch succession, the sequence is:",["Lichens → Mosses → Grasses → Shrubs → Trees","Trees → Shrubs → Grasses → Mosses → Lichens","Phytoplankton → Floating plants → Rooted plants","None"],0,"Lichens → mosses → herbs/grasses → shrubs → trees."),
+    Q("The intermediate stages in succession are called:",["Pioneer communities","Climax communities","Seral communities","None"],2,"Each transitional community is a sere (seral stage)."),
+    Q("Which is an example of primary succession?",["Forest after fire","Volcano island","Abandoned farmland","Flooded area"],1,"New volcanic island has no soil: primary."),
+    Q("Which is an example of secondary succession?",["Bare rock","Newly formed pond","Forest after fire","Volcanic island"],2,"Soil remains after fire."),
+    Q("The concept of ecological succession was proposed by:",["Clements","Odum","Tansley","Darwin"],0,"F.E. Clements developed the classical succession and climax theory."),
+    Q("The climax community is characterized by:",["High productivity","Stable species composition","Rapid change","Low biodiversity"],1,"Stable composition and balanced energy budget."),
+    Q("Which is NOT a type of ecological succession?",["Primary","Secondary","Tertiary","Autogenic"],2,"Types: primary/secondary, autogenic/allogenic, autotrophic/heterotrophic. No \"tertiary\"."),
+    Q("In succession, the first species to colonize are called:",["Climax species","Seral species","Pioneer species","Edge species"],2,"Pioneer species colonise bare areas first."),
+    Q("A pioneer species in secondary succession:",["Lichens","Mosses","Grasses","Trees"],2,"Fast-growing grasses and weeds colonise abandoned land first."),
+    Q("Succession in a pond is called:",["Hydrarch","Xerarch","Mesarch","None"],0,"Hydrarch (aquatic start)."),
+    Q("Succession on dry land is called:",["Hydrarch","Xerarch","Mesarch","None"],1,"Xerarch (dry start)."),
+    Q("The climax community in a tropical rainforest is:",["Grassland","Desert","Forest","Tundra"],2,"Climate decides the climax: warm and wet gives forest."),
+    Q("Final stable community in an ecological succession is:",["serial community","final community","ultimate community","climax community"],3,"Climax community."),
+    Q("The succession that begins predominantly in inorganic environment is:",["heterotrophic succession","binary succession","secondary succession","autotrophic succession"],3,"Autotrophic succession starts inorganic; heterotrophic starts organic."),
+    Q("The last community in a succession is called:",["ecosystem","climax community","ecotone","serial community"],1,"Climax community.")
+  ]),
+  mk("apsc-eco-9","Ecology – Adaptations",29,[
+    Q("Thermoregulation is an example of:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],0,"Internal body processes maintaining temperature (shivering, sweating) are physiological."),
+    Q("Hibernation is an example of:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],1,"Winter dormancy (key answer: behavioral). Metabolic changes occur too, but exams classify it as behavioral."),
+    Q("Aestivation is a behavioral adaptation to avoid:",["Cold","Heat and dryness","Predators","Floods"],1,"Aestivation = summer sleep (snails, lungfish, frogs)."),
+    Q("Camouflage is an example of:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],2,"Body colour and pattern: structural/morphological."),
+    Q("The long neck of a giraffe is an example of:",["Physiological adaptation","Behavioral adaptation","Structural adaptation","Reproductive adaptation"],2,"Body structure = structural (morphological)."),
+    Q("Migration of Amur Falcon is an example of:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],1,"Seasonal long-distance movement (Siberia to Africa via Nagaland/Assam) is behavioral."),
+    Q("Which is a physiological adaptation in mangroves?",["Salt-secreting glands","Pneumatophores","Vivipary","All of the above"],3,"Key answer: all. Salt excretion, breathing roots and live-germinating seeds help mangroves survive saline, waterlogged mud."),
+    Q("Osmoregulation is important for:",["Temperature regulation","Salt and water balance","Metabolic regulation","None"],1,"Controls water and ion balance."),
+    Q("Which animals show hibernation?",["Polar bear","Frog","Snake","All of the above"],3,"Key answer: all of the above (winter dormancy in cold regions; polar bears show a form of winter denning)."),
+    Q("Aestivation is seen in:",["Snails","Frogs","Insects","All of the above"],3,"Many animals aestivate in hot, dry periods."),
+    Q("Which is a reproductive adaptation?",["Bright colors in flowers","Courtship rituals","Parental care","All of the above"],3,"All improve reproductive success."),
+    Q("Production of concentrated urine in desert animals is an example of:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],0,"Kidney function that conserves water: physiological."),
+    Q("Which is a morphological adaptation in fish?",["Streamlined body","Gills","Fins","All of the above"],3,"Body shape, gills and fins are structural traits."),
+    Q("Ability of some plants to grow in low-light conditions is:",["Heliophytic adaptation","Sciophytic adaptation","Xerophytic adaptation","Halophytic adaptation"],1,"Sciophytes = shade plants."),
+    Q("Halophytes are adapted to:",["Dry conditions","Saline conditions","Low light","High altitude"],1,"Halo = salt."),
+    Q("Which is an example of physiological adaptation?",["Sweating","Migration","Camouflage","Long neck"],0,"Sweating is a body-function response."),
+    Q("Social behavior in elephants is an example of:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],1,"Herd living and cooperation are behavioral."),
+    Q("The thick fur of polar bears is a:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],2,"Physical structure: morphological."),
+    Q("Which is NOT an adaptation for desert plants?",["Thick cuticle","Reduced leaves","Deep roots","Large leaves"],3,"Large leaves lose too much water."),
+    Q("Ability to enter dormancy during unfavorable conditions is:",["Physiological adaptation","Behavioral adaptation","Morphological adaptation","Reproductive adaptation"],1,"Key answer: behavioral."),
+    Q("Plants grown in salty and saline water are called:",["halophytes","holophytes","Both (A) and (B)","mangroves"],0,"Halophytes."),
+    Q("Heliophytes are better adapted to grow in the environment of:",["high salinity","intense isolation (insolation)","dull solar radiation","landfill areas"],1,"Heliophytes = sun-loving plants (option reads \"isolation\"; it means insolation, i.e. bright sunlight)."),
+    Q("The plants growing best in low-light intensity are called:",["facultative sciophytes","sciophytes","facultative heliophytes","heliophytes"],1,"Sciophytes = shade-loving plants."),
+    Q("Insectivorous plants are:",["autotrophs","semi-autotrophs","semi-autotrophs and semiheterotrophs","heterotrophs"],2,"They photosynthesise but also digest insects for nitrogen (e.g. pitcher plant, sundew)."),
+    Q("Response of plants to rhythmic diurnal fluctuations in temperature is:",["thermotropism","photoperiodism","thigmotropism","thermoperiodism"],3,"Thermoperiodism = response to day-night temperature cycles."),
+    Q("Permafrost is:",["permanently frozen deeper soil of arctic regions","permanently fixed phosphatic rocks","thick and spongy mat of living vegetation","upper few centimetres of Tundra soil that thaws each summer"],0,"Permafrost = permanently frozen subsoil of the tundra."),
+    Q("The injury caused to plants by ethylene is:",["ripening of fruits","destruction of chlorophyll","abscission of plant parts","All of the above"],3,"Ethylene pollution causes premature ripening, chlorosis and leaf/flower drop."),
+    Q("Which plants are suitable for bio-monitoring of SO2?",["Cucumber and marigold","Tobacco and bean","Moss and lichens","Tomato and orchids"],2,"Lichens and mosses are very sensitive to SO2."),
+    Q("Indicators of atmospheric pollution are:",["liverworts","ferns","epiphytic lichens","Both (A) and (C)"],2,"Epiphytic lichens are classic air-quality indicators (key answer C).")
+  ]),
+  mk("apsc-eco-10","Ecology – Ecosystem Types",28,[
+    Q("Which forest type covers the maximum area in India?",["Tropical dry evergreen forest","Tropical rainforest","Tropical moist deciduous forest","Tropical dry deciduous forest"],2,"⚠ Verify: Key answer: tropical moist deciduous. Check: FSI reports often list tropical dry deciduous as the largest; follow your syllabus source."),
+    Q("The Terai forest is an example of:",["Tropical","Deciduous","Coniferous","Temperate deciduous"],1,"Terai lies at the Himalayan foothills with moist deciduous forest (e.g. Sal)."),
+    Q("Temperate evergreen forests in India are found in:",["Eastern and Western Himalayas","Western Ghats","Eastern Ghats","Aravalli"],0,"Himalayan temperate zone (about 1,500-3,500 m)."),
+    Q("An example of a Himalayan coniferous tree:",["Pine","Oak","Neem","Sal"],0,"Pine, deodar, fir and spruce are conifers."),
+    Q("An example of an evergreen (North-East) forest type tree:",["Teak","Oak","Jamun","Sal"],1,"Key answer: Oak. Teak and Sal are deciduous."),
+    Q("A biome denoted as 'desert' has annual rainfall:",["Less than 10 cm","Less than 25 cm","Less than 30 cm","Less than 45 cm"],1,"Deserts: below 25 cm (250 mm) of rain a year."),
+    Q("Which is a cold desert?",["Thar","Gobi","Kalahari","Sahara"],1,"Gobi (Asia) is cold; Ladakh is India's cold desert."),
+    Q("Which biome has the richest biodiversity?",["Savanna","Grassland","Tropical rainforest","Temperate deciduous forest"],2,"Tropical rainforests host most of the world's species."),
+    Q("Which biome has thin, nutrient-poor soil?",["Savanna","Grassland","Tropical rainforest","Temperate deciduous forest"],2,"Nutrients are locked in biomass; heavy rain leaches the soil."),
+    Q("In which biome do animals use metabolic water and excrete concentrated urine?",["Taiga","Desert","Savanna","Grassland"],1,"Desert animals (e.g. kangaroo rat) conserve water."),
+    Q("Lentic ecosystem is found in:",["Running water","Standing water","Marine continental shelf","Gravitational water"],1,"Lentic = still water (lakes, ponds). Lotic = flowing (rivers)."),
+    Q("Lake is an example of:",["Lotic ecosystem","Lentic ecosystem","Artificial ecosystem","Both A and B"],1,"Lentic."),
+    Q("The open water zone of a lake where solar light penetrates is:",["Littoral zone","Limnetic zone","Profundal zone","Benthic zone"],1,"Limnetic: open, lit water. Littoral: shallow edge. Profundal: deep, dark. Benthic: bottom."),
+    Q("A lake with low nutrient concentration is called:",["Dystrophic","Meromictic","Endemic","Oligotrophic"],3,"Oligotrophic = poor nutrients, clear water."),
+    Q("A lake with brown water and low food value is:",["Dystrophic","Eutrophic","Euphotic","Oligotrophic"],0,"Dystrophic lakes have humic, acidic brown water."),
+    Q("Which ecosystem is used by migratory birds as seasonal homes?",["Wetland","Grassland","Savanna","Tundra"],0,"Wetlands provide food and shelter."),
+    Q("The largest Ramsar site in India is:",["Deepor Beel","Chilika Lake","Chandubi Lake","Sunderbans Wetlands"],1,"⚠ Verify: Key answer: Chilika. Verify: by area, Sundarbans Wetland is India's largest Ramsar site; Chilika was the first Indian Ramsar site of international importance for waterfowl. Check which your question source intends."),
+    Q("The Ramsar site in Assam is:",["Deepor Beel","Loktak Lake","Dibru-Saikhowa","Pabitora"],0,"Deepor Beel (Guwahati) is a Ramsar site; Loktak is in Manipur."),
+    Q("The study of freshwater is called:",["Hydrology","Limnology","Littoralogy","Oceanography"],1,"Limnology."),
+    Q("Which is a marine ecosystem?",["Lake","Pond","Coral reef","River"],2,"Coral reef."),
+    Q("Mangrove forests are found in:",["Freshwater","Coastal saline areas","Deserts","Grasslands"],1,"Intertidal saline coasts and estuaries."),
+    Q("Which is an example of an ecotone?",["Deep ocean","Mangrove","Desert interior","Polar ice cap"],1,"Mangrove (repeat of Q25)."),
+    Q("The pyramid of biomass is inverted in:",["Forest ecosystem","Grassland ecosystem","Aquatic ecosystem","Agroecosystem"],2,"Aquatic (repeat of Q47)."),
+    Q("Which is NOT a terrestrial ecosystem?",["Forest","Grassland","Desert","Estuary"],3,"Estuary is aquatic (a freshwater-marine ecotone)."),
+    Q("The primary producers in an aquatic ecosystem are:",["Phytoplankton","Zooplankton","Small fish","Big fish"],0,"Phytoplankton photosynthesise."),
+    Q("Which biome has the maximum biodiversity?",["Tundra","Tropical rain forest","Temperate grassland","Tropical grassland"],1,"Tropical rain forest."),
+    Q("Which ecosystem is used by migratory birds as seasonal homes?",["Wetland","Grassland","Savannas","Tundra"],0,"Wetland (repeat of Q186)."),
+    Q("In which zone can freshwater lake fish survive but depend upon two other zones for food?",["Littoral zone","Limnetic zone","Profundal zone","Benthic zone"],2,"Key answer: profundal. Deep and dark, no photosynthesis, so food comes from littoral and limnetic zones.")
+  ]),
+  mk("apsc-eco-11","Ecology – Population Ecology",21,[
+    Q("The number of individuals per unit area is called:",["Population density","Population growth","Population intensity","Population size"],0,"Density = individuals per unit area or volume."),
+    Q("The carrying capacity of a population is determined by:",["Population growth","Natality","Limiting resources","Mortality"],2,"Food, water and space set the limit K."),
+    Q("According to Shelford's law of tolerance, organisms with wide tolerance show:",["Narrow distribution with low population","Wide distribution with high population","Narrow distribution with high population","Wide distribution with low population"],1,"Wide tolerance (eurytopic) gives wide distribution and abundance."),
+    Q("The r-selected species possess:",["Stable populations and long lifespan","High reproductive rate and short lifespan","Low reproductive rate and long lifespan","None"],1,"r-strategists: many offspring, little care (insects, weeds)."),
+    Q("The K-selected species possess:",["Stable populations and long lifespan","High reproductive rate and short lifespan","Low reproductive rate and long lifespan","Both A and C"],3,"K-strategists: few offspring, long life, near K (elephants, humans)."),
+    Q("Exponential growth is represented by:",["J-shaped curve","S-shaped curve","Bell-shaped curve","None"],0,"J-curve: unlimited resources."),
+    Q("Logistic growth is represented by:",["J-shaped curve","S-shaped curve","Bell-shaped curve","None"],1,"S-curve levelling at K."),
+    Q("The difference between carbon emission allowed and actual emitted carbon is:",["Carbon credit","Carbon sequestration","Carbon footprint","Carbon report"],0,"Unused emission allowance = carbon credit (1 credit = 1 tonne CO2)."),
+    Q("Which method can educate people about carrying capacity?",["Ecological footprint","Carbon credit","Sustainable management","Barcode"],0,"Ecological footprint shows resource use versus Earth's capacity."),
+    Q("The ecological footprint of a city is:",["Impact of resources needed by a city to support life","The productive ecosystem inside a city","The productive ecosystem outside a city","Ability of a city to sustain quality of life"],0,"Land and water area needed to supply a city's consumption and absorb its waste."),
+    Q("The population growth rate is affected by:",["Natality","Mortality","Immigration","All of the above"],3,"Growth = births + immigration - deaths - emigration."),
+    Q("Which is a density-dependent factor?",["Predation","Competition","Disease","All of the above"],3,"Their effect rises with density."),
+    Q("Which is a density-independent factor?",["Predation","Competition","Climate","Disease"],2,"Climate and natural disasters act regardless of density."),
+    Q("The age pyramid of a rapidly growing population is:",["Broad at base","Narrow at base","Uniform","None"],0,"Many young individuals: broad base."),
+    Q("The age pyramid of a declining population is:",["Broad at base","Narrow at base","Uniform","None"],1,"Few young individuals: narrow base (urn shape)."),
+    Q("The maximum population size an environment can sustain is called:",["Biotic potential","Carrying capacity","Environmental resistance","None"],1,"Carrying capacity (K)."),
+    Q("The intrinsic rate of natural increase is denoted by:",["r","K","N","D"],0,"r = per-capita growth rate under ideal conditions."),
+    Q("Which is a characteristic of a population?",["Density","Natality","Mortality","All of the above"],3,"Also age structure, dispersion and sex ratio."),
+    Q("The dispersion pattern in which individuals are clustered is called:",["Uniform","Random","Clumped","None"],2,"Clumped: most common in nature (herds, schools)."),
+    Q("The dispersion pattern in which individuals are evenly spaced is called:",["Uniform","Random","Clumped","None"],0,"Uniform: territorial species."),
+    Q("In population ecology, number of individuals per unit area or volume is:",["population density","population growth","population intensity","population size"],0,"Same as Q199.")
+  ]),
+  mk("apsc-eco-12","Ecology – Ecosystem Stability, Services and Homeostasis",22,[
+    Q("Ecosystem homeostasis is affected by:",["Biotic factors","Abiotic factors","Both A and B","None"],2,"Both living and non-living factors influence stability."),
+    Q("Stability of a complex ecosystem can be assessed by:",["Human interference","Species diversity","Variation of climatological parameters","None"],1,"More species = more stability and resilience."),
+    Q("A matured ecosystem is characterized by:",["High net productivity with open nutrient cycle","High net productivity with closed nutrient cycle","Low net productivity with closed nutrient cycle and good nutrient conservation","Low net productivity with closed nutrient cycle and poor nutrient conservation"],2,"Mature (climax) systems: low net productivity, tight nutrient cycling, good conservation."),
+    Q("The producers and consumers in an ecosystem are mutually controlled by:",["Feedback mechanism","Food-chain mechanism","Productivity control","Any of these"],0,"Negative feedback keeps populations balanced."),
+    Q("Gaia hypothesis is associated with:",["Charles Darwin","James Lovelock","Ernst Haeckel","A.G. Tansley"],1,"Lovelock (with Lynn Margulis): Earth acts as a self-regulating system."),
+    Q("Which is a provisioning service?",["Pollination","Food and timber","Tourism","Climate regulation"],1,"Provisioning = products obtained (food, water, timber, fibre)."),
+    Q("Wetlands are called \"kidneys of the ecosystem\" because they:",["Provide food","Filter nutrients and harmful minerals","Provide tourism","Store carbon"],1,"They filter pollutants and trap sediments like kidneys."),
+    Q("Cultural services include all EXCEPT:",["Religious significance","Tourism","Aesthetic beauty","Timber production"],3,"Timber is provisioning."),
+    Q("Which is a regulating service?",["Food production","Climate regulation","Recreation","Nutrient cycling"],1,"Regulating: climate, floods, disease, water purification."),
+    Q("Which is a supporting service?",["Pollination","Nutrient cycling","Tourism","Timber"],1,"Supporting: nutrient cycling, soil formation, primary production."),
+    Q("The concept of deep ecology emphasizes:",["Nature has intrinsic value","Nature is for human use","Anthropocentric view","None"],0,"Arne Naess: all life has value independent of human use."),
+    Q("Shallow ecology is:",["Anthropocentric","Biocentric","Ecocentric","None"],0,"Human-centred."),
+    Q("The term 'Anthropocene' refers to:",["Geological time characterized by dominance of human beings","Geological time before Holocene","Spaceship to Mars","Human gene"],0,"Proposed epoch of human-dominated geology and climate."),
+    Q("Which is NOT an ecosystem service?",["Pollination","Flood control","Timber production","Genetic engineering"],3,"Genetic engineering is human technology."),
+    Q("The main cause of biodiversity loss is:",["Habitat destruction","Overexploitation","Climate change","All of the above"],3,"\"HIPPO\": Habitat loss, Invasive species, Pollution, Population, Overharvesting."),
+    Q("Ecosystem homeostasis is affected by:",["the biotic factors of environment","the abiotic factors of environment","the factors that control population size","None of the above"],0,"⚠ Verify: Key answer: biotic. In reality both biotic and abiotic matter (see Q220)."),
+    Q("Stability of a complex ecosystem such as rain forest can be assessed on the basis of:",["human interference","species diversity","variation of climatological parameters","None of the above"],1,"Species diversity."),
+    Q("A matured ecosystem is characterized with:",["high net productivity, open nutrient cycle, poor conservation","high net productivity, closed nutrient cycle, poor conservation","low net productivity, closed nutrient cycle, good conservation","low net productivity, closed nutrient cycle, poor conservation"],2,"Same as Q222."),
+    Q("The number of producers and consumers is mutually controlled by:",["feedback mechanism","food-chain mechanism","productivity control","Any of these"],0,"Feedback mechanism."),
+    Q("Correct hierarchical level of organization in ecology:",["Organism, community, population, ecosystem, biome","Organism, population, ecosystem, community, biome","Organism, ecosystem, community, population, biome","Organism, population, community, ecosystem, biome"],3,"Same as Q17."),
+    Q("Black carbon does which to the environment?",["Help to control global warming","Help in rain formation","Help to deplete glaciers","Help in photosynthesis"],2,"Soot darkens snow and ice, lowering albedo and speeding melt."),
+    Q("The largest volume of freshwater is present in:",["lakes","rivers","fossil water","polar ice"],3,"About 68-69% of freshwater is in glaciers and ice caps.")
+  ]),
+  mk("apsc-eco-13","Ecology – Speciation and Evolution",11,[
+    Q("Allopatric speciation is due to:",["Geographic isolation","Reproductive isolation","Both A and B","None"],2,"Geographic barrier first, then reproductive isolation develops."),
+    Q("Sympatric speciation occurs due to:",["Geographic barrier","Ecological niche separation","Continental drift","Mutation only"],1,"Sym = same place: speciation without a geographic barrier."),
+    Q("Parapatric speciation involves:",["Complete geographic separation","Partial geographic separation","No geographic separation","None"],1,"Adjacent populations with a partial barrier."),
+    Q("Who wrote 'On the Origin of Species'?",["Charles Krebs","Rachel Carson","Eugene Odum","Charles Darwin"],3,"Darwin, 1859."),
+    Q("Darwin's finches are an example of:",["Allopatric speciation","Sympatric speciation","Parapatric speciation","None"],1,"⚠ Verify: Check this key. Given key says sympatric. Textbooks usually call Darwin's finches adaptive radiation after allopatric speciation on separate Galapagos islands. If the options had \"adaptive radiation\", choose that."),
+    Q("Continental drift theory was given by:",["Alfred Wegener","Charles Darwin","James Lovelock","Ernst Haeckel"],0,"Wegener, 1912."),
+    Q("The process by which one species splits into two is called:",["Speciation","Extinction","Migration","Mutation"],0,"Speciation."),
+    Q("Which is a pre-zygotic barrier?",["Habitat isolation","Temporal isolation","Behavioral isolation","All of the above"],3,"Pre-zygotic barriers act before fertilisation."),
+    Q("Which is a post-zygotic barrier?",["Hybrid inviability","Hybrid sterility","Hybrid breakdown","All of the above"],3,"Post-zygotic barriers act after zygote formation."),
+    Q("The founder effect is associated with:",["Genetic drift","Natural selection","Gene flow","Mutation"],0,"A small founder group carries a non-representative gene pool: genetic drift."),
+    Q("Allopatric speciation is due to interaction between:",["geographical isolation and reproductive isolation","geographic isolation","reproductive isolation","adaptive isolation"],0,"Same as Q242.")
+  ]),
+  mk("apsc-eco-14","Ecology – Direct PYQ Hits",10,[
+    Q("The area where two different ecosystems overlap each other is called:",["habitat","niche","ecotone","ecoline"],2,"Ecotone (see Q30)."),
+    Q("Which explains that the ecological pyramid of energy always remains upright?",["Laws of nature","Lindeman's ten percent law","Mendel's law","Laws of conservation of energy"],1,"Lindeman's 10% law (see Q46)."),
+    Q("Which organism is incorrectly paired with its trophic level?",["Phytoplankton: Primary producer","Kingfisher: Tertiary consumer","Zooplankton: Primary consumer","Duckweed: Primary consumer"],3,"Duckweed is a producer (see Q36)."),
+    Q("The phenomenon of increased variety of plants as well as animals at the community junction is called the:",["ecad","ecophene","edge effect","ecotype"],2,"Edge effect (see Q13)."),
+    Q("The physical space occupied by an organism and its functional role in the community is referred to as:",["ecozone","home range","ecological niche","ecological habitat"],2,"Niche (see Q12)."),
+    Q("Which is a correct hierarchical level of organization in ecology?",["Organism, community, population, ecosystem, biome","Organism, population, ecosystem, community, biome","Organism, ecosystem, community, population, biome","Organism, population, community, ecosystem, biome"],3,"O-P-C-E-B (see Q17)."),
+    Q("The pyramid of biomass is inverted in:",["forest ecosystem","grassland ecosystem","aquatic ecosystem","agroecosystem"],2,"Aquatic (see Q47)."),
+    Q("Identify the food chain in which energy-rich compounds synthesized by producers are decomposed by microorganisms:",["Detritus food chain","Parasitic food chain","Predator food chain","Grazing food chain"],0,"Detritus chain (see Q37)."),
+    Q("The energy in ecosystems flows in:",["unidirectional order","bidirectional order","multidirectional order","cyclic order"],0,"Unidirectional (see Q61)."),
+    Q("Trophic level implies to:",["a graphical representation of the energy","the position occupied by an organism in a food chain","a pyramid of organisms","the level of interaction between biotic and abiotic factors"],1,"Position in a food chain (see Q39).")
+  ])
+];
+
+
+/* ---- Unit I: build the tests systematically from the syllabus ---- */
+const norm = s => s.toLowerCase().replace(/\W+/g,"");
+function uniqueQs(tests){
+  const seen = new Set(), out = [];
+  tests.forEach(t=>t.questions.forEach(q=>{
+    const k = norm(q.q.en);
+    if(!seen.has(k)){ seen.add(k); out.push(q); }      // drops repeated questions
+  }));
+  return out;
+}
+const getPart = id => [...APSC_ECOLOGY, ...APSC_BIOMES].find(t=>t.id===id);
+const U1 = UNITS[0];
+const U1_PLAN = [
+  { id:"pyq",  title:"Direct APSC PYQ Hits", desc:"Questions that have already appeared in APSC papers. Revise these first.",
+    ids:["apsc-eco-14"], combined:false },
+  { id:"fund", title:U1.topics[0].h, desc:U1.topics[0].t,
+    ids:["apsc-eco-1","apsc-eco-2","apsc-eco-3","apsc-eco-4","apsc-eco-5","apsc-eco-6","apsc-eco-8","apsc-eco-9","apsc-eco-13"], combined:true },
+  { id:"types",title:U1.topics[1].h, desc:U1.topics[1].t + " Includes world biomes and Indian forest types.",
+    ids:["apsc-eco-10",...Array.from({length:12},(_,i)=>"apsc-bio-"+(i+1))], combined:true },
+  { id:"cyc",  title:U1.topics[2].h, desc:U1.topics[2].t, ids:["apsc-eco-7"], combined:false },
+  { id:"stab", title:U1.topics[3].h, desc:U1.topics[3].t, ids:["apsc-eco-12"], combined:false },
+  { id:"pop",  title:U1.topics[4].h, desc:U1.topics[4].t, ids:["apsc-eco-11"], combined:false }
+];
+U1.sections = [];
+U1_PLAN.forEach(sec=>{
+  const parts = sec.ids.map(getPart);
+  parts.forEach(p=>{ p.unit="u1"; p.sec=sec.id; });
+  const list = [];
+  if(sec.combined){
+    const qs = uniqueQs(parts);
+    TESTS.push({ id:"u1-"+sec.id+"-all", cat:"apsc-evs", unit:"u1", sec:sec.id, derived:true,
+      title: sec.title+" – Complete Test", minutes:Math.round(qs.length*0.75), free:true, questions:qs, feat:true });
+    list.push("u1-"+sec.id+"-all");
+  }
+  parts.forEach(p=>{ TESTS.push(p); list.push(p.id); });
+  U1.sections.push({ id:sec.id, title:sec.title, desc:sec.desc, tests:list });
+});
+const POOL = uniqueQs([...APSC_ECOLOGY, ...APSC_BIOMES]);
+TESTS.unshift({ id:"u1-mixed", cat:"apsc-evs", unit:"u1", derived:true, feat:true, random:100,
+  title:"Unit I – Mixed Mock (100 random questions)", minutes:75, free:true, questions:POOL });
+getPart("apsc-eco-14").feat = true;
+
+/* =====================================================
+   4. APP CODE (you normally don't need to edit below)
+   ===================================================== */
+const $ = s => document.querySelector(s);
+const app = $("#app");
+let LANG = localStorage.getItem("duo_lang") || "en";
+let T = null;          // active test state
+let timerId = null;
+let pendingTest = null;
+
+/* ---- storage helpers ---- */
+const store = {
+  get(k,d){ try{ return JSON.parse(localStorage.getItem(k)) ?? d }catch(e){ return d } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)) }catch(e){} },
+  del(k){ try{ localStorage.removeItem(k) }catch(e){} }
+};
+const getAttempts = () => store.get("duo_attempts", []);
+const getUser = () => store.get("duo_user", null);
+const uidOf = u => u ? (u.sub || u.name || "anon") : "anon";
+const myAttempts = () => { const id = uidOf(getUser()); return getAttempts().filter(a=>(a.uid||a.name)===id); };
+
+/* ---- language helpers (toggle is hidden unless some question has Assamese text) ---- */
+const HAS_AS = () => TESTS.some(t=>t.questions.some(q=>q.q.as));
+const tx = o => (o && (LANG==="as" ? (o.as||o.en) : o.en)) || "";
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function setLang(l){
+  LANG=l; localStorage.setItem("duo_lang",l);
+  if(location.hash.startsWith("#test")) renderQuestion(); else render();
+}
+function langSeg(fn){
+  if(!HAS_AS()) return "";
+  return `<div class="seg">
+    <button class="${LANG==='as'?'on':''}" onclick="${fn}('as')">অসমীয়া</button>
+    <button class="${LANG==='en'?'on':''}" onclick="${fn}('en')">English</button>
+  </div>`;
+}
+
+/* ---- Google login ---- */
+function parseJwt(t){
+  const p = t.split(".")[1].replace(/-/g,"+").replace(/_/g,"/");
+  const pad = p + "=".repeat((4-p.length%4)%4);
+  const json = decodeURIComponent(atob(pad).split("").map(c=>"%"+("00"+c.charCodeAt(0).toString(16)).slice(-2)).join(""));
+  return JSON.parse(json);
+}
+function loadGoogle(cb){
+  if(window.google && google.accounts && google.accounts.id){ cb(true); return; }
+  const s = document.createElement("script");
+  s.src = "https://accounts.google.com/gsi/client"; s.async = true; s.defer = true;
+  s.onload = ()=>cb(true); s.onerror = ()=>cb(false);
+  document.head.appendChild(s);
+}
+function openLogin(){
+  const dlg = $("#loginDlg");
+  if(dlg && !dlg.open) dlg.showModal();
+  const msg=$("#gMsg"), box=$("#gBtn"), guest=$("#guestBtn");
+  box.innerHTML=""; msg.textContent=""; guest.classList.add("hidden");
+  if(!SITE.googleClientId){
+    msg.style.color = "var(--muted)";
+    msg.textContent = "Google sign-in is not set up yet (the site owner must add a Google Client ID in the SITE settings). Until then you can continue as a guest.";
+    guest.classList.remove("hidden");
+    return;
+  }
+  loadGoogle(ok=>{
+    if(!ok){ msg.style.color="var(--bad)"; msg.textContent="Could not load Google sign-in. Check your internet connection and try again."; return; }
+    google.accounts.id.initialize({ client_id:SITE.googleClientId, callback:handleCredential, auto_select:false });
+    google.accounts.id.renderButton(box, { theme:"outline", size:"large", text:"signin_with", shape:"pill", width:280 });
+  });
+}
+function closeLogin(){ const d=$("#loginDlg"); if(d && d.open) d.close(); pendingTest=null; }
+function handleCredential(resp){
+  try{
+    const p = parseJwt(resp.credential);
+    store.set("duo_user", { sub:p.sub, name:p.name||p.email||"Student", email:p.email||"", picture:p.picture||"", provider:"google" });
+  }catch(e){
+    $("#gMsg").style.color="var(--bad)"; $("#gMsg").textContent="Sign-in failed. Please try again."; return;
+  }
+  afterLogin();
+}
+function guestLogin(){
+  store.set("duo_user", { sub:"guest", name:"Guest", provider:"guest" });
+  afterLogin();
+}
+function afterLogin(){
+  const d=$("#loginDlg"); if(d && d.open) d.close();
+  renderUserArea();
+  if(pendingTest){ const id=pendingTest; pendingTest=null; beginTest(id); }
+  else render();
+}
+function logout(){
+  store.del("duo_user"); T=null; LAST=null;
+  try{ if(window.google && google.accounts && google.accounts.id) google.accounts.id.disableAutoSelect(); }catch(e){}
+  renderUserArea(); go("home");
+}
+function renderUserArea(){
+  const u = getUser(), el = $("#userArea");
+  if(!u){ el.innerHTML = `<button class="btn primary sm" onclick="openLogin()">Sign in with Google</button>`; return; }
+  const pic = u.picture ? `<img src="${esc(u.picture)}" alt="" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : "";
+  el.innerHTML = `${pic}<span class="nm">${esc(u.name)}</span><button class="btn ghost sm" onclick="logout()">Logout</button>`;
+}
+const needLogin = () => SITE.requireLogin && !getUser();
+function startTest(id){
+  if(needLogin()){ pendingTest = id; openLogin(); return; }
+  beginTest(id);
+}
+
+/* ---- routing ---- */
+function go(v, arg){
+  clearInterval(timerId);
+  document.getElementById("links").classList.remove("open");
+  location.hash = arg ? `${v}/${arg}` : v;
+}
+window.addEventListener("hashchange", render);
+function render(){
+  const [v, arg] = (location.hash.replace("#","")||"home").split("/");
+  const navv = (v==="unit"||v==="start") ? "series" : v;
+  document.querySelectorAll(".links button").forEach(b=>b.classList.toggle("on", b.dataset.v===navv));
+  window.scrollTo(0,0);
+  if(v==="series") return viewSeries();
+  if(v==="unit") return viewUnit(arg);
+  if(v==="leaderboard") return viewLeaderboard();
+  if(v==="results") return viewResults();
+  if(v==="about") return viewAbout();
+  if(v==="start") return viewStart(arg);
+  if(v==="test") return T ? renderQuestion() : go("home");
+  if(v==="result") return viewResult();
+  viewHome();
+}
+
+/* ---- shared UI bits ---- */
+const unitOf = id => UNITS.find(u=>u.id===id);
+const testsOfUnit = u => TESTS.filter(t=>t.unit===u.id);
+function testTile(t){
+  const n = t.random || t.questions.length;
+  return `<div class="card tile ${t.derived?'hl':''}" onclick="go('start','${t.id}')">
+    <div class="ico">${t.derived?'🎯':'📝'}</div>
+    <h3>${esc(t.title)}</h3>
+    <small>${n} MCQs${t.random?' (new set every attempt)':''} · ${t.minutes} min</small>
+    <span class="badge">FREE</span>
+  </div>`;
+}
+function unitTile(u){
+  return `<div class="card tile" onclick="go('unit','${u.id}')">
+    <div class="ico">${u.icon}</div><h3>Unit ${u.no}: ${esc(u.title)}</h3>
+    <small>${u.ready ? POOL.length+' MCQs · '+testsOfUnit(u).length+' tests' : u.topics.length+' syllabus topics'}</small>
+    <span class="badge ${u.ready?'':'soon'}">${u.ready?'LIVE':'COMING SOON'}</span>
+  </div>`;
+}
+function totalMcqs(){ return POOL.length; }
+
+/* ---- HOME ---- */
+let sampleChoice = null;
+function viewHome(){
+  const s = POOL[0];
+  const board = leaderboardData().slice(0,3);
+  const feat = TESTS.filter(t=>t.feat).slice(0,4);
+  app.innerHTML = `
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <span class="pill">Free · Sign in with Google to save your progress</span>
+        <h1>Crack APSC <em>Environmental Science</em> with The Duo</h1>
+        <p class="sub">Syllabus-wise mock test series for APSC Forest Ranger / Soil Conservation Ranger. Timed tests with negative marking, explanations for every answer, and a weekly leaderboard.</p>
+        <a class="btn primary" onclick="go('series')">Start Practicing Free</a>
+        <a class="btn red" href="${SITE.youtube}" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+        <div class="stats">
+          <div><b>${totalMcqs()}+</b><small>MCQs</small></div>
+          <div><b>${TESTS.filter(t=>!t.derived).length}</b><small>Topic tests</small></div>
+          <div><b>${UNITS.length}</b><small>Syllabus units</small></div>
+        </div>
+      </div>
+      <div class="card sample" id="sample">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <div class="tag">TRY A SAMPLE MCQ</div>${langSeg('setLang')}
+        </div>
+        <div class="q">${esc(tx(s.q))}</div>
+        ${s.o.map((o,i)=>`<button class="opt ${sampleClass(i,s)}" onclick="pickSample(${i})">
+          <span class="l">${"ABCD"[i]}</span><span>${esc(tx(o))}</span></button>`).join("")}
+        ${sampleChoice!==null && s.exp ? `<div class="expl"><b>Explanation:</b> ${esc(s.exp)}</div>` : ''}
+        <small style="color:var(--muted)">Tap an option — this is how every test works.</small>
+      </div>
+    </div>
+
+    <section class="blk">
+      <div class="sh"><h2>Syllabus Units</h2><a onclick="go('series')">View All</a></div>
+      <div class="grid">${UNITS.map(unitTile).join("")}</div>
+    </section>
+
+    <section class="blk">
+      <div class="sh"><h2>Featured Tests</h2><a onclick="go('unit','u1')">View All</a></div>
+      <div class="grid">${feat.map(testTile).join("")}</div>
+    </section>
+
+    <section class="blk">
+      <div class="sh"><h2>Top 3 This Week</h2><a onclick="go('leaderboard')">View All</a></div>
+      <div class="card">${board.length? board.map(lbRow).join("") :
+        `<div class="empty">No scores yet. Finish a test to claim the first spot!</div>`}</div>
+    </section>
+
+    <section class="blk">
+      <div class="sh"><h2>Why The Duo Test</h2></div>
+      <div class="why">
+        <div class="card"><h3>Follows the APSC syllabus</h3><p>Tests are grouped unit by unit, exactly like the official syllabus.</p></div>
+        <div class="card"><h3>Real exam feel</h3><p>Timer plus ${SITE.negativeMarking} negative marking per wrong answer.</p></div>
+        <div class="card"><h3>Learn from mistakes</h3><p>Every question has an explanation, and past APSC questions are tagged.</p></div>
+        <div class="card"><h3>Works on any phone</h3><p>No app to install. Sign in with Google and start.</p></div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="cta">
+        <div><h2>New videos, new tests</h2><p>Subscribe to The Duo so you never miss a lesson or a mock test.</p></div>
+        <a class="btn" style="background:#fff;color:var(--brand)" href="${SITE.youtube}" target="_blank" rel="noopener">Subscribe Now</a>
+      </div>
+    </section>
+  </div>`;
+}
+function sampleClass(i,s){
+  if(sampleChoice===null) return "";
+  if(i===s.a) return "right";
+  if(i===sampleChoice) return "wrong";
+  return "";
+}
+function pickSample(i){ if(sampleChoice!==null) return; sampleChoice=i; viewHome(); }
+
+/* ---- TEST SERIES (all units) ---- */
+function viewSeries(){
+  app.innerHTML = `<div class="wrap" style="padding-top:24px">
+    <div class="card" style="margin-bottom:22px">
+      <span class="pill">APSC ADVT. NO 25/2025</span>
+      <h2 style="margin:4px 0 6px">${esc(SERIES.title)}</h2>
+      <p style="color:var(--muted)">${esc(SERIES.sub)}</p>
+      <div class="rgrid">
+        <div><b>${SERIES.marks}</b>Marks</div><div><b>${SERIES.hours} hrs</b>Exam time</div>
+        <div><b>MCQ</b>Pattern</div><div><b>Degree</b>Standard</div>
+      </div>
+    </div>
+    ${UNITS.map(u=>`
+      <div class="card ucard ${u.ready?'':'soon'}" onclick="go('unit','${u.id}')">
+        <div class="no">${u.no}</div>
+        <div style="flex:1;min-width:0">
+          <div class="row2"><h3>${esc(u.title)}</h3><span class="badge ${u.ready?'':'soon'}">${u.ready?'LIVE · '+POOL.length+' MCQs':'COMING SOON'}</span></div>
+          <ul class="topic-list">${u.topics.map(t=>`<li><b>${esc(t.h)}</b></li>`).join("")}</ul>
+        </div>
+      </div>`).join("")}
+  </div>`;
+}
+
+/* ---- ONE UNIT ---- */
+function viewUnit(id){
+  const u = unitOf(id); if(!u) return go("series");
+  let body;
+  if(!u.ready){
+    body = `<div class="card"><b>Syllabus topics</b>
+      <ul class="topic-list">${u.topics.map(t=>`<li><b>${esc(t.h)}:</b> ${esc(t.t)}</li>`).join("")}</ul>
+      <p style="margin-top:14px;color:var(--muted)">Mock tests for this unit are being prepared. Subscribe on YouTube to know when they go live.</p>
+      <p style="margin-top:12px"><a class="btn red" href="${SITE.youtube}" target="_blank" rel="noopener">▶ The Duo on YouTube</a></p></div>`;
+  } else {
+    const mixed = TESTS.find(t=>t.id==="u1-mixed");
+    body = `<div class="grid">${testTile(mixed)}</div>` +
+      u.sections.map(sec=>`
+        <div class="secbox">
+          <h3>${esc(sec.title)}</h3>
+          <div class="desc">${esc(sec.desc)}</div>
+          <div class="grid">${sec.tests.map(tid=>testTile(TESTS.find(x=>x.id===tid))).join("")}</div>
+        </div>`).join("");
+  }
+  app.innerHTML = `<div class="wrap" style="padding-top:24px">
+    <div class="crumb"><a onclick="go('series')">Test Series</a> › Unit ${u.no}</div>
+    <div class="sh"><h2>Unit ${u.no}: ${esc(u.title)}</h2></div>
+    ${body}
+  </div>`;
+}
+
+/* ---- START SCREEN ---- */
+function viewStart(id){
+  const t = TESTS.find(x=>x.id===id); if(!t) return go("home");
+  const u = unitOf(t.unit);
+  const past = myAttempts().filter(a=>a.testId===id);
+  const best = past.length ? Math.max(...past.map(a=>a.pct)) : null;
+  const n = t.random || t.questions.length;
+  app.innerHTML = `<div class="wrap" style="padding-top:24px;max-width:640px">
+    ${u?`<div class="crumb"><a onclick="go('series')">Test Series</a> › <a onclick="go('unit','${u.id}')">Unit ${u.no}</a></div>`:''}
+    <div class="card">
+      <span class="badge">FREE</span>
+      <h2 style="margin:10px 0 4px">${esc(t.title)}</h2>
+      <p style="color:var(--muted)">${esc(SERIES.short)}</p>
+      <div class="rgrid">
+        <div><b>${n}</b>Questions</div>
+        <div><b>${t.minutes} min</b>Time</div>
+        <div><b>-${SITE.negativeMarking}</b>Per wrong</div>
+        ${best!==null?`<div><b>${best}%</b>Your best</div>`:''}
+      </div>
+      ${t.random?'<p style="color:var(--muted);margin-bottom:14px">Each attempt picks a fresh random set of questions from the whole unit.</p>':''}
+      ${HAS_AS()?`<p style="margin-bottom:14px;color:var(--muted)">Choose your language. You can switch it during the test too.</p>
+      <div style="margin-bottom:18px">${langSeg('setLangStart')}</div>`:''}
+      ${needLogin()?'<p style="margin-bottom:12px;color:var(--muted)">Sign in with Google to take this test.</p>':''}
+      <button class="btn primary" onclick="startTest('${t.id}')">${needLogin()?'Sign in & Start':'Start Test'}</button>
+      <button class="btn ghost" onclick="${u?`go('unit','${u.id}')`:`go('series')`}">Back</button>
+    </div></div>`;
+}
+function setLangStart(l){ LANG=l; localStorage.setItem("duo_lang",l); viewStart(location.hash.split("/")[1]); }
+
+/* ---- TEST ENGINE ---- */
+const REF_O = /\b(above|both|all of|none of|neither)\b/i;
+const REF_E = /\b[Oo]ptions?\s*\(?[A-D]\b|\b[A-D] (and|&) [A-D]\b/;
+function shuffleArr(a){
+  a = a.slice();
+  for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+function shuffleQ(q){
+  if(!SITE.shuffleOptions) return q;
+  if(q.o.some(x=>REF_O.test(x.en)||/^\(?[A-D]\)?\s*(and|&)\s/.test(x.en)) || REF_E.test(q.exp||"")) return q;
+  const idx = shuffleArr([0,1,2,3]);
+  return { ...q, o: idx.map(i=>q.o[i]), a: idx.indexOf(q.a) };
+}
+function beginTest(id){
+  const t0 = TESTS.find(x=>x.id===id);
+  const qs = t0.random ? shuffleArr(t0.questions).slice(0,t0.random) : t0.questions;
+  const t = { ...t0, questions: qs.map(shuffleQ) };
+  T = { test:t, i:0, ans:Array(t.questions.length).fill(null), left:t.minutes*60 };
+  clearInterval(timerId);
+  timerId = setInterval(()=>{
+    T.left--; updateTimer();
+    if(T.left<=0){ clearInterval(timerId); finishTest(true); }
+  },1000);
+  location.hash = "test";
+}
+function fmt(s){ s=Math.max(0,s); return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); }
+function updateTimer(){
+  const el = $("#timer"); if(!el||!T) return;
+  el.textContent = "⏱ "+fmt(T.left);
+  el.classList.toggle("low", T.left<=30);
+}
+function renderQuestion(){
+  if(!T) return go("home");
+  const t=T.test, q=t.questions[T.i], n=t.questions.length;
+  const answered = T.ans.filter(x=>x!==null).length;
+  app.innerHTML = `
+  <div class="tbar"><div class="wrap">
+    <div class="row">
+      <b>${esc(t.title)}</b>
+      <div style="display:flex;gap:10px;align-items:center">${langSeg('setLang')}<span class="timer" id="timer">⏱ ${fmt(T.left)}</span></div>
+    </div>
+    <div class="prog"><i style="width:${answered/n*100}%"></i></div>
+  </div></div>
+  <div class="wrap" style="max-width:720px">
+    <div class="qbox card">
+      <div class="qno">Question ${T.i+1} of ${n}</div>
+      <div class="qtext">${esc(tx(q.q))}</div>
+      ${q.o.map((o,i)=>`<button class="opt ${T.ans[T.i]===i?'sel':''}" onclick="choose(${i})">
+        <span class="l">${"ABCD"[i]}</span><span>${esc(tx(o))}</span></button>`).join("")}
+      <div class="actions">
+        <button class="btn ghost" onclick="prevQ()" ${T.i===0?'disabled style="opacity:.4"':''}>← Previous</button>
+        <button class="btn ghost" onclick="clearAns()">Clear</button>
+        ${T.i<n-1 ? `<button class="btn primary" onclick="nextQ()">Next →</button>`
+                  : `<button class="btn primary" onclick="confirmFinish()">Submit</button>`}
+      </div>
+    </div>
+    <div class="card">
+      <b>Question palette</b>
+      <div class="palette">${t.questions.map((_,i)=>`<button class="${T.ans[i]!==null?'ans':''} ${i===T.i?'cur':''}" onclick="jump(${i})">${i+1}</button>`).join("")}</div>
+      <div style="margin-top:14px"><button class="btn red" style="background:var(--bad)" onclick="confirmFinish()">Finish Test</button></div>
+    </div>
+  </div>`;
+  updateTimer();
+}
+function choose(i){ T.ans[T.i]=i; renderQuestion(); }
+function clearAns(){ T.ans[T.i]=null; renderQuestion(); }
+function nextQ(){ if(T.i<T.test.questions.length-1){ T.i++; renderQuestion(); } }
+function prevQ(){ if(T.i>0){ T.i--; renderQuestion(); } }
+function jump(i){ T.i=i; renderQuestion(); }
+function confirmFinish(){
+  const left = T.ans.filter(x=>x===null).length;
+  const msg = left ? `You have ${left} unanswered question(s). Submit anyway?` : "Submit your test?";
+  // In-page dialog (browser confirm() is blocked inside Google AI Studio's preview)
+  const dlg = $("#confDlg");
+  $("#confMsg").textContent = msg;
+  if(dlg && typeof dlg.showModal === "function"){ dlg.showModal(); }
+  else { finishTest(false); }
+}
+function confirmYes(){ const d=$("#confDlg"); if(d && d.open) d.close(); finishTest(false); }
+function confirmNo(){ const d=$("#confDlg"); if(d && d.open) d.close(); }
+
+/* ---- RESULT ---- */
+let LAST = null;
+function finishTest(auto){
+  clearInterval(timerId);
+  const t=T.test, n=t.questions.length;
+  let correct=0, wrong=0, skipped=0;
+  t.questions.forEach((q,i)=>{
+    if(T.ans[i]===null) skipped++;
+    else if(T.ans[i]===q.a) correct++;
+    else wrong++;
+  });
+  const marks = correct*SITE.marksPerQuestion - wrong*SITE.negativeMarking;
+  const max = n*SITE.marksPerQuestion;
+  const pct = Math.max(0, Math.round(marks/max*100));
+  const user = getUser();
+  LAST = { testId:t.id, title:t.title, correct, wrong, skipped, marks, max, pct, answers:[...T.ans],
+           auto, date:Date.now(), name:user?user.name:"Guest", district:user?(user.district||""):"" };
+  const all = getAttempts();
+  all.push({ testId:t.id, title:t.title, pct, marks, max, date:LAST.date, name:LAST.name, district:LAST.district,
+             uid:uidOf(user), picture:user?(user.picture||""):"" });
+  store.set("duo_attempts", all.slice(-300));
+  location.hash="result";
+  if(!user && !sessionStorage.getItem("duo_asked")){
+    sessionStorage.setItem("duo_asked","1");
+    setTimeout(()=>$("#nameDlg").showModal(),400);
+  }
+}
+function viewResult(){
+  if(!LAST || !T) return go("home");
+  const t=T.test, r=LAST;
+  const msg = r.pct>=80?"Excellent work! 🔥": r.pct>=50?"Good effort, keep practicing 💪":"Keep going, you will improve 📈";
+  app.innerHTML = `<div class="wrap" style="max-width:720px;padding-top:24px">
+    <div class="card score">
+      ${r.auto?'<p style="color:var(--bad);font-weight:700">Time is up! Test auto-submitted.</p>':''}
+      <p style="color:var(--muted);font-weight:700">${esc(t.title)}</p>
+      <div class="big">${r.pct}%</div>
+      <p>${msg}</p>
+      <div class="rgrid">
+        <div><b style="color:var(--good)">${r.correct}</b>Correct</div>
+        <div><b style="color:var(--bad)">${r.wrong}</b>Wrong</div>
+        <div><b>${r.skipped}</b>Skipped</div>
+        <div><b>${r.marks.toFixed(2)}/${r.max}</b>Marks</div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+        <button class="btn primary" onclick="startTest('${t.id}')">Retry</button>
+        <button class="btn ghost" onclick="go('series')">More Tests</button>
+        <button class="btn ghost" onclick="go('leaderboard')">Leaderboard</button>
+        <button class="btn ghost" onclick="shareScore()">Share</button>
+      </div>
+    </div>
+    <div class="sh" style="margin-top:26px"><h2>Answer Review</h2>${langSeg('setLangResult')}</div>
+    ${t.questions.map((q,i)=>reviewItem(q,i,r.answers[i])).join("")}
+    <div class="cta" style="margin-top:20px"><div><h3>Liked this test?</h3><p>Watch the related video on The Duo.</p></div>
+      <a class="btn" style="background:#fff;color:var(--brand)" href="${SITE.youtube}" target="_blank" rel="noopener">Open YouTube</a></div>
+  </div>`;
+}
+function setLangResult(l){ LANG=l; localStorage.setItem("duo_lang",l); viewResult(); }
+function reviewItem(q,i,pick){
+  return `<div class="card rev" style="margin-bottom:12px">
+    <div class="qno">Q${i+1}${pick===null?' · Skipped':pick===q.a?' · Correct ✅':' · Wrong ❌'}</div>
+    <div class="qtext" style="font-size:17px">${esc(tx(q.q))}</div>
+    ${q.o.map((o,k)=>`<div class="opt ${k===q.a?'right':(k===pick?'wrong':'')}" style="cursor:default">
+      <span class="l">${"ABCD"[k]}</span><span>${esc(tx(o))}</span></div>`).join("")}
+    ${q.exp?`<div class="expl"><b>Explanation:</b> ${esc(q.exp)}</div>`:''}
+  </div>`;
+}
+function shareScore(){
+  const text = `I scored ${LAST.pct}% in "${LAST.title}" on The Duo Test (${SERIES.short})! Try it: ${location.href.split("#")[0]}`;
+  if(navigator.share){ navigator.share({text}).catch(()=>{}); }
+  else {
+    try{ navigator.clipboard?.writeText(text); }catch(e){}
+    $("#shareTxt").textContent = text;
+    $("#shareDlg").showModal();
+  }
+}
+
+/* ---- MY RESULTS ---- */
+function viewResults(){
+  const u = getUser();
+  if(!u){
+    app.innerHTML = `<div class="wrap" style="max-width:640px;padding-top:24px"><div class="card">
+      <h2 style="margin-bottom:6px">My Results</h2>
+      <p style="color:var(--muted);margin-bottom:14px">Sign in with Google to see all your test results in one place.</p>
+      <button class="btn primary" onclick="openLogin()">Sign in with Google</button></div></div>`;
+    return;
+  }
+  const list = myAttempts().slice().reverse();
+  app.innerHTML = `<div class="wrap" style="max-width:720px;padding-top:24px">
+    <div class="sh"><h2>My Results</h2></div>
+    <div class="card">${list.length ? list.map(a=>`
+      <div class="res-row"><div class="grow"><b>${esc(a.title)}</b><br>
+        <small style="color:var(--muted)">${new Date(a.date).toLocaleDateString()} · ${a.marks.toFixed(2)}/${a.max} marks</small></div>
+        <div class="pc" style="font-weight:800">${a.pct}%</div>
+        <button class="btn ghost sm" onclick="go('start','${a.testId}')">Retake</button></div>`).join("")
+      : '<div class="empty">No tests taken yet. Pick a test from the Test Series.</div>'}</div>
+  </div>`;
+}
+
+/* ---- LEADERBOARD ---- */
+function leaderboardData(){
+  const weekAgo = Date.now()-7*24*3600*1000;
+  const best = {};
+  getAttempts().filter(a=>a.date>=weekAgo).forEach(a=>{
+    const k=a.uid||a.name; if(!best[k]||a.pct>best[k].pct) best[k]=a;
+  });
+  return Object.values(best).sort((a,b)=>b.pct-a.pct);
+}
+function lbRow(a,i){
+  const ini = a.name.split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
+  const av = a.picture ? `<img src="${esc(a.picture)}" alt="" referrerpolicy="no-referrer" style="width:36px;height:36px;border-radius:50%" onerror="this.style.display='none'">` : `<div class="av">${esc(ini)}</div>`;
+  return `<div class="lb-row"><div class="rank">${i+1}</div>${av}
+    <div class="grow"><b>${esc(a.name)}</b><br><small style="color:var(--muted)">${esc(a.district||'')} ${a.district?'· ':''}${esc(a.title)}</small></div>
+    <div class="pc">${a.pct}%</div></div>`;
+}
+function viewLeaderboard(){
+  const d = leaderboardData();
+  app.innerHTML = `<div class="wrap" style="max-width:720px;padding-top:24px">
+    <div class="sh"><h2>Weekly Leaderboard</h2></div>
+    <div class="card">${d.length? d.slice(0,20).map(lbRow).join(""):'<div class="empty">No scores yet. Finish a test to appear here.</div>'}</div>
+    <p style="color:var(--muted);font-size:13px;margin-top:10px">Note: this leaderboard is stored in this browser only. To share it across all students, connect a database (for example Firebase).</p>
+  </div>`;
+}
+
+/* ---- ABOUT ---- */
+function viewAbout(){
+  app.innerHTML = `<div class="wrap" style="max-width:720px;padding-top:24px">
+    <div class="card"><h2 style="margin-bottom:8px">About The Duo Test</h2>
+    <p style="color:var(--muted);margin-bottom:10px">The Duo Test is the practice companion to The Duo YouTube channel. This series follows the APSC syllabus for Environmental Science (Soil Conservation Ranger / Forest Ranger): 200 marks, 2 hours, multiple choice, bachelor degree standard.</p>
+    <p style="color:var(--muted);margin-bottom:16px">Tests are timed, with negative marking of ${SITE.negativeMarking} per wrong answer. Every answer comes with an explanation, and questions that appeared in earlier APSC papers are tagged.</p>
+    <a class="btn red" href="${SITE.youtube}" target="_blank" rel="noopener">▶ Visit our YouTube channel</a>
+    ${SITE.whatsapp?` <a class="btn ghost" href="${SITE.whatsapp}" target="_blank" rel="noopener">WhatsApp</a>`:''}
+    </div></div>`;
+}
+
+/* ---- name dialog (only used when someone finishes a test without signing in) ---- */
+function saveName(){
+  const name = $("#nmIn").value.trim(); if(!name) return;
+  const district = $("#dsIn").value.trim();
+  store.set("duo_user",{name,district});
+  const all = getAttempts();
+  if(all.length && all[all.length-1].name==="Guest"){ all[all.length-1].name=name; all[all.length-1].district=district; all[all.length-1].uid=name; store.set("duo_attempts",all); }
+  $("#nameDlg").close(); renderUserArea();
+}
+function skipName(){ $("#nameDlg").close(); }
+
+/* ---- boot ---- */
+$("#ytTop").href = SITE.youtube;
+$("#ytFoot").href = SITE.youtube;
+$("#yr").textContent = new Date().getFullYear();
+renderUserArea();
+render();
+</script>
+</body>
+</html>
